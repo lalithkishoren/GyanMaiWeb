@@ -132,20 +132,22 @@ export default function HeroQuadrant() {
           {quadrants.map((q, i) => {
             const isActive = i === activeIdx;
             return (
-              <button
+              <motion.button
                 key={q.id}
                 onClick={() => { setActiveIdx(i); setIsPaused(true); }}
-                onMouseEnter={(e) => { setIsPaused(true); setActiveIdx(i); if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; }}
-                onMouseLeave={(e) => { setIsPaused(false); if (!isActive) e.currentTarget.style.background = 'none'; }}
+                onMouseEnter={() => { setIsPaused(true); setActiveIdx(i); }}
+                onMouseLeave={() => setIsPaused(false)}
+                animate={{ background: isActive ? `${q.accent}22` : 'rgba(0,0,0,0)' }}
+                transition={{ duration: 0.3 }}
                 style={{
-                  flex: 1, background: isActive ? `${q.accent}15` : 'none',
+                  flex: 1,
                   border: 'none',
                   borderRight: i < quadrants.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
-                  padding: '14px 16px 20px',
+                  padding: '16px 16px 22px',
                   cursor: 'pointer', position: 'relative', textAlign: 'left',
-                  transition: 'background 0.3s',
                 }}
               >
+                {/* Progress bar */}
                 {isActive && (
                   <motion.div
                     key={`p-${q.id}-${activeIdx}`}
@@ -154,23 +156,42 @@ export default function HeroQuadrant() {
                     transition={{ duration: CYCLE_INTERVAL / 1000, ease: 'linear' }}
                     style={{
                       position: 'absolute', top: -1, left: 0, right: 0,
-                      height: 2, background: q.accent, transformOrigin: 'left',
+                      height: 3, background: q.accent,
+                      boxShadow: `0 0 12px 2px ${q.accent}`,
+                      transformOrigin: 'left',
                     }}
                   />
                 )}
-                <div style={{
-                  width: 4, height: 4, borderRadius: '50%',
-                  background: isActive ? q.accent : 'rgba(255,255,255,0.18)',
-                  marginBottom: 6, transition: 'background 0.35s',
-                }} />
+                {/* Dot indicator */}
+                <motion.div
+                  animate={{
+                    width: isActive ? 8 : 4,
+                    height: isActive ? 8 : 4,
+                    background: isActive ? q.accent : 'rgba(255,255,255,0.22)',
+                    boxShadow: isActive ? `0 0 8px 2px ${q.accent}80` : 'none',
+                  }}
+                  transition={{ duration: 0.25 }}
+                  style={{ borderRadius: '50%', marginBottom: 8 }}
+                />
                 <span style={{
-                  display: 'block', fontSize: 11, fontWeight: isActive ? 600 : 400,
-                  color: isActive ? '#fff' : 'rgba(255,255,255,0.32)',
-                  letterSpacing: '0.02em', transition: 'color 0.3s', whiteSpace: 'nowrap',
+                  display: 'block', fontSize: 12,
+                  fontWeight: isActive ? 700 : 400,
+                  color: isActive ? '#fff' : 'rgba(255,255,255,0.38)',
+                  letterSpacing: '0.02em', transition: 'color 0.25s', whiteSpace: 'nowrap',
                 }}>
                   {q.label}
                 </span>
-              </button>
+                {isActive && (
+                  <motion.span
+                    initial={{ opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.2 }}
+                    style={{ fontSize: 10, color: q.accent, fontWeight: 600, display: 'block', marginTop: 3 }}
+                  >
+                    Active ↑
+                  </motion.span>
+                )}
+              </motion.button>
             );
           })}
         </div>

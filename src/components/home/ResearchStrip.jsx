@@ -96,7 +96,7 @@ export default function ResearchStrip() {
             >
               {/* Badge */}
               <p style={{
-                fontSize: 9, fontWeight: 700, letterSpacing: '0.16em',
+                fontSize: 11, fontWeight: 700, letterSpacing: '0.12em',
                 textTransform: 'uppercase', color: card.accent, marginBottom: 14,
               }}>
                 {card.badge}
@@ -161,7 +161,7 @@ export default function ResearchStrip() {
 
               {/* Context */}
               <p style={{
-                fontSize: 12, color: 'var(--text-muted)',
+                fontSize: 13, color: 'var(--text-secondary)',
                 lineHeight: 1.65, fontWeight: 300, fontStyle: 'italic',
               }}>
                 {card.context}

@@ -154,18 +154,19 @@ export default function Platform() {
               to={s.path}
               style={{
                 display: 'block',
-                padding: '20px 16px',
+                padding: '28px 16px',
                 borderRadius: 16,
                 textDecoration: 'none',
                 background: 'var(--bg-card)',
                 border: '1px solid var(--border)',
                 textAlign: 'center',
-                transition: 'box-shadow 0.2s, transform 0.2s',
+                transition: 'box-shadow 0.2s, transform 0.2s, border-color 0.2s',
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.boxShadow = 'var(--shadow-card-hover)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-              onMouseLeave={(e) => { e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.transform = 'none'; }}
+              onMouseEnter={(e) => { e.currentTarget.style.boxShadow = 'var(--shadow-md)'; e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.borderColor = 'var(--border-strong)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.boxShadow = 'var(--shadow-sm)'; e.currentTarget.style.transform = 'none'; e.currentTarget.style.borderColor = 'var(--border)'; }}
             >
-              <p style={{ fontSize: 14, fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'var(--font-display)' }}>{s.label}</p>
+              <p style={{ fontSize: 16, fontWeight: 700, color: 'var(--text-primary)', fontFamily: 'var(--font-display)', marginBottom: 4 }}>{s.label}</p>
+              <p style={{ fontSize: 12, color: 'var(--text-muted)', fontWeight: 400 }}>View →</p>
             </Link>
           ))}
         </div>

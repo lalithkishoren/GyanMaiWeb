@@ -98,7 +98,7 @@ export default function HeroBento() {
                 </div>
                 <div>
                   <p style={{ fontSize: 13, fontWeight: 600, color: '#fff', fontFamily: 'var(--font-display)' }}>Every child. Every concept. Every day.</p>
-                  <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', marginTop: 2 }}>10 schools · 1 live customer · 2 confirmed pilots AY 2026–27</p>
+                  <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', marginTop: 2 }}>Live schools · 2 confirmed pilots AY 2026–27</p>
                 </div>
               </motion.div>
             </div>

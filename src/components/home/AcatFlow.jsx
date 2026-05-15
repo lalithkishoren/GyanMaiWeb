@@ -379,7 +379,7 @@ export default function AcatFlow() {
                           </span>
                         </div>
                         <div style={{ flex: 1 }}>
-                          <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-primary)' }}>
+                          <span style={{ fontSize: 15, fontWeight: 700, color: 'var(--text-primary)', fontFamily: 'var(--font-display)' }}>
                             {stage.product}
                           </span>
                           <span style={{ fontSize: 12, color: 'var(--text-muted)', marginLeft: 8 }}>
@@ -389,11 +389,11 @@ export default function AcatFlow() {
                         <Link
                           to={`/products/${stage.slug}`}
                           style={{
-                            fontSize: 11, color: stage.color, textDecoration: 'none',
-                            fontWeight: 600, opacity: 0.7,
+                            fontSize: 13, color: stage.color, textDecoration: 'none',
+                            fontWeight: 700, opacity: 0.8,
                           }}
                           onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
-                          onMouseLeave={(e) => e.currentTarget.style.opacity = '0.7'}
+                          onMouseLeave={(e) => e.currentTarget.style.opacity = '0.8'}
                         >
                           →
                         </Link>

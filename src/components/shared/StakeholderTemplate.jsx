@@ -65,7 +65,7 @@ function ProductHighlight({ slug, accentColor, index, inView }) {
             e.currentTarget.style.transform = 'translateY(0)';
           }}
         >
-          <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: stage }}>
+          <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.10em', textTransform: 'uppercase', color: stage }}>
             {product.acatAction}
           </span>
           <h3 style={{

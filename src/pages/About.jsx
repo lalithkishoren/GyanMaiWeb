@@ -1,11 +1,5 @@
 import { motion } from 'framer-motion';
 
-/* ── Founder/team bios — Rohan to fill in ── */
-const founders = [
-  { name: '— To be added —', title: '', bio: '' },
-  { name: '— To be added —', title: '', bio: '' },
-];
-
 const teamHeritage = ['Microsoft', 'IIM Calcutta', 'BITS Pilani'];
 
 const badges = [
@@ -14,29 +8,6 @@ const badges = [
   { label: 'Student Data Privacy-First', desc: 'No advertising, no third-party data sharing' },
   { label: 'Encrypted at Rest & in Transit', desc: 'End-to-end encryption on all student data' },
 ];
-
-function EmptyFounderCard({ founder }) {
-  return (
-    <div className="card" style={{ padding: '28px 24px', opacity: founder.name.startsWith('—') ? 0.5 : 1 }}>
-      <div style={{ width: 56, height: 56, borderRadius: '50%', background: 'var(--bg-base)', border: '2px dashed var(--border-strong)', marginBottom: 16 }} />
-      {founder.name.startsWith('—') ? (
-        <div style={{ height: 16, width: 140, borderRadius: 4, background: 'var(--bg-base)', marginBottom: 8 }} />
-      ) : (
-        <p style={{ fontSize: 17, fontWeight: 700, fontFamily: 'var(--font-display)', color: 'var(--text-primary)', marginBottom: 4 }}>{founder.name}</p>
-      )}
-      {founder.title ? (
-        <p style={{ fontSize: 12, color: 'var(--accent)', fontWeight: 600, marginBottom: 10 }}>{founder.title}</p>
-      ) : (
-        <div style={{ height: 12, width: 100, borderRadius: 4, background: 'var(--bg-base)', marginBottom: 10 }} />
-      )}
-      {founder.bio ? (
-        <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.6 }}>{founder.bio}</p>
-      ) : (
-        <p style={{ fontSize: 12, color: 'var(--text-muted)', fontStyle: 'italic' }}>Bio to be added</p>
-      )}
-    </div>
-  );
-}
 
 export default function About() {
   return (
@@ -60,17 +31,6 @@ export default function About() {
         </motion.div>
       </section>
 
-      {/* Founders */}
-      <section style={{ padding: '0 40px 60px', maxWidth: 1100, margin: '0 auto' }}>
-        <div style={{ marginBottom: 28 }}>
-          <span className="section-label">The team</span>
-          <h2 style={{ fontSize: 26, fontWeight: 700, marginTop: 6, color: 'var(--text-primary)' }}>Founders & Promoters</h2>
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 12 }}>
-          {founders.map((f, i) => <EmptyFounderCard key={i} founder={f} />)}
-        </div>
-      </section>
-
       {/* Patent */}
       <section style={{ padding: '0 40px 60px', maxWidth: 1100, margin: '0 auto' }}>
         <div className="card" style={{ padding: '28px 32px', display: 'flex', gap: 24, alignItems: 'flex-start', flexWrap: 'wrap' }}>
@@ -80,7 +40,7 @@ export default function About() {
             </svg>
           </div>
           <div>
-            <h3 style={{ fontSize: 18, fontWeight: 700, color: 'var(--text-primary)', fontFamily: 'var(--font-display)', marginBottom: 6 }}>Patent Filed</h3>
+            <h3 style={{ fontSize: 18, fontWeight: 700, color: 'var(--text-primary)', fontFamily: 'var(--font-display)', marginBottom: 6 }}>Patent Pending</h3>
             <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.6 }}>
               Custom marker-cube system · Scan-flow architecture · Proprietary diagnostic-distractor question framework.
             </p>
@@ -100,7 +60,7 @@ export default function About() {
               <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#2DC4A2', marginTop: 5, flexShrink: 0 }} />
               <div>
                 <p style={{ fontSize: 14, fontWeight: 600, color: 'var(--text-primary)', marginBottom: 4 }}>{b.label}</p>
-                <p style={{ fontSize: 12, color: 'var(--text-muted)' }}>{b.desc}</p>
+                <p style={{ fontSize: 13, color: 'var(--text-secondary)' }}>{b.desc}</p>
               </div>
             </div>
           ))}

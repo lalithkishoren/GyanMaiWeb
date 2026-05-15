@@ -65,7 +65,13 @@ export default function HeroHeadline() {
           <img
             src={gyanmaiLogo}
             alt="Gyanmai"
-            style={{ height: 'clamp(44px, 5vw, 64px)', objectFit: 'contain' }}
+            style={{
+              height: 'clamp(44px, 5vw, 64px)',
+              objectFit: 'contain',
+              display: 'block',
+              margin: '0 auto',
+              mixBlendMode: 'multiply',
+            }}
           />
         </motion.div>
 
