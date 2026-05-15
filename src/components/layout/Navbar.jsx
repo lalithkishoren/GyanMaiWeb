@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import wordmark from '../../assets/logos/gyanmai-wordmark.svg';
+import wordmark from '../../assets/logos/gyanmai-logo.png';
 import { useTheme } from '../../context/ThemeContext';
 
 const productItems = [
   { label: 'GyanBank',    path: '/products/gyanbank',    sub: 'Author' },
   { label: 'GyanScan',   path: '/products/gyanscan',    sub: 'Capture' },
   { label: 'GyanAnalytx',path: '/products/gyananalytx', sub: 'Analyse' },
-  { label: 'Gyan Guru',  path: '/products/gyanguru',    sub: 'Teach' },
+  { label: 'GyanGuru',   path: '/products/gyanguru',    sub: 'Teach' },
   { label: 'GyanTest',   path: '/products/gyantest',    sub: 'Test' },
 ];
 
@@ -56,7 +56,7 @@ export default function Navbar() {
           src={wordmark}
           alt="GyanMai"
           style={{
-            height: 26,
+            height: 32,
             filter: lightText ? 'invert(1)' : 'none',
             transition: 'filter 0.35s',
           }}
@@ -66,9 +66,9 @@ export default function Navbar() {
       {/* Desktop links */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
         {[
-          { label: 'Platform', path: '/platform' },
+          { label: 'Platform', path: '/#acatt' },
           { label: 'About',    path: '/about' },
-          { label: 'Stories',  path: '/testimonials' },
+          { label: 'Success Stories',  path: '/testimonials' },
         ].map((l) => (
           <NavLink
             key={l.path}
@@ -152,39 +152,6 @@ export default function Navbar() {
       {/* CTA + Theme toggle */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
 
-        {/* Theme toggle */}
-        <button
-          onClick={toggle}
-          title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-          style={{
-            width: 34, height: 34, borderRadius: 999,
-            border: `1px solid ${lightText ? 'rgba(255,255,255,0.2)' : 'var(--border-strong)'}`,
-            background: lightText ? 'rgba(255,255,255,0.10)' : 'var(--bg-card)',
-            cursor: 'pointer',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            transition: 'background 0.25s, border-color 0.25s',
-            flexShrink: 0,
-          }}
-        >
-          {theme === 'dark' ? (
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={lightText ? '#fff' : 'var(--text-secondary)'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="5"/>
-              <line x1="12" y1="1" x2="12" y2="3"/>
-              <line x1="12" y1="21" x2="12" y2="23"/>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-              <line x1="1" y1="12" x2="3" y2="12"/>
-              <line x1="21" y1="12" x2="23" y2="12"/>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-            </svg>
-          ) : (
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={lightText ? '#fff' : 'var(--text-secondary)'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-            </svg>
-          )}
-        </button>
-
         <Link
           to="/contact"
           style={{
@@ -250,7 +217,7 @@ export default function Navbar() {
               { label: 'Policy Makers',   path: '/policy-makers' },
               ...productItems,
               { label: 'About',           path: '/about' },
-              { label: 'Testimonials',    path: '/testimonials' },
+              { label: 'Success Stories',  path: '/testimonials' },
             ].map((l) => (
               <Link key={l.path} to={l.path} onClick={() => setMobileOpen(false)}
                 style={{ display: 'block', padding: '11px 14px', borderRadius: 10, fontSize: 14, fontWeight: 500, color: 'var(--text-primary)', textDecoration: 'none' }}

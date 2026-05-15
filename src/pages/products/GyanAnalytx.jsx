@@ -416,10 +416,10 @@ export default function GyanAnalytx() {
               Up next in the ACATT cycle
             </p>
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 800, color: '#fff', marginBottom: 10, letterSpacing: '-0.02em' }}>
-              Gyan Guru
+              GyanGuru
             </h3>
             <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.45)', maxWidth: 400, lineHeight: 1.7, fontWeight: 300 }}>
-              GyanAnalytx data is what makes Gyan Guru powerful — the personalised tutor knows exactly which misconceptions each student carries before the first session begins.
+              GyanAnalytx data is what makes GyanGuru powerful — the personalised tutor knows exactly which misconceptions each student carries before the first session begins.
             </p>
           </div>
           <Link
@@ -434,7 +434,7 @@ export default function GyanAnalytx() {
             onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
             onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
           >
-            Explore Gyan Guru →
+            Explore GyanGuru →
           </Link>
         </motion.div>
       </section>

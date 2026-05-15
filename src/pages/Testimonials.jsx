@@ -48,10 +48,10 @@ export default function Testimonials() {
         >
           <span className="section-label" style={{ display: 'block', marginBottom: 12 }}>What they say</span>
           <h1 style={{ fontSize: 44, fontWeight: 800, letterSpacing: '-1.5px', color: 'var(--text-primary)', marginBottom: 12 }}>
-            Voices from the classroom
+            Success Stories
           </h1>
           <p style={{ fontSize: 16, color: 'var(--text-secondary)', maxWidth: 480, margin: '0 auto' }}>
-            Real teachers, students, and parents on what GyanMai changed.
+            Real teachers, students, and parents on what Gyanmai changed.
           </p>
         </motion.div>
 

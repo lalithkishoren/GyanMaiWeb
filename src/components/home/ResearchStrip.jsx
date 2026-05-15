@@ -18,7 +18,7 @@ const cards = [
     headline: 'AI-integrated continuous assessment and holistic progress tracking is now enshrined as national education policy across all 1M+ schools in India.',
     stat: 'NEP 2020',
     statLabel: 'active mandate',
-    context: 'The NEP explicitly mandates formative, competency-based, and technology-enabled assessment reform. GyanMai executes it at classroom speed.',
+    context: 'The NEP explicitly mandates formative, competency-based, and technology-enabled assessment reform. Gyanmai executes it at classroom speed.',
     accent: '#2DC4A2',
   },
   {
@@ -28,7 +28,7 @@ const cards = [
     headline: 'Data-driven improvement of learning quality is the primary lever prescribed for achieving educational equity at national scale.',
     stat: '#1',
     statLabel: 'priority intervention',
-    context: 'Most schools acknowledge the mandate. GyanMai is built to execute it — with research-grade precision, at the speed of a classroom.',
+    context: 'Most schools acknowledge the mandate. Gyanmai is built to execute it — with research-grade precision, at the speed of a classroom.',
     accent: '#E85C7A',
   },
 ];
@@ -72,7 +72,7 @@ export default function ResearchStrip() {
             fontSize: 16, color: 'var(--text-secondary)',
             lineHeight: 1.75, fontWeight: 300,
           }}>
-            GyanMai is not built on opinion or trend. Every design decision traces back to peer-reviewed research and active government mandates — not the kind most edtech companies only cite as marketing.
+            Gyanmai is not built on opinion or trend. Every design decision traces back to peer-reviewed research and active government mandates — not the kind most edtech companies only cite as marketing.
           </p>
         </motion.div>
 

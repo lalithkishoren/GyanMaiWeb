@@ -116,7 +116,7 @@ export default function Platform() {
         <div className="card" style={{ padding: '36px 32px', background: 'var(--text-primary)', color: '#fff', borderRadius: 24 }}>
           <h2 style={{ fontSize: 28, fontWeight: 700, color: '#fff', marginBottom: 12 }}>Data flows through the ACATT cycle</h2>
           <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.6)', lineHeight: 1.7, maxWidth: 600 }}>
-            GyanScan captures the data. GyanAnalytx surfaces the pattern. Gyan Guru addresses the misconception. GyanTest confirms mastery. The results feed back into GyanBank for the next round of authoring.
+            GyanScan captures the data. GyanAnalytx surfaces the pattern. GyanGuru addresses the misconception. GyanTest confirms mastery. The results feed back into GyanBank for the next round of authoring.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 24 }}>
             {acatStages.map((s) => (

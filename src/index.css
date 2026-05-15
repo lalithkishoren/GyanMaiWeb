@@ -12,10 +12,10 @@
   --bg-dark:   #0B0F1C;
   --bg-subtle: #EDE8DE;  /* Warmer, darker subtle */
 
-  /* Text — deeper for more contrast */
-  --text-primary:   #142C20;  /* Deeper Forest Green */
-  --text-secondary: #2E5240;  /* Richer secondary */
-  --text-muted:     #5A7A6A;  /* Muted sage */
+  /* Text — deep for strong contrast */
+  --text-primary:   #0A1A10;  /* Very deep forest green */
+  --text-secondary: #1C3828;  /* Deep secondary */
+  --text-muted:     #3A5A48;  /* Readable muted */
   --text-light:     #FFFFFF;
 
   /* Amber Yellow accent */
@@ -56,9 +56,9 @@
     --bg-card:   #FFFEF8;
     --bg-dark:   #0B0F1C;
     --bg-subtle: #EDE8DE;
-    --text-primary:   #142C20;
-    --text-secondary: #2E5240;
-    --text-muted:     #5A7A6A;
+    --text-primary:   #0A1A10;
+    --text-secondary: #1C3828;
+    --text-muted:     #3A5A48;
     --text-light:     #FFFFFF;
     --gold:        #FFB400;
     --gold-bright: #FFCA2E;

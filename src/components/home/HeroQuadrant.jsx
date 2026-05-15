@@ -121,7 +121,7 @@ export default function HeroQuadrant() {
             onMouseEnter={(e) => { e.currentTarget.style.background = `${active.accent}38`; }}
             onMouseLeave={(e) => { e.currentTarget.style.background = `${active.accent}20`; }}
           >
-            {active.label} — See how →
+            {active.label} — Explore how →
           </Link>
         </motion.div>
       </AnimatePresence>
@@ -135,10 +135,10 @@ export default function HeroQuadrant() {
               <button
                 key={q.id}
                 onClick={() => { setActiveIdx(i); setIsPaused(true); }}
-                onMouseEnter={() => { setIsPaused(true); setActiveIdx(i); }}
-                onMouseLeave={() => setIsPaused(false)}
+                onMouseEnter={(e) => { setIsPaused(true); setActiveIdx(i); if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; }}
+                onMouseLeave={(e) => { setIsPaused(false); if (!isActive) e.currentTarget.style.background = 'none'; }}
                 style={{
-                  flex: 1, background: isActive ? 'rgba(255,255,255,0.04)' : 'none',
+                  flex: 1, background: isActive ? `${q.accent}15` : 'none',
                   border: 'none',
                   borderRight: i < quadrants.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
                   padding: '14px 16px 20px',

@@ -25,7 +25,7 @@ export default function Contact() {
               Let's build something for your school
             </h1>
             <p style={{ fontSize: 15, color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: 28 }}>
-              A 30-minute walkthrough, personalised for your school. We'll show you what GyanMai looks like in your specific context.
+              A 30-minute walkthrough, personalised for your school. We'll show you what Gyanmai looks like in your specific context.
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>

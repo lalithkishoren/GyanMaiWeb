@@ -29,7 +29,7 @@ export const acatStages = [
   {
     step: 4,
     action: 'Teach',
-    product: 'Gyan Guru',
+    product: 'GyanGuru',
     slug: 'gyanguru',
     color: '#E85C7A',
     description: 'Personalised tutor assigned by teacher, guided by GyanAnalytx data.',

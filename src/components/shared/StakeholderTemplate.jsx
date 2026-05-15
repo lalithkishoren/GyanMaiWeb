@@ -43,8 +43,9 @@ function ProductHighlight({ slug, accentColor, index, inView }) {
       initial={{ opacity: 0, y: 28, scale: 0.97 }}
       animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
       transition={{ delay: index * 0.1, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+      style={{ height: '100%' }}
     >
-      <Link to={`/products/${slug}`} style={{ display: 'block', textDecoration: 'none' }}>
+      <Link to={`/products/${slug}`} style={{ display: 'block', textDecoration: 'none', height: '100%' }}>
         <div
           style={{
             background: 'var(--bg-card)',
@@ -144,7 +145,7 @@ export default function StakeholderTemplate({ stakeholder }) {
               padding: '4px 14px', borderRadius: 999,
             }}
           >
-            For {stakeholder.label}
+            Built for {stakeholder.label}
           </motion.span>
 
           <motion.h1
@@ -228,6 +229,7 @@ export default function StakeholderTemplate({ stakeholder }) {
               display: 'grid',
               gridTemplateColumns: `repeat(${Math.min(stakeholder.products.length, 3)}, 1fr)`,
               gap: 10, marginBottom: 44,
+              alignItems: 'stretch',
             }}
           >
             {stakeholder.products.map((slug, i) => (

@@ -6,7 +6,7 @@ const founders = [
   { name: '— To be added —', title: '', bio: '' },
 ];
 
-const teamHeritage = ['Microsoft', 'Wipro', 'Tech Mahindra', 'BITS Pilani'];
+const teamHeritage = ['Microsoft', 'IIM Calcutta', 'BITS Pilani'];
 
 const badges = [
   { label: 'GDPR Compliant', desc: 'Meets EU data protection standards' },
@@ -44,7 +44,7 @@ export default function About() {
       {/* Mission */}
       <section style={{ padding: '60px 40px 60px', maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-          <span className="section-label" style={{ display: 'block', marginBottom: 12 }}>About GyanMai</span>
+          <span className="section-label" style={{ display: 'block', marginBottom: 12 }}>About Gyanmai</span>
           <h1 style={{ fontSize: 48, fontWeight: 800, letterSpacing: '-1.5px', color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 16 }}>
             We are a research-driven EdTech<br />product development company.
           </h1>
@@ -65,7 +65,6 @@ export default function About() {
         <div style={{ marginBottom: 28 }}>
           <span className="section-label">The team</span>
           <h2 style={{ fontSize: 26, fontWeight: 700, marginTop: 6, color: 'var(--text-primary)' }}>Founders & Promoters</h2>
-          <p style={{ fontSize: 14, color: 'var(--text-muted)', marginTop: 4 }}>Bios to be added by Rohan</p>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 12 }}>
           {founders.map((f, i) => <EmptyFounderCard key={i} founder={f} />)}

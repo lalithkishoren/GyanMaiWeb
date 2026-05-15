@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import gyanmaiLogo from '../../assets/logos/gyanmai-logo.png';
 
 export default function HeroHeadline() {
   return (
@@ -54,22 +55,19 @@ export default function HeroHeadline() {
           Research-Driven EdTech
         </motion.p>
 
-        {/* Brand preface */}
-        <motion.p
+        {/* Brand logo */}
+        <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.28, duration: 0.7 }}
-          style={{
-            fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(20px, 2.2vw, 28px)',
-            fontWeight: 400,
-            color: 'var(--text-muted)',
-            marginBottom: 6,
-            letterSpacing: '-0.01em',
-          }}
+          style={{ marginBottom: 20 }}
         >
-          GyanMai
-        </motion.p>
+          <img
+            src={gyanmaiLogo}
+            alt="Gyanmai"
+            style={{ height: 'clamp(44px, 5vw, 64px)', objectFit: 'contain' }}
+          />
+        </motion.div>
 
         {/* Main headline */}
         <motion.h1

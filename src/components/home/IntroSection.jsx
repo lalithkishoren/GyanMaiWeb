@@ -7,11 +7,6 @@ const pillars = [
     note: 'Highest of 1,500+ meta-analyses',
   },
   {
-    number: '10',
-    label: 'Schools across India',
-    note: 'Live pilots, AY 2025–26',
-  },
-  {
     number: '30K+',
     label: 'Diagnostic questions',
     note: 'Bloom-mapped, distractor-built',
@@ -51,7 +46,7 @@ export default function IntroSection() {
               color: 'var(--gold)',
               marginBottom: 20,
             }}>
-              Why GyanMai
+              Why Gyanmai
             </p>
             <h2 style={{
               fontFamily: 'var(--font-display)',
@@ -61,7 +56,7 @@ export default function IntroSection() {
               letterSpacing: '-0.025em',
               color: 'var(--text-primary)',
             }}>
-              Most schools track marks.<br />GyanMai tracks<br />
+              Most schools track marks.<br />Gyanmai tracks<br />
               <em style={{ fontStyle: 'italic', color: 'var(--gold)' }}>understanding.</em>
             </h2>
           </div>
@@ -74,7 +69,7 @@ export default function IntroSection() {
               fontWeight: 300,
               marginBottom: 28,
             }}>
-              GyanMai is built on the highest-impact interventions in education research — not opinion, not trend. Every product in our ecosystem is designed around one principle: a wrong answer is not a failure, it is data.
+              Gyanmai is built on the highest-impact interventions in education research — not opinion, not trend. Every product in our ecosystem is designed around one principle: a wrong answer is not a failure, it is data.
             </p>
             <p style={{
               fontSize: 'clamp(15px, 1.3vw, 17px)',
@@ -84,7 +79,7 @@ export default function IntroSection() {
               borderLeft: '2px solid var(--gold)',
               paddingLeft: 18,
             }}>
-              "70% of students leave a lesson still carrying the misconception that caused their error. GyanMai changes that."
+              "70% of students leave a lesson still carrying the misconception that caused their error. Gyanmai changes that."
             </p>
           </div>
         </motion.div>
@@ -92,7 +87,7 @@ export default function IntroSection() {
         {/* Stat pillars */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
+          gridTemplateColumns: 'repeat(2, 1fr)',
           gap: 1,
           background: 'var(--border)',
           borderRadius: 4,

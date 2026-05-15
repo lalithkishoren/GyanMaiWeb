@@ -5,7 +5,7 @@ export const stakeholders = [
     path: '/students',
     painTeaser: 'Your wrong answers hold the key.',
     heroHeadline: 'Mistakes are data, not defeats.',
-    heroSub: 'GyanMai turns every wrong answer into a precise learning path — so you stop guessing and start understanding.',
+    heroSub: 'Gyanmai turns every wrong answer into a precise learning path — so you stop guessing and start understanding.',
     gradient: 'linear-gradient(135deg, #4F7EF5 0%, #2DC4A2 100%)',
     problems: [
       {
@@ -34,7 +34,7 @@ export const stakeholders = [
     path: '/teachers',
     painTeaser: 'Know who failed. Finally know why.',
     heroHeadline: 'Real-time class pulse. Zero guesswork.',
-    heroSub: 'GyanMai gives you the diagnostic data to teach the right thing, to the right student, at the right time.',
+    heroSub: 'Gyanmai gives you the diagnostic data to teach the right thing, to the right student, at the right time.',
     gradient: 'linear-gradient(135deg, #2DC4A2 0%, #4F7EF5 100%)',
     problems: [
       {
@@ -63,7 +63,7 @@ export const stakeholders = [
     path: '/parents',
     painTeaser: '60% in Math — but what does that mean?',
     heroHeadline: 'The why behind every mark.',
-    heroSub: 'GyanMai gives you a clear picture of exactly where your child is stuck — and what to do about it.',
+    heroSub: 'Gyanmai gives you a clear picture of exactly where your child is stuck — and what to do about it.',
     gradient: 'linear-gradient(135deg, #F5A623 0%, #E85C7A 100%)',
     problems: [
       {
@@ -92,7 +92,7 @@ export const stakeholders = [
     path: '/school-management',
     painTeaser: 'Brand value is learning outcomes, not toppers.',
     heroHeadline: 'From exam factory to learning institution.',
-    heroSub: 'GyanMai gives school founders and academic heads a real-time quality dashboard — not a rankings trophy cabinet.',
+    heroSub: 'Gyanmai gives school founders and academic heads a real-time quality dashboard — not a rankings trophy cabinet.',
     gradient: 'linear-gradient(135deg, #0D0F1A 0%, #4F7EF5 100%)',
     problems: [
       {
@@ -121,7 +121,7 @@ export const stakeholders = [
     path: '/policy-makers',
     painTeaser: 'Enrollment numbers aren\'t learning outcomes.',
     heroHeadline: 'Data-driven education, at scale.',
-    heroSub: 'GyanMai gives district and state officials the quality metrics that enrollment dashboards don\'t show.',
+    heroSub: 'Gyanmai gives district and state officials the quality metrics that enrollment dashboards don\'t show.',
     gradient: 'linear-gradient(135deg, #4F7EF5 0%, #9B6EF5 100%)',
     problems: [
       {
@@ -134,7 +134,7 @@ export const stakeholders = [
       },
       {
         title: 'Quality and Access Are Treated as Trade-Offs',
-        body: 'Scale drives toward standardisation; quality requires personalisation. GyanMai\'s platform makes both possible simultaneously at district and state level.',
+        body: 'Scale drives toward standardisation; quality requires personalisation. Gyanmai\'s platform makes both possible simultaneously at district and state level.',
       },
       {
         title: 'NEP 2020 Prescriptions Unimplemented',

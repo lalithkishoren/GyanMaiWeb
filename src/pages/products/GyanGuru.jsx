@@ -26,8 +26,8 @@ const loopSteps = [
   {
     num: '03',
     label: 'Teach',
-    body: 'Gyan Guru is assigned by the teacher, armed with the exact misconceptions. Three intelligent agents adapt in real time.',
-    product: 'Gyan Guru',
+    body: 'GyanGuru is assigned by the teacher, armed with the exact misconceptions. Three intelligent agents adapt in real time.',
+    product: 'GyanGuru',
     productColor: COLOR,
   },
   {
@@ -112,7 +112,7 @@ export default function GyanGuru() {
                 lineHeight: 1.0,
                 marginBottom: 16,
               }}>
-                Gyan Guru
+                GyanGuru
               </h1>
 
               <p style={{
@@ -139,7 +139,7 @@ export default function GyanGuru() {
 
               <div style={{ display: 'flex', gap: 10 }}>
                 <Link to="/contact" className="btn-primary">
-                  See Gyan Guru in action →
+                  See GyanGuru in action →
                 </Link>
               </div>
             </div>
@@ -187,7 +187,7 @@ export default function GyanGuru() {
               fontSize: 15, color: 'rgba(255,255,255,0.4)',
               maxWidth: 500, margin: '0 auto', lineHeight: 1.75, fontWeight: 300,
             }}>
-              Gyan Guru doesn't operate in isolation. It's the culmination of a data pipeline that starts with a single scan and ends with a student who actually understands.
+              GyanGuru doesn't operate in isolation. It's the culmination of a data pipeline that starts with a single scan and ends with a student who actually understands.
             </p>
           </motion.div>
 
@@ -365,7 +365,7 @@ export default function GyanGuru() {
           borderRadius: 6, border: '1px solid var(--border)',
           padding: '20px 28px',
         }}>
-          <p className="section-label" style={{ marginBottom: 16 }}>Where Gyan Guru sits in the ACATT cycle</p>
+          <p className="section-label" style={{ marginBottom: 16 }}>Where GyanGuru sits in the ACATT cycle</p>
           <AcatChain activeSlug="gyanguru" />
         </div>
       </section>
@@ -403,7 +403,7 @@ export default function GyanGuru() {
               GyanTest
             </h3>
             <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.45)', maxWidth: 400, lineHeight: 1.7, fontWeight: 300 }}>
-              After Gyan Guru closes the misconception gap, GyanTest provides summative validation — every format, instant results, feeding the next ACATT cycle.
+              After GyanGuru closes the misconception gap, GyanTest provides summative validation — every format, instant results, feeding the next ACATT cycle.
             </p>
           </div>
           <Link
@@ -444,7 +444,7 @@ export default function GyanGuru() {
               fontSize: 'clamp(14px, 1.4vw, 17px)', color: 'var(--text-secondary)',
               maxWidth: 500, margin: '0 auto 32px', lineHeight: 1.8, fontWeight: 300,
             }}>
-              GyanScan finds who's stuck. GyanAnalytx pinpoints exactly what's wrong. Gyan Guru fixes it — before the gap becomes a habit.
+              GyanScan finds who's stuck. GyanAnalytx pinpoints exactly what's wrong. GyanGuru fixes it — before the gap becomes a habit.
             </p>
             <Link to="/contact" className="btn-gold">Book a Demo →</Link>
           </motion.div>

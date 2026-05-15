@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import wordmark from '../../assets/logos/gyanmai-wordmark.svg';
+import wordmark from '../../assets/logos/gyanmai-logo.png';
 
 const cols = {
   Platform: [
@@ -10,7 +10,7 @@ const cols = {
     { label: 'GyanBank',    path: '/products/gyanbank' },
     { label: 'GyanScan',   path: '/products/gyanscan' },
     { label: 'GyanAnalytx',path: '/products/gyananalytx' },
-    { label: 'Gyan Guru',  path: '/products/gyanguru' },
+    { label: 'GyanGuru',   path: '/products/gyanguru' },
     { label: 'GyanTest',   path: '/products/gyantest' },
   ],
   'For You': [
@@ -34,12 +34,12 @@ export default function Footer() {
         <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr', gap: 48, marginBottom: 52 }}>
           {/* Brand */}
           <div>
-            <img src={wordmark} alt="GyanMai" style={{ height: 28, color: '#fff', filter: 'invert(1)', marginBottom: 18 }} />
+            <img src={wordmark} alt="Gyanmai" style={{ height: 28, color: '#fff', filter: 'invert(1)', marginBottom: 18 }} />
             <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.38)', lineHeight: 1.7, maxWidth: 240, fontWeight: 300 }}>
               Beyond Marks. Into Understanding.
             </p>
             <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.22)', marginTop: 10, fontWeight: 300, lineHeight: 1.6 }}>
-              Veterans from Microsoft · Wipro · Tech Mahindra · BITS Pilani
+              Veterans from Microsoft · IIM Calcutta · BITS Pilani
             </p>
             <div style={{ marginTop: 20, display: 'flex', flexWrap: 'wrap', gap: 6 }}>
               {['GDPR', 'DPDP Act', 'Patent Filed'].map((b) => (
@@ -84,7 +84,7 @@ export default function Footer() {
           display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 10,
         }}>
           <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.22)', fontWeight: 300 }}>
-            © {new Date().getFullYear()} GyanMai. All rights reserved.
+            © {new Date().getFullYear()} Gyanmai. All rights reserved.
           </p>
           <p style={{ fontSize: 12, color: 'rgba(255,255,255,0.18)', fontWeight: 300 }}>
             Encrypted at rest &amp; in transit · Student data privacy-first

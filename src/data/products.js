@@ -18,7 +18,7 @@ export const products = [
       {
         title: '30,000+ Curated Questions',
         summary: 'CBSE, ICSE, State Boards, Cambridge — all in one library.',
-        detail: 'Mathematics, Sciences, Social Studies, English, Hindi. Curated by Indian educators, validated against real classroom data across 10 schools and multiple academic years.',
+        detail: 'Mathematics, Sciences, Social Studies, English, Hindi. Curated by Indian educators, validated against real classroom data across multiple schools and academic years.',
       },
       {
         title: 'Every Assessment Format',
@@ -99,7 +99,7 @@ export const products = [
     description: 'GyanAnalytx transforms raw assessment data into actionable insight — for students, teachers, parents, and school management. Personal diagnostic reports, class heatmaps, and a school-wide command center all in one place.',
     logo: 'GyanAnalytics-logo.png',
     handoffTo: 'gyanguru',
-    handoffName: 'Gyan Guru',
+    handoffName: 'GyanGuru',
     closure: {
       headline: 'Data that actually changes something.',
       body: 'Every report, every heatmap, every risk flag exists for one purpose — helping the right person take the right action. Not dashboards for their own sake.',
@@ -145,18 +145,18 @@ export const products = [
   },
   {
     slug: 'gyanguru',
-    name: 'Gyan Guru',
+    name: 'GyanGuru',
     acatStep: 4,
     acatAction: 'Teach',
     tagline: 'Personalised tutor. Knows every student\'s misconceptions.',
     headline: 'The tutor that knows exactly where they\'re stuck.',
-    description: 'Gyan Guru is a personalised tutor assigned by the teacher, guided by GyanAnalytx data. It knows which misconceptions each student carries and adapts in real time — using three intelligent teaching agents.',
+    description: 'GyanGuru is a personalised tutor assigned by the teacher, guided by GyanAnalytx data. It knows which misconceptions each student carries and adapts in real time — using three intelligent teaching agents.',
     logo: 'GyanGuru-logo.png',
     handoffTo: 'gyantest',
     handoffName: 'GyanTest',
     closure: {
       headline: 'No student left without support.',
-      body: 'GyanScan finds who\'s stuck. GyanAnalytx pinpoints exactly what\'s wrong. Gyan Guru fixes it — before the gap becomes a habit.',
+      body: 'GyanScan finds who\'s stuck. GyanAnalytx pinpoints exactly what\'s wrong. GyanGuru fixes it — before the gap becomes a habit.',
     },
     features: [
       {
@@ -176,8 +176,8 @@ export const products = [
       },
       {
         title: 'Teacher-Assigned Workflow',
-        summary: 'Teachers assign Gyan Guru based on GyanScan results.',
-        detail: 'The teacher reviews the heatmap, identifies students who need intervention, and assigns Gyan Guru with a specific mode. The tutor picks up exactly where the diagnostic left off.',
+        summary: 'Teachers assign GyanGuru based on GyanScan results.',
+        detail: 'The teacher reviews the heatmap, identifies students who need intervention, and assigns GyanGuru with a specific mode. The tutor picks up exactly where the diagnostic left off.',
       },
       {
         title: 'Voice + Math Rendering',

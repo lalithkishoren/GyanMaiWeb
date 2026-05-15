@@ -41,7 +41,7 @@ export default function AcatFlow() {
   const activeStage = active !== null ? acatStages[active] : null;
 
   return (
-    <section style={{ background: 'var(--bg-base)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', position: 'relative', overflow: 'hidden' }}>
+    <section id="acatt" style={{ background: 'var(--bg-base)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', position: 'relative', overflow: 'hidden' }}>
       {/* Amber radial ambient — very subtle on cream */}
       <div style={{
         position: 'absolute', top: '50%', left: '50%',
@@ -406,18 +406,6 @@ export default function AcatFlow() {
           </div>
         </div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4, duration: 0.5 }}
-          style={{ textAlign: 'center', marginTop: 64 }}
-        >
-          <Link to="/platform" className="btn-ghost" style={{ fontSize: 13 }}>
-            Deep-dive the ACATT platform →
-          </Link>
-        </motion.div>
       </div>
     </section>
   );

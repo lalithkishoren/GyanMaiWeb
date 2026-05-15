@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 function getLabel(pathname) {
   if (pathname === '/') return 'Book a Platform Demo';
-  const productMap = { gyanbank: 'GyanBank', gyanscan: 'GyanScan', gyananalytx: 'GyanAnalytx', gyanguru: 'Gyan Guru', gyantest: 'GyanTest' };
+  const productMap = { gyanbank: 'GyanBank', gyanscan: 'GyanScan', gyananalytx: 'GyanAnalytx', gyanguru: 'GyanGuru', gyantest: 'GyanTest' };
   if (pathname.startsWith('/products/')) {
     const slug = pathname.split('/products/')[1];
     return `See ${productMap[slug] || 'Product'} in Action`;
