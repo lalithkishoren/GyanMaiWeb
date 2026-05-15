@@ -139,8 +139,8 @@ export default function Navbar() {
                     onMouseEnter={(e) => e.currentTarget.style.background = 'var(--bg-base)'}
                     onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
                   >
-                    <span style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-primary)', fontFamily: 'var(--font-display)' }}>{item.label}</span>
-                    <span style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 1 }}>{item.sub}</span>
+                    <span style={{ fontSize: 15, fontWeight: 700, color: 'var(--text-primary)', fontFamily: 'var(--font-display)' }}>{item.label}</span>
+                    <span style={{ fontSize: 12, fontWeight: 500, color: 'var(--text-secondary)', marginTop: 2 }}>{item.sub}</span>
                   </Link>
                 ))}
               </motion.div>
