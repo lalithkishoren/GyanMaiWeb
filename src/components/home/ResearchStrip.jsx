@@ -151,8 +151,8 @@ export default function ResearchStrip() {
                   {card.stat}
                 </span>
                 <span style={{
-                  fontSize: 10, color: 'var(--text-muted)',
-                  fontWeight: 500, textTransform: 'uppercase',
+                  fontSize: 11, color: 'var(--text-secondary)',
+                  fontWeight: 700, textTransform: 'uppercase',
                   letterSpacing: '0.08em',
                 }}>
                   {card.statLabel}
@@ -161,8 +161,8 @@ export default function ResearchStrip() {
 
               {/* Context */}
               <p style={{
-                fontSize: 13, color: 'var(--text-secondary)',
-                lineHeight: 1.65, fontWeight: 300, fontStyle: 'italic',
+                fontSize: 13, color: 'var(--text-primary)',
+                lineHeight: 1.65, fontWeight: 500,
               }}>
                 {card.context}
               </p>

@@ -7,7 +7,7 @@ import { useTheme } from '../../context/ThemeContext';
 const productItems = [
   { label: 'GyanBank',    path: '/products/gyanbank',    sub: 'Author' },
   { label: 'GyanScan',   path: '/products/gyanscan',    sub: 'Capture' },
-  { label: 'GyanAnalytx',path: '/products/gyananalytx', sub: 'Analyse' },
+  { label: 'GyanAnalytix',path: '/products/gyananalytix', sub: 'Analyse' },
   { label: 'GyanGuru',   path: '/products/gyanguru',    sub: 'Teach' },
   { label: 'GyanTest',   path: '/products/gyantest',    sub: 'Test' },
 ];
