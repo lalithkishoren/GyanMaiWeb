@@ -1,0 +1,366 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,200;1,9..144,300;1,9..144,400;1,9..144,600;1,9..144,800;1,9..144,900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+/* ─── Light theme (default) — Creative Learner palette ─ */
+:root,
+[data-theme="light"] {
+  /* Core backgrounds */
+  --bg-hero:   #06080F;
+  --bg-base:   #FAF9F5;  /* Soft Cream */
+  --bg-card:   #FFFEF8;  /* Warm White */
+  --bg-dark:   #0B0F1C;
+  --bg-subtle: #EDE8DE;  /* Warmer, darker subtle */
+
+  /* Text — deeper for more contrast */
+  --text-primary:   #142C20;  /* Deeper Forest Green */
+  --text-secondary: #2E5240;  /* Richer secondary */
+  --text-muted:     #5A7A6A;  /* Muted sage */
+  --text-light:     #FFFFFF;
+
+  /* Amber Yellow accent */
+  --gold:        #FFB400;
+  --gold-bright: #FFCA2E;
+  --gold-light:  #FFF0CC;  /* light amber tint */
+  --gold-dark:   #CC9000;
+
+  /* Borders — more visible */
+  --border:        rgba(20,44,32,0.10);
+  --border-strong: rgba(20,44,32,0.18);
+  --border-light:  rgba(255,255,255,0.10);
+
+  /* Shadows — more depth */
+  --shadow-sm:   0 1px 4px rgba(20,44,32,0.08), 0 0 0 1px rgba(20,44,32,0.05);
+  --shadow-md:   0 6px 20px rgba(20,44,32,0.10), 0 2px 6px rgba(20,44,32,0.06);
+  --shadow-lg:   0 20px 60px rgba(20,44,32,0.12), 0 6px 20px rgba(20,44,32,0.07);
+  --shadow-glow: 0 0 48px rgba(255,179,0,0.20);
+
+  /* Fonts */
+  --font-display: 'Cormorant', 'Fraunces', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  /* Radius — tighter for sophistication */
+  --r-xs:   3px;
+  --r-sm:   6px;
+  --r-md:   10px;
+  --r-lg:   16px;
+  --r-xl:   24px;
+  --r-pill: 999px;
+}
+
+/* Force light variables even when OS prefers dark — prevents browser auto-darken */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="dark"]) {
+    --bg-hero:   #06080F;
+    --bg-base:   #FAF9F5;
+    --bg-card:   #FFFEF8;
+    --bg-dark:   #0B0F1C;
+    --bg-subtle: #EDE8DE;
+    --text-primary:   #142C20;
+    --text-secondary: #2E5240;
+    --text-muted:     #5A7A6A;
+    --text-light:     #FFFFFF;
+    --gold:        #FFB400;
+    --gold-bright: #FFCA2E;
+    --gold-light:  #FFF0CC;
+    --gold-dark:   #CC9000;
+    --border:        rgba(20,44,32,0.10);
+    --border-strong: rgba(20,44,32,0.18);
+    --border-light:  rgba(255,255,255,0.10);
+    --shadow-sm:   0 1px 4px rgba(20,44,32,0.08), 0 0 0 1px rgba(20,44,32,0.05);
+    --shadow-md:   0 6px 20px rgba(20,44,32,0.10), 0 2px 6px rgba(20,44,32,0.06);
+    --shadow-lg:   0 20px 60px rgba(20,44,32,0.12), 0 6px 20px rgba(20,44,32,0.07);
+    --shadow-glow: 0 0 48px rgba(255,179,0,0.20);
+  }
+}
+
+/* ─── Dark theme ─────────────────────────────────────── */
+[data-theme="dark"] {
+  --bg-hero:   #06080F;
+  --bg-base:   #0C0F1A;
+  --bg-card:   #131726;
+  --bg-dark:   #080B14;
+  --bg-subtle: #171B2C;
+
+  --text-primary:   #F0F1F7;
+  --text-secondary: #9AA0BC;
+  --text-muted:     #5A6080;
+  --text-light:     #FFFFFF;
+
+  /* Amber yellow in dark mode — slightly softened */
+  --gold:        #FFB400;
+  --gold-bright: #FFCA2E;
+  --gold-light:  #2A1E00;
+  --gold-dark:   #CC9000;
+
+  --border:        rgba(255,255,255,0.07);
+  --border-strong: rgba(255,255,255,0.12);
+  --border-light:  rgba(255,255,255,0.10);
+
+  --shadow-sm:   0 1px 3px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.04);
+  --shadow-md:   0 4px 16px rgba(0,0,0,0.4), 0 1px 4px rgba(0,0,0,0.2);
+  --shadow-lg:   0 16px 48px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.3);
+  --shadow-glow: 0 0 48px rgba(255,179,0,0.18);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; cursor: none; }
+
+/* Block browser/OS auto dark mode — site ships as light */
+html {
+  scroll-behavior: smooth;
+  color-scheme: light only;
+  cursor: none;
+  /* Prevent Opera GX / Chrome forced dark from inverting rendered colors */
+  -webkit-color-adjust: exact !important;
+  color-adjust: exact !important;
+}
+
+/* Re-assert light theme even when OS prefers dark */
+@media (prefers-color-scheme: dark) {
+  html { color-scheme: light only; }
+}
+
+body {
+  font-family: var(--font-body);
+  /* Hardcoded value first — rendering-layer dark modes (Opera GX) can't invert it */
+  background-color: #FAF9F5;
+  /* CSS variable overrides the hardcode when theme is active */
+  background: var(--bg-base);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
+  -webkit-color-adjust: exact !important;
+  color-adjust: exact !important;
+}
+
+/* Grain overlay on dark sections */
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+  z-index: 1;
+}
+
+/* Typography */
+h1, h2, h3 { font-family: var(--font-display); }
+h4, h5, h6, p, span, a, button, input, select, textarea { font-family: var(--font-body); }
+
+::selection { background: var(--gold-light); color: var(--text-primary); }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+
+/* ─── Utility classes ─────────────────────────── */
+
+/* ─── Liquid glass — Apple visionOS style ─────── */
+.liquid-glass {
+  backdrop-filter: blur(32px) saturate(2.0) brightness(1.04);
+  -webkit-backdrop-filter: blur(32px) saturate(2.0) brightness(1.04);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+/* Top-edge specular highlight — bright rim along the top */
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,0.85) 30%,
+    rgba(255,255,255,0.95) 50%,
+    rgba(255,255,255,0.85) 70%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+/* Inner gradient sheen — diagonal light catch */
+.liquid-glass::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.22) 0%,
+    rgba(255,255,255,0.06) 35%,
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+/* All direct children sit above the sheens */
+.liquid-glass > * { position: relative; z-index: 2; }
+
+/* Light mode — Apple translucent material */
+[data-theme="light"] .liquid-glass {
+  background: rgba(250, 249, 245, 0.52);
+  border: 1px solid rgba(255, 255, 255, 0.70);
+  box-shadow:
+    0 0 0 0.5px rgba(20,44,32,0.08),
+    0 2px 8px rgba(20,44,32,0.06),
+    0 8px 32px rgba(20,44,32,0.08),
+    0 -1px 0 rgba(20,44,32,0.05) inset;
+}
+
+[data-theme="dark"] .liquid-glass {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 0 0 0.5px rgba(0,0,0,0.3),
+    0 2px 8px rgba(0,0,0,0.20),
+    0 8px 32px rgba(0,0,0,0.28),
+    0 1px 0 rgba(255,255,255,0.08) inset;
+}
+
+[data-theme="light"] .liquid-glass:hover {
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 0 0 0.5px rgba(20,44,32,0.10),
+    0 4px 16px rgba(20,44,32,0.09),
+    0 16px 48px rgba(20,44,32,0.10),
+    0 -1px 0 rgba(20,44,32,0.04) inset;
+  border-color: rgba(255, 255, 255, 0.90);
+}
+
+[data-theme="dark"] .liquid-glass:hover {
+  background: rgba(255, 255, 255, 0.09);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.38), 0 1px 0 rgba(255,255,255,0.10) inset;
+  border-color: rgba(255,255,255,0.20);
+}
+
+.card {
+  background: var(--bg-card);
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+.section-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  display: block;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/* Buttons — refined */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 24px;
+  border-radius: var(--r-pill);
+  background: var(--text-primary);
+  color: var(--text-light);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.btn-primary:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.20);
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 24px;
+  border-radius: var(--r-pill);
+  background: var(--gold);
+  color: #1A1200;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.btn-gold:hover {
+  opacity: 0.90;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 28px rgba(255,179,0,0.38);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  border-radius: var(--r-pill);
+  background: transparent;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1px solid var(--border-strong);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.btn-ghost:hover {
+  border-color: var(--text-muted);
+  color: var(--text-primary);
+  background: var(--bg-subtle, rgba(0,0,0,0.03));
+}
+
+.btn-ghost-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  border-radius: var(--r-pill);
+  background: rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.7);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.13);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  backdrop-filter: blur(8px);
+}
+.btn-ghost-light:hover {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border-color: rgba(255,255,255,0.22);
+}
