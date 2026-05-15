@@ -56,7 +56,7 @@ export default function Navbar() {
           src={wordmark}
           alt="GyanMai"
           style={{
-            height: 32,
+            height: 40,
             filter: lightText ? 'invert(1)' : 'none',
             transition: 'filter 0.35s',
           }}

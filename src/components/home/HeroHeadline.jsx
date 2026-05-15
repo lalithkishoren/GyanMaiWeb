@@ -8,7 +8,7 @@ export default function HeroHeadline() {
         position: 'relative',
         height: '100dvh',
         minHeight: 600,
-        background: '#FAF9F5',
+        background: '#EDE8DE',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -66,7 +66,7 @@ export default function HeroHeadline() {
             src={gyanmaiLogo}
             alt="Gyanmai"
             style={{
-              height: 'clamp(44px, 5vw, 64px)',
+              height: 'clamp(60px, 8vw, 100px)',
               objectFit: 'contain',
               display: 'block',
               margin: '0 auto',
@@ -102,11 +102,11 @@ export default function HeroHeadline() {
           style={{
             marginTop: 28,
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(15px, 1.7vw, 20px)',
-            fontStyle: 'italic',
-            fontWeight: 300,
-            color: 'var(--text-secondary)',
-            letterSpacing: '-0.01em',
+            fontSize: 'clamp(17px, 2vw, 26px)',
+            fontStyle: 'normal',
+            fontWeight: 700,
+            color: 'var(--text-primary)',
+            letterSpacing: '-0.02em',
           }}
         >
           Every Day · Every Time · Every Concept · Every Subject
@@ -131,34 +131,6 @@ export default function HeroHeadline() {
         </motion.p>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.3, duration: 0.7 }}
-        style={{
-          position: 'absolute', bottom: 36, left: '50%',
-          transform: 'translateX(-50%)',
-          zIndex: 10,
-          display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8,
-        }}
-      >
-        <span style={{
-          fontSize: 9, fontWeight: 600, letterSpacing: '0.18em',
-          textTransform: 'uppercase', color: 'var(--text-muted)',
-        }}>
-          scroll
-        </span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <div style={{
-            width: 1, height: 36,
-            background: 'linear-gradient(to bottom, var(--border-strong), transparent)',
-          }} />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }

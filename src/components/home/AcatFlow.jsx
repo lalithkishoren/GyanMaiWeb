@@ -105,21 +105,10 @@ export default function AcatFlow() {
                 <motion.circle
                   cx="50" cy="50" r={CIRCLE_R + 2}
                   fill="none"
-                  stroke="rgba(255,179,0,0.14)"
+                  stroke="rgba(255,179,0,0.50)"
                   strokeWidth="3"
                   animate={{ opacity: inView ? 1 : 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
-                />
-
-                {/* Dashed circle ring — forest green tint */}
-                <motion.circle
-                  cx="50" cy="50" r={CIRCLE_R}
-                  fill="none"
-                  stroke="rgba(27,67,50,0.18)"
-                  strokeWidth="0.4"
-                  strokeDasharray="2.5 1.8"
-                  animate={{ opacity: inView ? 1 : 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
                 />
 
                 {/* Animated amber dot */}

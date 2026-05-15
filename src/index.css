@@ -7,15 +7,15 @@
 [data-theme="light"] {
   /* Core backgrounds */
   --bg-hero:   #06080F;
-  --bg-base:   #FAF9F5;  /* Soft Cream */
-  --bg-card:   #FFFEF8;  /* Warm White */
+  --bg-base:   #EDE8DE;  /* Dark cream — uniform throughout */
+  --bg-card:   #F5F1E8;  /* Slightly lighter card */
   --bg-dark:   #0B0F1C;
-  --bg-subtle: #EDE8DE;  /* Warmer, darker subtle */
+  --bg-subtle: #EDE8DE;  /* Same as base */
 
   /* Text — deep for strong contrast */
-  --text-primary:   #0A1A10;  /* Very deep forest green */
-  --text-secondary: #1C3828;  /* Deep secondary */
-  --text-muted:     #3A5A48;  /* Readable muted */
+  --text-primary:   #070F0A;
+  --text-secondary: #162C20;
+  --text-muted:     #2A4535;
   --text-light:     #FFFFFF;
 
   /* Amber Yellow accent */
@@ -52,13 +52,13 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="dark"]) {
     --bg-hero:   #06080F;
-    --bg-base:   #FAF9F5;
-    --bg-card:   #FFFEF8;
+    --bg-base:   #EDE8DE;
+    --bg-card:   #F5F1E8;
     --bg-dark:   #0B0F1C;
     --bg-subtle: #EDE8DE;
-    --text-primary:   #0A1A10;
-    --text-secondary: #1C3828;
-    --text-muted:     #3A5A48;
+    --text-primary:   #070F0A;
+    --text-secondary: #162C20;
+    --text-muted:     #2A4535;
     --text-light:     #FFFFFF;
     --gold:        #FFB400;
     --gold-bright: #FFCA2E;
@@ -123,7 +123,7 @@ html {
 body {
   font-family: var(--font-body);
   /* Hardcoded value first — rendering-layer dark modes (Opera GX) can't invert it */
-  background-color: #FAF9F5;
+  background-color: #EDE8DE;
   /* CSS variable overrides the hardcode when theme is active */
   background: var(--bg-base);
   color: var(--text-primary);
@@ -255,7 +255,7 @@ h4, h5, h6, p, span, a, button, input, select, textarea { font-family: var(--fon
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   display: block;
 }
 
