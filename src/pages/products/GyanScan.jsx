@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import AcatChain from '../../components/shared/AcatChain';
 import ExpandableFeature from '../../components/shared/ExpandableFeature';
 import { products } from '../../data/products';
+import gyanScanLogo from '../../assets/logos/GyanScan-Logo.png';
 
 const COLOR = '#2DC4A2';
 
@@ -78,17 +79,13 @@ export default function GyanScan() {
             alignItems: 'start',
           }}>
             <div style={{ maxWidth: 640 }}>
-              <h1 style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(42px, 5vw, 64px)',
-                fontWeight: 900,
-                letterSpacing: '-0.03em',
-                color: 'var(--text-primary)',
-                lineHeight: 1.0,
-                marginBottom: 16,
-              }}>
-                GyanScan
-              </h1>
+              <div style={{ marginBottom: 16 }}>
+                <img
+                  src={gyanScanLogo}
+                  alt="GyanScan"
+                  style={{ height: 'clamp(48px, 6vw, 72px)', width: 'auto', display: 'block' }}
+                />
+              </div>
 
               <p style={{
                 fontFamily: 'var(--font-display)',

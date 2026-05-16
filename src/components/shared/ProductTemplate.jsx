@@ -4,6 +4,20 @@ import { Link } from 'react-router-dom';
 import ExpandableFeature from './ExpandableFeature';
 import AcatChain from './AcatChain';
 
+import gyanBankLogo    from '../../assets/logos/GyanBank-logo.png';
+import gyanScanLogo    from '../../assets/logos/GyanScan-Logo.png';
+import gyanAnalytxLogo from '../../assets/logos/GyanAnalytics-logo.png';
+import gyanGuruLogo    from '../../assets/logos/GyanGuru-logo.png';
+import gyanTestLogo    from '../../assets/logos/Gyantesta-logo.png';
+
+const productLogos = {
+  gyanbank:    gyanBankLogo,
+  gyanscan:    gyanScanLogo,
+  gyananalytx: gyanAnalytxLogo,
+  gyanguru:    gyanGuruLogo,
+  gyantest:    gyanTestLogo,
+};
+
 const stageColors = {
   gyanbank:    '#4F7EF5',
   gyanscan:    '#2DC4A2',
@@ -81,22 +95,18 @@ export default function ProductTemplate({ product }) {
           }}>
             {/* Left — copy */}
             <div style={{ maxWidth: 640 }}>
-              <motion.h1
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: 'clamp(42px, 5vw, 64px)',
-                  fontWeight: 900,
-                  letterSpacing: '-0.03em',
-                  color: 'var(--text-primary)',
-                  lineHeight: 1.0,
-                  marginBottom: 16,
-                }}
+                style={{ marginBottom: 16 }}
               >
-                {product.name}
-              </motion.h1>
+                <img
+                  src={productLogos[product.slug]}
+                  alt={product.name}
+                  style={{ height: 'clamp(48px, 6vw, 72px)', width: 'auto', display: 'block' }}
+                />
+              </motion.div>
 
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
