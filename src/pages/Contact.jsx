@@ -3,15 +3,33 @@ import { motion } from 'framer-motion';
 
 const roles = ['Teacher', 'School Principal / Academic Head', 'School Founder / Owner', 'Parent', 'Student', 'Policy Maker / Government Official', 'Researcher / EdTech Professional', 'Other'];
 
+const SHEETS_ENDPOINT = import.meta.env.VITE_SHEETS_ENDPOINT;
+
 export default function Contact() {
   const [form, setForm] = useState({ name: '', role: '', school: '', email: '', phone: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setError('');
+    setSubmitting(true);
+    try {
+      await fetch(SHEETS_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(form),
+      });
+      setSubmitted(true);
+    } catch (err) {
+      setError('Something went wrong. Please email hello@gyanmai.com directly.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -143,8 +161,11 @@ export default function Contact() {
                   />
                 </div>
 
-                <button type="submit" className="btn-primary" style={{ marginTop: 4, justifyContent: 'center' }}>
-                  Book My Demo
+                {error && (
+                  <p style={{ fontSize: 13, color: '#c0392b', margin: 0 }}>{error}</p>
+                )}
+                <button type="submit" disabled={submitting} className="btn-primary" style={{ marginTop: 4, justifyContent: 'center', opacity: submitting ? 0.6 : 1, cursor: submitting ? 'wait' : 'pointer' }}>
+                  {submitting ? 'Sending…' : 'Book My Demo'}
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                     <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
