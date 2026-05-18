@@ -34,12 +34,18 @@ export default function Contact() {
 
   return (
     <main style={{ paddingTop: 80 }}>
-      <section style={{ padding: '60px 40px 80px', maxWidth: 1000, margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 48, alignItems: 'start' }}>
+      <section
+        className="px-5 md:px-10 py-10 md:py-[60px] pb-16 md:pb-20"
+        style={{ maxWidth: 1000, margin: '0 auto' }}
+      >
+        <div
+          className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-8 md:gap-12"
+          style={{ alignItems: 'start' }}
+        >
           {/* Left */}
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
             <span className="section-label" style={{ display: 'block', marginBottom: 12 }}>Get in touch</span>
-            <h1 style={{ fontSize: 38, fontWeight: 800, letterSpacing: '-1px', color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 16 }}>
+            <h1 style={{ fontSize: 'clamp(28px, 6vw, 38px)', fontWeight: 800, letterSpacing: '-1px', color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 16 }}>
               Let's build something for your school
             </h1>
             <p style={{ fontSize: 15, color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: 28 }}>

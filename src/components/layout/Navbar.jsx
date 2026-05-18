@@ -37,11 +37,11 @@ export default function Navbar() {
       initial={{ y: -8, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
+      className="px-4 md:px-8"
       style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
         height: 62,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        padding: '0 32px',
         background: frosted
           ? (theme === 'dark' ? 'rgba(11,15,28,0.88)' : 'rgba(250,249,245,0.90)')
           : 'transparent',
@@ -64,7 +64,7 @@ export default function Navbar() {
       </Link>
 
       {/* Desktop links */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+      <div className="hidden md:flex" style={{ alignItems: 'center', gap: 2 }}>
         {[
           { label: 'Platform', path: '/#acatt' },
           { label: 'About',    path: '/about' },
@@ -154,16 +154,18 @@ export default function Navbar() {
 
         <Link
           to="/contact"
+          className="px-3 py-2 md:px-5 md:py-[9px] text-xs md:text-[13px]"
           style={{
             display: 'inline-flex', alignItems: 'center', gap: 7,
-            padding: '9px 20px', borderRadius: 999,
+            borderRadius: 999,
             background: lightText ? 'rgba(255,255,255,0.13)' : 'var(--gold)',
             color: lightText ? '#fff' : '#1B1200',
             border: lightText ? '1px solid rgba(255,255,255,0.22)' : 'none',
             backdropFilter: lightText ? 'blur(12px)' : 'none',
-            fontSize: 13, fontWeight: 500, textDecoration: 'none',
+            fontWeight: 500, textDecoration: 'none',
             transition: 'background 0.25s',
             fontFamily: 'var(--font-body)',
+            whiteSpace: 'nowrap',
           }}
         >
           Book a Demo

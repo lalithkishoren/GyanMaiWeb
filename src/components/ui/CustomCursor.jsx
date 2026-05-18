@@ -2,6 +2,16 @@ import { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export default function CustomCursor() {
+  const isTouchDevice =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(hover: none), (pointer: coarse)').matches;
+
+  if (isTouchDevice) return null;
+
+  return <CustomCursorInner />;
+}
+
+function CustomCursorInner() {
   const [hovering, setHovering] = useState(false);
   const [clicking, setClicking] = useState(false);
 
