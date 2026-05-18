@@ -7,7 +7,7 @@ import { useTheme } from '../../context/ThemeContext';
 const productItems = [
   { label: 'GyanBank',    path: '/products/gyanbank',    sub: 'Author' },
   { label: 'GyanScan',   path: '/products/gyanscan',    sub: 'Capture' },
-  { label: 'GyanAnalytx', path: '/products/gyananalytx',  sub: 'Analyse' },
+  { label: 'GyanAnalytix', path: '/products/gyananalytx',  sub: 'Analyse' },
   { label: 'GyanGuru',   path: '/products/gyanguru',    sub: 'Teach' },
   { label: 'GyanTest',   path: '/products/gyantest',    sub: 'Test' },
 ];
@@ -154,7 +154,7 @@ export default function Navbar() {
 
         <Link
           to="/contact"
-          className="px-3 py-2 md:px-5 md:py-[9px] text-xs md:text-[13px]"
+          className="px-3 py-2 md:px-5 md:py-[9px]"
           style={{
             display: 'inline-flex', alignItems: 'center', gap: 7,
             borderRadius: 999,
@@ -165,6 +165,7 @@ export default function Navbar() {
             fontWeight: 500, textDecoration: 'none',
             transition: 'background 0.25s',
             fontFamily: 'var(--font-body)',
+            fontSize: 13,
             whiteSpace: 'nowrap',
           }}
         >
@@ -211,7 +212,7 @@ export default function Navbar() {
             }}
           >
             {[
-              { label: 'Platform',        path: '/platform' },
+              { label: 'Platform',        path: '/#acatt' },
               { label: 'Students',        path: '/students' },
               { label: 'Teachers',        path: '/teachers' },
               { label: 'Parents',         path: '/parents' },

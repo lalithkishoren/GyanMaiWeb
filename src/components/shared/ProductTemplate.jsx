@@ -247,7 +247,7 @@ export default function ProductTemplate({ product }) {
           }}
         >
           <p className="section-label" style={{ marginBottom: 16 }}>
-            Where {product.name} sits in the ACATT cycle
+            Where {product.name} sits in the ACATT framework
           </p>
           <AcatChain activeSlug={product.slug} />
         </motion.div>
@@ -256,7 +256,7 @@ export default function ProductTemplate({ product }) {
       {/* ── Handoff CTA ───────────────────────────────── */}
       {product.handoffTo && (
         <section style={{
-          padding: '0 clamp(24px, 5vw, 56px) 0',
+          padding: '0 clamp(24px, 5vw, 56px) 56px',
           maxWidth: 1100, margin: '0 auto',
         }}>
           <motion.div
@@ -290,7 +290,7 @@ export default function ProductTemplate({ product }) {
                 textTransform: 'uppercase', color: 'rgba(255,255,255,0.32)',
                 marginBottom: 10,
               }}>
-                Up next in the ACATT cycle
+                Up next in the ACATT framework
               </p>
               <h3 style={{
                 fontFamily: 'var(--font-display)',
@@ -332,7 +332,6 @@ export default function ProductTemplate({ product }) {
         <section style={{
           background: 'var(--bg-subtle)',
           padding: 'clamp(48px, 5vw, 72px) clamp(24px, 5vw, 56px)',
-          marginTop: product.handoffTo ? 0 : 0,
         }}>
           <div style={{ maxWidth: 1100, margin: '0 auto', textAlign: 'center' }}>
             <motion.div

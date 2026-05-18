@@ -1,17 +1,6 @@
 import { motion } from 'framer-motion';
 
-const pillars = [
-  {
-    number: '0.70+',
-    label: 'Hattie Effect Size',
-    note: 'Highest of 1,500+ meta-analyses',
-  },
-  {
-    number: '30K+',
-    label: 'Diagnostic questions',
-    note: 'Bloom-mapped, distractor-built',
-  },
-];
+const pillars = [];
 
 export default function IntroSection() {
   return (
@@ -55,8 +44,8 @@ export default function IntroSection() {
               letterSpacing: '-0.025em',
               color: 'var(--text-primary)',
             }}>
-              Most schools track marks.<br />Gyanmai tracks<br />
-              <em style={{ fontStyle: 'italic', color: 'var(--gold)' }}>understanding.</em>
+              Normal schools track marks.<br />Best schools track<br />
+              <em style={{ fontStyle: 'italic', color: 'var(--gold)' }}>Quality learning.</em>
             </h2>
           </div>
 
@@ -83,58 +72,6 @@ export default function IntroSection() {
           </div>
         </motion.div>
 
-        {/* Stat pillars */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: 1,
-          background: 'var(--border)',
-          borderRadius: 4,
-          overflow: 'hidden',
-        }}>
-          {pillars.map((p, i) => (
-            <motion.div
-              key={p.label}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="liquid-glass"
-              style={{
-                padding: 'clamp(28px, 3.5vw, 44px) clamp(24px, 3vw, 40px)',
-                borderTop: '2px solid var(--text-primary)',
-                borderRadius: 0,
-              }}
-            >
-              <p style={{
-                fontFamily: 'var(--font-display)',
-                fontSize: 'clamp(40px, 4.5vw, 60px)',
-                fontWeight: 900,
-                letterSpacing: '-0.04em',
-                color: 'var(--text-primary)',
-                lineHeight: 1,
-                marginBottom: 10,
-              }}>
-                {p.number}
-              </p>
-              <p style={{
-                fontSize: 14,
-                fontWeight: 600,
-                color: 'var(--text-primary)',
-                marginBottom: 6,
-              }}>
-                {p.label}
-              </p>
-              <p style={{
-                fontSize: 12,
-                color: 'var(--text-muted)',
-                fontWeight: 300,
-              }}>
-                {p.note}
-              </p>
-            </motion.div>
-          ))}
-        </div>
       </div>
     </section>
   );

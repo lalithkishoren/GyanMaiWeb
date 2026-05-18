@@ -46,7 +46,7 @@ function ScoreBar({ score, animate }) {
   );
 }
 
-export default function GyanAnalytx() {
+export default function GyanAnalytix() {
   const product        = products.find((p) => p.slug === 'gyananalytx');
   const reportRef      = useRef(null);
   const reportInView   = useInView(reportRef, { once: true, margin: '-60px' });
@@ -87,7 +87,7 @@ export default function GyanAnalytx() {
               <div style={{ marginBottom: 16 }}>
                 <img
                   src={gyanAnalytxLogo}
-                  alt="GyanAnalytx"
+                  alt="GyanAnalytix"
                   style={{ height: 'clamp(48px, 6vw, 72px)', width: 'auto', display: 'block' }}
                 />
               </div>
@@ -116,7 +116,7 @@ export default function GyanAnalytx() {
 
               <div style={{ display: 'flex', gap: 10 }}>
                 <Link to="/contact" className="btn-primary">
-                  See GyanAnalytx in action →
+                  See GyanAnalytix in action →
                 </Link>
               </div>
             </div>
@@ -242,7 +242,7 @@ export default function GyanAnalytx() {
                 padding: '16px 20px',
               }}>
                 <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: COLOR, marginBottom: 8 }}>
-                  GyanAnalytx · Diagnostic Report
+                  GyanAnalytix · Diagnostic Report
                 </p>
                 <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 20, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 2 }}>
                   Aarav Sharma
@@ -344,7 +344,7 @@ export default function GyanAnalytx() {
       }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <div style={{ marginBottom: 32 }}>
-            <span className="section-label" style={{ marginBottom: 10 }}>What GyanAnalytx does</span>
+            <span className="section-label" style={{ marginBottom: 10 }}>What GyanAnalytix does</span>
             <h2 style={{
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(24px, 2.8vw, 34px)',
@@ -379,7 +379,7 @@ export default function GyanAnalytx() {
           borderRadius: 6, border: '1px solid var(--border)',
           padding: '20px 28px',
         }}>
-          <p className="section-label" style={{ marginBottom: 16 }}>Where GyanAnalytx sits in the ACATT cycle</p>
+          <p className="section-label" style={{ marginBottom: 16 }}>Where GyanAnalytix sits in the ACATT framework</p>
           <AcatChain activeSlug="gyananalytx" />
         </div>
       </section>
@@ -411,13 +411,13 @@ export default function GyanAnalytx() {
           }} />
           <div style={{ position: 'relative' }}>
             <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.32)', marginBottom: 10 }}>
-              Up next in the ACATT cycle
+              Up next in the ACATT framework
             </p>
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 800, color: '#fff', marginBottom: 10, letterSpacing: '-0.02em' }}>
               GyanGuru
             </h3>
             <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.45)', maxWidth: 400, lineHeight: 1.7, fontWeight: 300 }}>
-              GyanAnalytx data is what makes GyanGuru powerful — the personalised tutor knows exactly which misconceptions each student carries before the first session begins.
+              GyanAnalytix data is what makes GyanGuru powerful — the personalised tutor knows exactly which misconceptions each student carries before the first session begins.
             </p>
           </div>
           <Link

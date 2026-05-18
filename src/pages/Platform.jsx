@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+﻿import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { acatStages } from '../data/acatFramework';
@@ -64,7 +64,7 @@ export default function Platform() {
             The ACATT Framework
           </h1>
           <p style={{ fontSize: 'clamp(16px, 1.8vw, 18px)', color: 'var(--text-secondary)', lineHeight: 1.7, maxWidth: 560, margin: '0 auto 32px' }}>
-            Five integrated products. One continuous cycle. Data flows from one product to the next — Author, Capture, Analyse, Teach, Test — and the ACATT cycle repeats.
+            Five integrated products. One continuous cycle. Data flows from one product to the next — Author, Capture, Analyse, Teach, Test — and the ACATT framework repeats.
           </p>
 
           {/* Cycle visualization */}
@@ -115,9 +115,9 @@ export default function Platform() {
       {/* Data handoff callout */}
       <section className="px-5 md:px-6 pb-12 md:pb-[60px]" style={{ maxWidth: 1100, margin: '0 auto' }}>
         <div className="card p-6 md:p-9" style={{ background: 'var(--text-primary)', color: '#fff', borderRadius: 24 }}>
-          <h2 style={{ fontSize: 'clamp(22px, 3vw, 28px)', fontWeight: 700, color: '#fff', marginBottom: 12 }}>Data flows through the ACATT cycle</h2>
+          <h2 style={{ fontSize: 'clamp(22px, 3vw, 28px)', fontWeight: 700, color: '#fff', marginBottom: 12 }}>Data flows through the ACATT framework</h2>
           <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.6)', lineHeight: 1.7, maxWidth: 600 }}>
-            GyanScan captures the data. GyanAnalytx surfaces the pattern. GyanGuru addresses the misconception. GyanTest confirms mastery. The results feed back into GyanBank for the next round of authoring.
+            GyanScan captures the data. GyanAnalytix surfaces the pattern. GyanGuru addresses the misconception. GyanTest confirms mastery. The results feed back into GyanBank for the next round of authoring.
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 24 }}>
             {acatStages.map((s) => (
@@ -143,10 +143,10 @@ export default function Platform() {
       </section>
 
       {/* Stakeholder selector */}
-      <section className="px-5 md:px-6 pb-16 md:pb-20" style={{ maxWidth: 1100, margin: '0 auto' }}>
+      <section className="px-5 md:px-6 pb-24 md:pb-32" style={{ maxWidth: 1100, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 28 }}>
           <h2 style={{ fontSize: 'clamp(22px, 3vw, 26px)', fontWeight: 700, color: 'var(--text-primary)' }}>Which parts of ACATT are right for you?</h2>
-          <p style={{ fontSize: 15, color: 'var(--text-secondary)', marginTop: 8 }}>Pick your role to see which parts of the ACATT cycle apply.</p>
+          <p style={{ fontSize: 15, color: 'var(--text-secondary)', marginTop: 8 }}>Pick your role to see which parts of the ACATT framework apply.</p>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5">
           {stakeholders.map((s) => (

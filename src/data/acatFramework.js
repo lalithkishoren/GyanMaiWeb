@@ -15,12 +15,12 @@ export const acatStages = [
     slug: 'gyanscan',
     color: '#2DC4A2',
     description: 'Scan formative assessments instantly — 40 students in 8 seconds.',
-    detail: 'Physical answer sheets scanned with the proprietary marker-cube system. Data flows immediately to GyanAnalytx.',
+    detail: 'Physical answer sheets scanned with the proprietary marker-cube system. Data flows immediately to GyanAnalytix.',
   },
   {
     step: 3,
     action: 'Analyse',
-    product: 'GyanAnalytx',
+    product: 'GyanAnalytix',
     slug: 'gyananalytx',
     color: '#F5A623',
     description: 'Surface class-wide misconception patterns and per-student subtopic breakdowns.',
@@ -32,7 +32,7 @@ export const acatStages = [
     product: 'GyanGuru',
     slug: 'gyanguru',
     color: '#E85C7A',
-    description: 'Personalised tutor assigned by teacher, guided by GyanAnalytx data.',
+    description: 'Personalised tutor assigned by teacher, guided by GyanAnalytix data.',
     detail: 'Three modes: Guru (fix mistakes), Prashna (known to unknown), Chunauty (Socratic challenge). Voice + math rendering.',
   },
   {
@@ -42,6 +42,6 @@ export const acatStages = [
     slug: 'gyantest',
     color: '#9B6EF5',
     description: 'Summative assessments in every format — OMR, MCQ, Fill in the Blanks, Match the Following, VSAQ, SAQ, LAQ — with instant marking.',
-    detail: 'Six question formats, one system. Results feed back into GyanAnalytx and inform the next authoring round in GyanBank — closing the ACATT cycle.',
+    detail: 'Six question formats, one system. Results feed back into GyanAnalytix and inform the next authoring round in GyanBank — closing the ACATT framework.',
   },
 ];

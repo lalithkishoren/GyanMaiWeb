@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+﻿import { useRef, useState } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import AcatChain from '../../components/shared/AcatChain';
@@ -8,7 +8,7 @@ import gyanScanLogo from '../../assets/logos/GyanScan-Logo.png';
 
 const COLOR = '#2DC4A2';
 
-// ── Heatmap data ─────────────────────────────────────────────────────────────
+// â”€â”€ Heatmap data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const misconceptions = [
   {
     severity: 'critical',
@@ -17,7 +17,7 @@ const misconceptions = [
     avg: '33%',
     description: 'Students add numerators and denominators directly (2/5 + 3/7 = 5/12) instead of finding the LCM first.',
     subtopic: 'T7 — Addition (LCM)',
-    example: '2/5 + 3/7 → wrote 5/12 instead of 29/35',
+    example: '2/5 + 3/7 â†’ wrote 5/12 instead of 29/35',
   },
   {
     severity: 'warning',
@@ -26,7 +26,7 @@ const misconceptions = [
     avg: '47%',
     description: 'Students divide by a common factor once but stop before reaching lowest terms.',
     subtopic: 'T3 — Simplification',
-    example: '12/18 → wrote 6/9 instead of 2/3',
+    example: '12/18 â†’ wrote 6/9 instead of 2/3',
   },
   {
     severity: 'caution',
@@ -35,13 +35,13 @@ const misconceptions = [
     avg: '56%',
     description: 'Students compare fractions by looking at denominators alone, believing "bigger denominator = bigger fraction."',
     subtopic: 'T4 — Comparing Fractions',
-    example: '3/8 vs 2/5 → chose 3/8 because 8 > 5',
+    example: '3/8 vs 2/5 â†’ chose 3/8 because 8 > 5',
   },
 ];
 
 const severityColor = { critical: '#E85C7A', warning: '#F5A623', caution: COLOR };
 
-// ── Main component ────────────────────────────────────────────────────────────
+// â”€â”€ Main component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export default function GyanScan() {
   const product       = products.find((p) => p.slug === 'gyanscan');
   const heatmapRef    = useRef(null);
@@ -52,7 +52,7 @@ export default function GyanScan() {
   return (
     <main style={{ paddingTop: 80 }}>
 
-      {/* ── Hero ─────────────────────────────────────────────────────────── */}
+      {/* â”€â”€ Hero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section style={{
         padding: 'clamp(48px, 6vw, 80px) clamp(24px, 5vw, 56px)',
         maxWidth: 1100, margin: '0 auto',
@@ -112,7 +112,7 @@ export default function GyanScan() {
 
               <div style={{ display: 'flex', gap: 10 }}>
                 <Link to="/contact" className="btn-primary">
-                  See GyanScan in action →
+                  See GyanScan in action â†’
                 </Link>
               </div>
             </div>
@@ -136,7 +136,7 @@ export default function GyanScan() {
         </motion.div>
       </section>
 
-      {/* ── Key features ──────────────────────────────────────────────────── */}
+      {/* â”€â”€ Key features â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section style={{
         padding: '0 clamp(24px, 5vw, 56px) 72px',
         maxWidth: 1100, margin: '0 auto',
@@ -166,7 +166,7 @@ export default function GyanScan() {
         </div>
       </section>
 
-      {/* ── Teacher's Heatmap ─────────────────────────────────────────────── */}
+      {/* â”€â”€ Teacher's Heatmap â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section style={{ background: 'var(--bg-subtle, #F4F5F9)', padding: 'clamp(56px, 6vw, 88px) clamp(24px, 5vw, 56px)' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <motion.div
@@ -189,7 +189,7 @@ export default function GyanScan() {
               fontSize: 15, color: 'var(--text-secondary)',
               maxWidth: 540, lineHeight: 1.75, fontWeight: 300,
             }}>
-              The moment the scan completes, GyanScan maps every wrong answer to the specific misconception behind it — not just a wrong-answer count, but named error patterns with prevalence data. This is what feeds GyanAnalytx for deeper analysis.
+              The moment the scan completes, GyanScan maps every wrong answer to the specific misconception behind it — not just a wrong-answer count, but named error patterns with prevalence data. This is what feeds GyanAnalytix for deeper analysis.
             </p>
           </motion.div>
 
@@ -271,7 +271,7 @@ export default function GyanScan() {
         </div>
       </section>
 
-      {/* ── Stakeholder promises ──────────────────────────────────────────── */}
+      {/* â”€â”€ Stakeholder promises â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section style={{ padding: 'clamp(56px, 6vw, 88px) clamp(24px, 5vw, 56px)' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <motion.div
@@ -333,7 +333,7 @@ export default function GyanScan() {
         </div>
       </section>
 
-      {/* ── ACATT position ──────────────────────────────────────────────────── */}
+      {/* â”€â”€ ACATT position â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section style={{
         padding: '0 clamp(24px, 5vw, 56px) 56px',
         maxWidth: 1100, margin: '0 auto',
@@ -343,12 +343,12 @@ export default function GyanScan() {
           borderRadius: 6, border: '1px solid var(--border)',
           padding: '20px 28px',
         }}>
-          <p className="section-label" style={{ marginBottom: 16 }}>Where GyanScan sits in the ACATT cycle</p>
+          <p className="section-label" style={{ marginBottom: 16 }}>Where GyanScan sits in the ACATT framework</p>
           <AcatChain activeSlug="gyanscan" />
         </div>
       </section>
 
-      {/* ── Handoff CTA ──────────────────────────────────────────────────── */}
+      {/* â”€â”€ Handoff CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section style={{
         padding: '0 clamp(24px, 5vw, 56px) 0',
         maxWidth: 1100, margin: '0 auto',
@@ -375,13 +375,13 @@ export default function GyanScan() {
           }} />
           <div style={{ position: 'relative' }}>
             <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.32)', marginBottom: 10 }}>
-              Up next in the ACATT cycle
+              Up next in the ACATT framework
             </p>
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 800, color: '#fff', marginBottom: 10, letterSpacing: '-0.02em' }}>
-              GyanAnalytx
+              GyanAnalytix
             </h3>
             <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.45)', maxWidth: 400, lineHeight: 1.7, fontWeight: 300 }}>
-              GyanScan data flows directly into GyanAnalytx — class heatmaps, parent access views, student diagnostic reports, and school dashboards all powered by what was captured here.
+              GyanScan data flows directly into GyanAnalytix — class heatmaps, parent access views, student diagnostic reports, and school dashboards all powered by what was captured here.
             </p>
           </div>
           <Link
@@ -396,12 +396,12 @@ export default function GyanScan() {
             onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
             onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
           >
-            Explore GyanAnalytx →
+            Explore GyanAnalytix â†’
           </Link>
         </motion.div>
       </section>
 
-      {/* ── Closure / Book a Demo — always last ─────────────────────────── */}
+      {/* â”€â”€ Closure / Book a Demo — always last â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section style={{ background: 'var(--bg-subtle)', padding: 'clamp(48px, 5vw, 72px) clamp(24px, 5vw, 56px)' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', textAlign: 'center' }}>
           <motion.div
@@ -424,7 +424,7 @@ export default function GyanScan() {
             }}>
               If you've ever looked at a class of marked papers and wondered whether any of it would change tomorrow's lesson — GyanScan is built for you.
             </p>
-            <Link to="/contact" className="btn-gold">Book a Demo →</Link>
+            <Link to="/contact" className="btn-gold">Book a Demo â†’</Link>
           </motion.div>
         </div>
       </section>

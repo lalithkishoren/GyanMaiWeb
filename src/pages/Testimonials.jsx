@@ -39,7 +39,7 @@ export default function Testimonials() {
 
   return (
     <main style={{ paddingTop: 80 }}>
-      <section className="px-5 md:px-10 py-12 md:py-[60px] pb-16 md:pb-20" style={{ maxWidth: 1100, margin: '0 auto' }}>
+      <section style={{ padding: '60px 40px 80px', maxWidth: 1100, margin: '0 auto' }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -47,7 +47,7 @@ export default function Testimonials() {
           style={{ textAlign: 'center', marginBottom: 40 }}
         >
           <span className="section-label" style={{ display: 'block', marginBottom: 12 }}>What they say</span>
-          <h1 style={{ fontSize: 'clamp(32px, 5.5vw, 44px)', fontWeight: 800, letterSpacing: '-1.5px', color: 'var(--text-primary)', marginBottom: 12 }}>
+          <h1 style={{ fontSize: 44, fontWeight: 800, letterSpacing: '-1.5px', color: 'var(--text-primary)', marginBottom: 12 }}>
             Success Stories
           </h1>
           <p style={{ fontSize: 16, color: 'var(--text-secondary)', maxWidth: 480, margin: '0 auto' }}>

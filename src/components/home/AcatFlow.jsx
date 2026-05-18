@@ -2,6 +2,21 @@ import { useRef, useState, useEffect } from 'react';
 import { motion, useInView, AnimatePresence, animate, useMotionValue, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { acatStages } from '../../data/acatFramework';
+import useMobile from '../../hooks/useMobile';
+
+import gyanBankLogo    from '../../assets/logos/GyanBank-logo.png';
+import gyanScanLogo    from '../../assets/logos/GyanScan-Logo.png';
+import gyanAnalytxLogo from '../../assets/logos/GyanAnalytics-logo.png';
+import gyanGuruLogo    from '../../assets/logos/GyanGuru-logo.png';
+import gyanTestLogo    from '../../assets/logos/Gyantesta-logo.png';
+
+const productLogos = {
+  gyanbank:    gyanBankLogo,
+  gyanscan:    gyanScanLogo,
+  gyananalytx: gyanAnalytxLogo,
+  gyanguru:    gyanGuruLogo,
+  gyantest:    gyanTestLogo,
+};
 
 // 5 nodes evenly spaced on a circle, starting from top (270°), clockwise
 const CIRCLE_R = 34;
@@ -38,6 +53,7 @@ export default function AcatFlow() {
     50 + CIRCLE_R * Math.sin(p * 2 * Math.PI - Math.PI / 2)
   );
 
+  const isMobile = useMobile();
   const activeStage = active !== null ? acatStages[active] : null;
 
   return (
@@ -51,7 +67,7 @@ export default function AcatFlow() {
         pointerEvents: 'none',
       }} />
 
-      <div className="px-5 md:px-8 py-16 md:py-24" style={{ maxWidth: 1200, margin: '0 auto' }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: isMobile ? '64px 20px' : '96px 32px' }}>
 
         {/* Header */}
         <motion.div
@@ -80,18 +96,22 @@ export default function AcatFlow() {
             fontSize: 16, color: 'var(--text-secondary)',
             maxWidth: 480, margin: '0 auto', lineHeight: 1.75, fontWeight: 300,
           }}>
-            Five products. One continuous cycle. Data flows from each stage into the next — and back to the beginning.
+            Five products. Uninterrupted flow of valuable data from each stage until the full learning cycle is completed.
           </p>
         </motion.div>
 
         {/* Loop layout */}
         <div
           ref={ref}
-          className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12"
-          style={{ alignItems: 'center' }}
+          style={{
+            display: 'grid',
+            gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+            gap: isMobile ? 32 : 48,
+            alignItems: 'center',
+          }}
         >
           {/* Left — circle SVG */}
-          <div className="mx-auto md:mx-0" style={{ position: 'relative', width: '100%', maxWidth: 460, paddingBottom: 'min(100%, 460px)' }}>
+          <div style={{ position: 'relative', width: '100%', paddingBottom: '100%' }}>
             <div style={{ position: 'absolute', inset: 0 }}>
               <svg
                 viewBox="-18 -8 136 120"
@@ -101,8 +121,8 @@ export default function AcatFlow() {
                 <motion.circle
                   cx="50" cy="50" r={CIRCLE_R + 2}
                   fill="none"
-                  stroke="rgba(255,179,0,0.50)"
-                  strokeWidth="3"
+                  stroke="rgba(200,140,0,0.85)"
+                  strokeWidth="4"
                   animate={{ opacity: inView ? 1 : 0 }}
                   transition={{ duration: 0.8, delay: 0.2 }}
                 />
@@ -191,18 +211,18 @@ export default function AcatFlow() {
                         {stage.step}
                       </motion.text>
 
-                      {/* Product name label — outside node */}
+                      {/* Stage action label — outside node */}
                       <motion.text
                         x={lx} y={ly + 1.2}
                         textAnchor={anchor}
-                        fontSize="3.6"
-                        fontWeight={isActive ? '800' : '600'}
-                        fill={isActive ? stage.color : 'rgba(27,67,50,0.75)'}
+                        fontSize="5"
+                        fontWeight={isActive ? '900' : '700'}
+                        fill={isActive ? stage.color : 'rgba(27,67,50,0.92)'}
                         fontFamily="var(--font-display)"
-                        animate={{ opacity: inView ? 1 : 0, fill: isActive ? stage.color : 'rgba(27,67,50,0.75)' }}
+                        animate={{ opacity: inView ? 1 : 0, fill: isActive ? stage.color : 'rgba(27,67,50,0.92)' }}
                         transition={{ delay: i * 0.1 + 0.15, duration: 0.35 }}
                       >
-                        {stage.product}
+                        {stage.action}
                       </motion.text>
 
                     </g>
@@ -213,10 +233,10 @@ export default function AcatFlow() {
                 <motion.text
                   x="50" y="47"
                   textAnchor="middle"
-                  fontSize="9"
-                  fontWeight="800"
-                  letterSpacing="2"
-                  fill="rgba(27,67,50,0.72)"
+                  fontSize="11"
+                  fontWeight="900"
+                  letterSpacing="3"
+                  fill="rgba(27,67,50,0.90)"
                   fontFamily="var(--font-display)"
                   animate={{ opacity: inView ? 1 : 0 }}
                   transition={{ delay: 0.6 }}
@@ -224,10 +244,10 @@ export default function AcatFlow() {
                   ACATT
                 </motion.text>
                 <motion.text
-                  x="50" y="54"
+                  x="50" y="55"
                   textAnchor="middle"
-                  fontSize="2.8"
-                  fill="rgba(27,67,50,0.12)"
+                  fontSize="3.5"
+                  fill="rgba(27,67,50,0.45)"
                   fontFamily="var(--font-body)"
                   animate={{ opacity: inView ? 1 : 0 }}
                   transition={{ delay: 0.65 }}
@@ -262,17 +282,11 @@ export default function AcatFlow() {
                     </span>
                   </div>
 
-                  <h3 style={{
-                    fontFamily: 'var(--font-display)',
-                    fontSize: 'clamp(28px, 3.5vw, 44px)',
-                    fontWeight: 900,
-                    color: 'var(--text-primary)',
-                    letterSpacing: '-0.02em',
-                    lineHeight: 1.1,
-                    marginBottom: 16,
-                  }}>
-                    {activeStage.product}
-                  </h3>
+                  <img
+                    src={productLogos[activeStage.slug]}
+                    alt={activeStage.product}
+                    style={{ height: 52, width: 'auto', display: 'block', marginBottom: 16 }}
+                  />
 
                   <p style={{
                     fontSize: 16, color: 'var(--text-secondary)',
@@ -316,7 +330,7 @@ export default function AcatFlow() {
                     fontSize: 10, fontWeight: 700, letterSpacing: '0.20em',
                     textTransform: 'uppercase', color: 'var(--gold)', marginBottom: 20,
                   }}>
-                    The Cycle
+                    The Roadmap
                   </p>
                   <h3 style={{
                     fontFamily: 'var(--font-display)',
@@ -324,7 +338,7 @@ export default function AcatFlow() {
                     fontWeight: 900, color: 'var(--text-primary)',
                     letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: 18,
                   }}>
-                    Author → Capture → Analyse → Teach → Test — and Repeat.
+                    Author → Capture → Analyse → Teach → Test — and Repeat for next topic.
                   </h3>
                   <p style={{
                     fontSize: 15, color: 'var(--text-secondary)',
@@ -336,7 +350,7 @@ export default function AcatFlow() {
                     fontSize: 13, color: 'var(--text-muted)',
                     fontStyle: 'italic',
                   }}>
-                    Hover to preview · Click to pin a stage
+                    {isMobile ? 'Tap a stage to explore it' : 'Hover to preview · Click to pin a stage'}
                   </p>
 
                   {/* Stage list */}
@@ -388,6 +402,117 @@ export default function AcatFlow() {
                 </motion.div>
               )}
             </AnimatePresence>
+          </div>
+        </div>
+
+        {/* Data flow callout */}
+        <div style={{
+          marginTop: isMobile ? 48 : 64,
+          padding: isMobile ? '28px 24px' : '36px 32px',
+          background: 'var(--text-primary)',
+          borderRadius: 24,
+          color: '#fff',
+        }}>
+          <h2 style={{ fontSize: 'clamp(20px, 2.2vw, 28px)', fontWeight: 700, color: '#fff', marginBottom: 12, fontFamily: 'var(--font-display)' }}>
+            Data flows through the ACATT cycle
+          </h2>
+          <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.6)', lineHeight: 1.7, maxWidth: 600 }}>
+            GyanScan captures the data. GyanAnalytix surfaces the pattern. GyanGuru addresses the misconception. GyanTest confirms mastery. The results feed back into GyanBank for the next round of authoring.
+          </p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 24 }}>
+            {acatStages.map((s) => (
+              <Link
+                key={s.slug}
+                to={`/products/${s.slug}`}
+                style={{
+                  padding: '6px 14px',
+                  borderRadius: 999,
+                  fontSize: 12,
+                  fontWeight: 600,
+                  textDecoration: 'none',
+                  color: s.color,
+                  border: `1px solid ${s.color}50`,
+                  background: `${s.color}15`,
+                }}
+              >
+                {s.product}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Role picker */}
+        <div style={{ marginTop: isMobile ? 56 : 80, textAlign: 'center' }}>
+          <h2 style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: 'clamp(22px, 2.8vw, 36px)',
+            fontWeight: 900,
+            color: 'var(--text-primary)',
+            letterSpacing: '-0.02em',
+            marginBottom: 10,
+          }}>
+            Which parts of ACATT are right for you?
+          </h2>
+          <p style={{ fontSize: 15, color: 'var(--text-muted)', fontWeight: 300, marginBottom: 36 }}>
+            Pick your role to see which parts of the ACATT cycle apply.
+          </p>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(5, 1fr)',
+            gap: 12,
+          }}>
+            {[
+              { label: 'Students',          path: '/students' },
+              { label: 'Teachers',          path: '/teachers' },
+              { label: 'Parents',           path: '/parents' },
+              { label: 'School Management', path: '/school-management' },
+              { label: 'Policy Makers',     path: '/policy-makers' },
+            ].map((role, i) => (
+              <motion.div
+                key={role.label}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ delay: i * 0.07, duration: 0.4 }}
+              >
+                <Link
+                  to={role.path}
+                  style={{ display: 'block', textDecoration: 'none' }}
+                >
+                  <div style={{
+                    background: 'rgba(255,255,255,0.72)',
+                    border: '1px solid var(--border)',
+                    borderRadius: 16,
+                    padding: '28px 16px 22px',
+                    textAlign: 'center',
+                    transition: 'box-shadow 0.2s, transform 0.2s',
+                    cursor: 'pointer',
+                  }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.boxShadow = '0 8px 28px rgba(27,67,50,0.10)';
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.boxShadow = 'none';
+                      e.currentTarget.style.transform = 'translateY(0)';
+                    }}
+                  >
+                    <p style={{
+                      fontFamily: 'var(--font-display)',
+                      fontSize: 16,
+                      fontWeight: 700,
+                      color: 'var(--text-primary)',
+                      marginBottom: 8,
+                    }}>
+                      {role.label}
+                    </p>
+                    <p style={{ fontSize: 13, color: 'var(--text-muted)', fontWeight: 300 }}>
+                      View →
+                    </p>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
           </div>
         </div>
 

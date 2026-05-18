@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function HomeCta() {
   return (
-    <section className="px-5 md:px-8 py-16 md:py-24" style={{ background: 'var(--bg-dark)', position: 'relative', overflow: 'hidden' }}>
+    <section style={{ background: 'var(--bg-dark)', padding: '96px 32px', position: 'relative', overflow: 'hidden' }}>
       {/* Gold radial */}
       <div style={{
         position: 'absolute', top: '50%', left: '50%',
@@ -32,14 +32,14 @@ export default function HomeCta() {
           lineHeight: 1.1,
           marginBottom: 20,
         }}>
-          Let's build something for your school.
+          Let's build a world-class learning and assessment framework for your school.
         </h2>
         <p style={{ fontSize: 17, color: 'rgba(255,255,255,0.4)', lineHeight: 1.7, marginBottom: 40, fontWeight: 300 }}>
           A 30-minute walkthrough, personalised for your school's curriculum, class size, and assessment methods. No generic slides.
         </p>
 
         <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <Link to="/contact" className="btn-gold" style={{ fontSize: 15, padding: '13px 28px' }}>
+          <Link to="/contact" className="btn-gold" style={{ padding: '13px 28px' }}>
             Book a Platform Demo
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
               <path d="M2.5 10.5L10.5 2.5M10.5 2.5H4.5M10.5 2.5V8.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>

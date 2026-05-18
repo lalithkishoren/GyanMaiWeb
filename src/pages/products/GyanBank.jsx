@@ -1,4 +1,4 @@
-import ProductTemplate from '../../components/shared/ProductTemplate';
+﻿import ProductTemplate from '../../components/shared/ProductTemplate';
 import { products } from '../../data/products';
 
 export default function GyanBank() {

@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { products } from '../../data/products';
+import { stakeholders } from '../../data/stakeholders';
 import ExpandableFeature from './ExpandableFeature';
 
 function ProblemCard({ problem, index, inView, accentColor }) {
@@ -145,7 +146,7 @@ export default function StakeholderTemplate({ stakeholder }) {
               padding: '4px 14px', borderRadius: 999,
             }}
           >
-            Built for {stakeholder.label}
+            Built for {stakeholder.builtForLabel || stakeholder.label}
           </motion.span>
 
           <motion.h1
@@ -248,6 +249,61 @@ export default function StakeholderTemplate({ stakeholder }) {
             <Link to="/contact" className="btn-gold">
               Book a Demo for {stakeholder.label} →
             </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Stakeholder navigation ──────────────────────── */}
+      <section style={{ background: 'var(--bg-base)', borderTop: '1px solid var(--border)', padding: 'clamp(80px, 9vw, 112px) clamp(24px, 5vw, 56px)' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.5 }}
+          >
+            <p className="section-label" style={{ marginBottom: 20 }}>Also built for</p>
+            <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+              {stakeholders
+                .filter((s) => s.slug !== stakeholder.slug)
+                .map((s) => {
+                  const otherAccent = s.gradient.includes('#4F7EF5') ? '#4F7EF5'
+                    : s.gradient.includes('#F5A623') ? '#F5A623'
+                    : s.gradient.includes('#0D0F1A') ? '#4F7EF5'
+                    : '#2DC4A2';
+                  return (
+                    <Link
+                      key={s.slug}
+                      to={s.path}
+                      style={{
+                        display: 'inline-flex', alignItems: 'center', gap: 8,
+                        padding: '10px 20px', borderRadius: 999,
+                        border: `1px solid ${otherAccent}30`,
+                        background: `${otherAccent}08`,
+                        color: 'var(--text-primary)',
+                        fontSize: 14, fontWeight: 600,
+                        textDecoration: 'none',
+                        fontFamily: 'var(--font-display)',
+                        transition: 'background 0.2s, border-color 0.2s, color 0.2s',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.background = `${otherAccent}18`;
+                        e.currentTarget.style.borderColor = otherAccent;
+                        e.currentTarget.style.color = otherAccent;
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.background = `${otherAccent}08`;
+                        e.currentTarget.style.borderColor = `${otherAccent}30`;
+                        e.currentTarget.style.color = 'var(--text-primary)';
+                      }}
+                    >
+                      <span style={{ width: 6, height: 6, borderRadius: '50%', background: otherAccent, flexShrink: 0 }} />
+                      {s.label}
+                      <span style={{ fontSize: 12, color: 'var(--text-muted)', fontFamily: 'var(--font-body)', fontWeight: 400 }}>→</span>
+                    </Link>
+                  );
+                })}
+            </div>
           </motion.div>
         </div>
       </section>

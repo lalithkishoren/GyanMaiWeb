@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom';
 import wordmark from '../../assets/logos/gyanmai-logo.png';
+import useMobile from '../../hooks/useMobile';
 
 const cols = {
   Platform: [
     { label: 'How It Works',    path: '/platform' },
-    { label: 'ACATT Framework', path: '/platform' },
+    { label: 'ACATT Framework', path: '/#acatt' },
   ],
   Products: [
     { label: 'GyanBank',    path: '/products/gyanbank' },
     { label: 'GyanScan',   path: '/products/gyanscan' },
-    { label: 'GyanAnalytx',path: '/products/gyananalytx' },
+    { label: 'GyanAnalytix',path: '/products/gyananalytx' },
     { label: 'GyanGuru',   path: '/products/gyanguru' },
     { label: 'GyanTest',   path: '/products/gyantest' },
   ],
@@ -28,15 +29,18 @@ const cols = {
 };
 
 export default function Footer() {
+  const isMobile = useMobile();
   return (
-    <footer
-      className="px-5 md:px-8 pt-12 md:pt-16 pb-8"
-      style={{ background: '#05070E', color: '#fff' }}
-    >
+    <footer style={{ background: '#05070E', color: '#fff', padding: isMobile ? '48px 20px 24px' : '64px 32px 32px' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-        <div className="grid grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1fr_1fr] gap-8 md:gap-12 mb-10 md:mb-[52px]">
-          {/* Brand */}
-          <div className="col-span-2 md:col-span-1">
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: isMobile ? '1fr 1fr' : '2fr 1fr 1fr 1fr 1fr',
+          gap: isMobile ? '32px 24px' : 48,
+          marginBottom: 52,
+        }}>
+          {/* Brand — spans both columns on mobile */}
+          <div style={isMobile ? { gridColumn: '1 / -1' } : {}}>
             <img src={wordmark} alt="Gyanmai" style={{ height: 28, color: '#fff', filter: 'invert(1)', marginBottom: 18 }} />
             <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.38)', lineHeight: 1.7, maxWidth: 240, fontWeight: 300 }}>
               Beyond Marks. Into Understanding.

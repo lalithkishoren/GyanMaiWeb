@@ -1,4 +1,4 @@
-export const products = [
+﻿export const products = [
   {
     slug: 'gyanbank',
     name: 'GyanBank',
@@ -28,12 +28,12 @@ export const products = [
       {
         title: 'All Six Bloom\'s Levels',
         summary: 'Build papers that test depth, not just memory.',
-        detail: 'Remember, Understand, Apply, Analyse, Evaluate, Create. Every question is tagged so teachers can compose papers that test the cognitive level they actually want — and track gaps at each level in GyanAnalytx.',
+        detail: 'Remember, Understand, Apply, Analyse, Evaluate, Create. Every question is tagged so teachers can compose papers that test the cognitive level they actually want — and track gaps at each level in GyanAnalytix.',
       },
       {
         title: 'Misconception-Mapped Distractors',
         summary: 'Wrong answers are diagnostic, not random.',
-        detail: 'Every wrong MCQ option is a known misconception trap. Pick option B and the system knows you treated the denominator like a numerator. This is what makes GyanAnalytx\'s error library possible — the diagnostic is baked into the question.',
+        detail: 'Every wrong MCQ option is a known misconception trap. Pick option B and the system knows you treated the denominator like a numerator. This is what makes GyanAnalytix\'s error library possible — the diagnostic is baked into the question.',
       },
       {
         title: 'One-Click Question Papers',
@@ -53,7 +53,7 @@ export const products = [
     description: 'GyanScan captures formative assessment data at classroom speed — 40 students in 8 seconds. Every wrong answer is mapped to the exact misconception behind it, giving teachers a complete picture before they plan their next lesson.',
     logo: 'GyanScan-Logo.png',
     handoffTo: 'gyananalytx',
-    handoffName: 'GyanAnalytx',
+    handoffName: 'GyanAnalytix',
     features: [
       {
         title: '40 Students in 8 Seconds',
@@ -91,12 +91,12 @@ export const products = [
   },
   {
     slug: 'gyananalytx',
-    name: 'GyanAnalytx',
+    name: 'GyanAnalytix',
     acatStep: 3,
     acatAction: 'Analyse',
     tagline: 'Every insight. Every stakeholder. One platform.',
     headline: 'Not marks. Understanding.',
-    description: 'GyanAnalytx transforms raw assessment data into actionable insight — for students, teachers, parents, and school management. Personal diagnostic reports, class heatmaps, and a school-wide command center all in one place.',
+    description: 'GyanAnalytix transforms raw assessment data into actionable insight — for students, teachers, parents, and school management. Personal diagnostic reports, class heatmaps, and a school-wide command center all in one place.',
     logo: 'GyanAnalytics-logo.png',
     handoffTo: 'gyanguru',
     handoffName: 'GyanGuru',
@@ -116,9 +116,9 @@ export const products = [
         detail: 'Teachers see which concepts are broadly understood, partially grasped, or widely misunderstood — colour-coded by misconception density. Plan re-teaching by misconception, not just by topic.',
       },
       {
-        title: 'Bloom × Subtopic Accuracy',
+        title: 'Bloom Ã— Subtopic Accuracy',
         summary: 'See where students plateau on a specific cognitive level.',
-        detail: 'Students may remember well but stumble at apply for a particular subtopic. GyanAnalytx maps Bloom\'s taxonomy level against subtopic performance — pinpointing exactly which type of question to change, not just which topic to revisit.',
+        detail: 'Students may remember well but stumble at apply for a particular subtopic. GyanAnalytix maps Bloom\'s taxonomy level against subtopic performance — pinpointing exactly which type of question to change, not just which topic to revisit.',
       },
       {
         title: 'Per-Student Error Library',
@@ -150,13 +150,13 @@ export const products = [
     acatAction: 'Teach',
     tagline: 'Personalised tutor. Knows every student\'s misconceptions.',
     headline: 'The tutor that knows exactly where they\'re stuck.',
-    description: 'GyanGuru is a personalised tutor assigned by the teacher, guided by GyanAnalytx data. It knows which misconceptions each student carries and adapts in real time — using three intelligent teaching agents.',
+    description: 'GyanGuru is a personalised tutor assigned by the teacher, guided by GyanAnalytix data. It knows which misconceptions each student carries and adapts in real time — using three intelligent teaching agents.',
     logo: 'GyanGuru-logo.png',
     handoffTo: 'gyantest',
     handoffName: 'GyanTest',
     closure: {
       headline: 'No student left without support.',
-      body: 'GyanScan finds who\'s stuck. GyanAnalytx pinpoints exactly what\'s wrong. GyanGuru fixes it — before the gap becomes a habit.',
+      body: 'GyanScan finds who\'s stuck. GyanAnalytix pinpoints exactly what\'s wrong. GyanGuru fixes it — before the gap becomes a habit.',
     },
     features: [
       {
@@ -193,13 +193,13 @@ export const products = [
     acatAction: 'Test',
     tagline: 'Every summative format. One instant result.',
     headline: 'Summative assessment that closes the loop.',
-    description: 'GyanTest handles all forms of summative assessment — OMR, online, printed, and subjective — with instant or rapid marking. Six question formats, one system. Results feed directly back into GyanAnalytx to start the next ACATT cycle.',
+    description: 'GyanTest handles all forms of summative assessment — OMR, online, printed, and subjective — with instant or rapid marking. Six question formats, one system. Results feed directly back into GyanAnalytix to start the next ACATT framework.',
     logo: 'Gyantesta-logo.png',
     handoffTo: 'gyanbank',
     handoffName: 'GyanBank',
     closure: {
       headline: 'Your teacher stops grading at midnight.',
-      body: 'Objective types marked instantly. Short answers rubric-guided in minutes. Reports before students leave the room. GyanTest closes the ACATT cycle — so the next one begins sharper.',
+      body: 'Objective types marked instantly. Short answers rubric-guided in minutes. Reports before students leave the room. GyanTest closes the ACATT framework — so the next one begins sharper.',
     },
     features: [
       {
@@ -220,7 +220,7 @@ export const products = [
       {
         title: 'Multiple Choice Questions (MCQ)',
         summary: 'Distractor-based diagnostic MCQs from GyanBank.',
-        detail: "Every MCQ in GyanTest is drawn from GyanBank's distractor-based library — meaning each wrong option reveals a specific misconception, not just a random error. Marks and misconception data flow directly to GyanAnalytx.",
+        detail: "Every MCQ in GyanTest is drawn from GyanBank's distractor-based library — meaning each wrong option reveals a specific misconception, not just a random error. Marks and misconception data flow directly to GyanAnalytix.",
       },
       {
         title: 'Match the Following',
@@ -230,12 +230,12 @@ export const products = [
       {
         title: 'VSAQ / SAQ — Short Answer Questions',
         summary: 'Brief written responses. Teacher-reviewed.',
-        detail: "Very Short Answer Questions (VSAQ, 1–2 sentences) and Short Answer Questions (SAQ, 3–5 sentences) are captured digitally or via printed format. Teacher marks these with rubric guidance generated from GyanBank's question metadata.",
+        detail: 'Very Short Answer Questions (VSAQ, 1–2 sentences) and Short Answer Questions (SAQ, 3–5 sentences) are captured digitally or via printed format. Teacher marks these with rubric guidance generated from GyanBank\'s question metadata.',
       },
       {
         title: 'LAQ — Long Answer / Essay',
         summary: 'Deep conceptual understanding in extended form.',
-        detail: "Long Answer Questions test synthesis, analysis, and evaluation — the upper Bloom's levels. GyanTest provides structured rubric templates per LAQ and a digital annotation interface for teacher marking. Scored results feed back into GyanAnalytx.",
+        detail: "Long Answer Questions test synthesis, analysis, and evaluation — the upper Bloom's levels. GyanTest provides structured rubric templates per LAQ and a digital annotation interface for teacher marking. Scored results feed back into GyanAnalytix.",
       },
       {
         title: 'Instant & Rapid Marking',
@@ -248,9 +248,9 @@ export const products = [
         detail: 'GyanTest generates three reports automatically after every exam: a class-level overview for teachers, a per-student diagnostic for students, and a parent-ready PTM summary. Print, email, or share via WhatsApp link.',
       },
       {
-        title: 'Closes the ACATT Cycle',
+        title: 'Closes the ACATT framework',
         summary: 'Summative data feeds the next round of authoring.',
-        detail: 'GyanTest results flow directly into GyanAnalytx and inform which GyanBank questions teachers select next — restarting the ACATT cycle with fresh, precise data from every summative sitting.',
+        detail: 'GyanTest results flow directly into GyanAnalytix and inform which GyanBank questions teachers select next — restarting the ACATT framework with fresh, precise data from every summative sitting.',
       },
     ],
   },

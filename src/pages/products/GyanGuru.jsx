@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+﻿import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import AcatChain from '../../components/shared/AcatChain';
@@ -8,7 +8,7 @@ import gyanGuruLogo from '../../assets/logos/GyanGuru-logo.png';
 
 const COLOR = '#E85C7A';
 
-// ── Learning loop — 4 steps ───────────────────────────────────────────────────
+// â”€â”€ Learning loop — 4 steps â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const loopSteps = [
   {
     num: '01',
@@ -20,8 +20,8 @@ const loopSteps = [
   {
     num: '02',
     label: 'Diagnose',
-    body: 'GyanAnalytx generates subtopic-level diagnostic reports in seconds — not a score, a learning map for every student.',
-    product: 'GyanAnalytx',
+    body: 'GyanAnalytix generates subtopic-level diagnostic reports in seconds — not a score, a learning map for every student.',
+    product: 'GyanAnalytix',
     productColor: '#F5A623',
   },
   {
@@ -40,7 +40,7 @@ const loopSteps = [
   },
 ];
 
-// ── Three agent modes ─────────────────────────────────────────────────────────
+// â”€â”€ Three agent modes â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const agents = [
   {
     name: 'Guru',
@@ -77,7 +77,7 @@ export default function GyanGuru() {
   return (
     <main style={{ paddingTop: 80 }}>
 
-      {/* ── Hero ─────────────────────────────────────────────────────────── */}
+      {/* â”€â”€ Hero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section style={{
         padding: 'clamp(48px, 6vw, 80px) clamp(24px, 5vw, 56px)',
         maxWidth: 1100, margin: '0 auto',
@@ -137,7 +137,7 @@ export default function GyanGuru() {
 
               <div style={{ display: 'flex', gap: 10 }}>
                 <Link to="/contact" className="btn-primary">
-                  See GyanGuru in action →
+                  See GyanGuru in action â†’
                 </Link>
               </div>
             </div>
@@ -160,7 +160,7 @@ export default function GyanGuru() {
         </motion.div>
       </section>
 
-      {/* ── From Assessment to Mastery loop ──────────────────────────────── */}
+      {/* â”€â”€ From Assessment to Mastery loop â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section style={{ background: 'var(--bg-dark)', padding: 'clamp(56px, 6vw, 88px) clamp(24px, 5vw, 56px)' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <motion.div
@@ -231,7 +231,7 @@ export default function GyanGuru() {
                   {step.body}
                 </p>
                 {i < 3 && (
-                  <p style={{ marginTop: 18, fontSize: 14, color: step.productColor, fontWeight: 600, opacity: 0.7 }}>→</p>
+                  <p style={{ marginTop: 18, fontSize: 14, color: step.productColor, fontWeight: 600, opacity: 0.7 }}>â†’</p>
                 )}
               </motion.div>
             ))}
@@ -239,7 +239,7 @@ export default function GyanGuru() {
         </div>
       </section>
 
-      {/* ── Three agents ──────────────────────────────────────────────────── */}
+      {/* â”€â”€ Three agents â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section style={{ padding: 'clamp(56px, 6vw, 88px) clamp(24px, 5vw, 56px)' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <motion.div
@@ -319,7 +319,7 @@ export default function GyanGuru() {
         </div>
       </section>
 
-      {/* ── Key features ──────────────────────────────────────────────────── */}
+      {/* â”€â”€ Key features â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section style={{
         background: 'var(--bg-subtle, #F4F5F9)',
         padding: 'clamp(56px, 6vw, 88px) clamp(24px, 5vw, 56px)',
@@ -351,7 +351,7 @@ export default function GyanGuru() {
         </div>
       </section>
 
-      {/* ── ACATT position ──────────────────────────────────────────────────── */}
+      {/* â”€â”€ ACATT position â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section style={{
         padding: 'clamp(40px, 5vw, 64px) clamp(24px, 5vw, 56px) 56px',
         maxWidth: 1100, margin: '0 auto',
@@ -361,12 +361,12 @@ export default function GyanGuru() {
           borderRadius: 6, border: '1px solid var(--border)',
           padding: '20px 28px',
         }}>
-          <p className="section-label" style={{ marginBottom: 16 }}>Where GyanGuru sits in the ACATT cycle</p>
+          <p className="section-label" style={{ marginBottom: 16 }}>Where GyanGuru sits in the ACATT framework</p>
           <AcatChain activeSlug="gyanguru" />
         </div>
       </section>
 
-      {/* ── Handoff CTA ──────────────────────────────────────────────────── */}
+      {/* â”€â”€ Handoff CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section style={{
         padding: '0 clamp(24px, 5vw, 56px) 0',
         maxWidth: 1100, margin: '0 auto',
@@ -393,13 +393,13 @@ export default function GyanGuru() {
           }} />
           <div style={{ position: 'relative' }}>
             <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.32)', marginBottom: 10 }}>
-              Up next in the ACATT cycle
+              Up next in the ACATT framework
             </p>
             <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: 800, color: '#fff', marginBottom: 10, letterSpacing: '-0.02em' }}>
               GyanTest
             </h3>
             <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.45)', maxWidth: 400, lineHeight: 1.7, fontWeight: 300 }}>
-              After GyanGuru closes the misconception gap, GyanTest provides summative validation — every format, instant results, feeding the next ACATT cycle.
+              After GyanGuru closes the misconception gap, GyanTest provides summative validation — every format, instant results, feeding the next ACATT framework.
             </p>
           </div>
           <Link
@@ -414,12 +414,12 @@ export default function GyanGuru() {
             onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
             onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
           >
-            Explore GyanTest →
+            Explore GyanTest â†’
           </Link>
         </motion.div>
       </section>
 
-      {/* ── Closure / Book a Demo — always last ─────────────────────────── */}
+      {/* â”€â”€ Closure / Book a Demo — always last â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section style={{ background: 'var(--bg-subtle)', padding: 'clamp(48px, 5vw, 72px) clamp(24px, 5vw, 56px)' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', textAlign: 'center' }}>
           <motion.div
@@ -440,9 +440,9 @@ export default function GyanGuru() {
               fontSize: 'clamp(14px, 1.4vw, 17px)', color: 'var(--text-secondary)',
               maxWidth: 500, margin: '0 auto 32px', lineHeight: 1.8, fontWeight: 300,
             }}>
-              GyanScan finds who's stuck. GyanAnalytx pinpoints exactly what's wrong. GyanGuru fixes it — before the gap becomes a habit.
+              GyanScan finds who's stuck. GyanAnalytix pinpoints exactly what's wrong. GyanGuru fixes it — before the gap becomes a habit.
             </p>
-            <Link to="/contact" className="btn-gold">Book a Demo →</Link>
+            <Link to="/contact" className="btn-gold">Book a Demo â†’</Link>
           </motion.div>
         </div>
       </section>

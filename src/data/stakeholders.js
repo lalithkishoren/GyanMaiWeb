@@ -26,7 +26,7 @@ export const stakeholders = [
       },
     ],
     products: ['gyanscan', 'gyanguru', 'gyananalytx'],
-    productIntro: 'Three tools. Built for you.',
+    productIntro: 'Three productions. Built for you.',
   },
   {
     slug: 'teachers',
@@ -55,7 +55,7 @@ export const stakeholders = [
       },
     ],
     products: ['gyanscan', 'gyananalytx', 'gyanbank', 'gyantest'],
-    productIntro: 'Four tools. One complete teaching system.',
+    productIntro: 'Four products. One complete teaching system.',
   },
   {
     slug: 'parents',
@@ -89,6 +89,7 @@ export const stakeholders = [
   {
     slug: 'school-management',
     label: 'School Management',
+    builtForLabel: 'Quality Schools',
     path: '/school-management',
     painTeaser: 'Brand value is learning outcomes, not toppers.',
     heroHeadline: 'From exam factory to learning institution.',
