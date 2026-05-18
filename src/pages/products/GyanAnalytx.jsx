@@ -76,12 +76,13 @@ export default function GyanAnalytx() {
             Step 3 — Analyse
           </span>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr auto',
-            gap: 'clamp(32px, 5vw, 72px)',
-            alignItems: 'start',
-          }}>
+          <div
+            className="grid grid-cols-1 md:grid-cols-[1fr_auto]"
+            style={{
+              gap: 'clamp(32px, 5vw, 72px)',
+              alignItems: 'start',
+            }}
+          >
             <div style={{ maxWidth: 640 }}>
               <div style={{ marginBottom: 16 }}>
                 <img
@@ -165,7 +166,7 @@ export default function GyanAnalytx() {
             </p>
           </motion.div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 8 }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             {views.map((v, i) => (
               <motion.div
                 key={v.role}
@@ -220,7 +221,7 @@ export default function GyanAnalytx() {
             </p>
           </motion.div>
 
-          <div ref={reportRef} style={{ display: 'grid', gridTemplateColumns: '1fr 1.4fr', gap: 16, alignItems: 'start' }}>
+          <div ref={reportRef} className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr] gap-4" style={{ alignItems: 'start' }}>
 
             {/* Student info card */}
             <motion.div
@@ -353,7 +354,7 @@ export default function GyanAnalytx() {
               Key features
             </h2>
           </div>
-          <div ref={featuresRef} style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 8 }}>
+          <div ref={featuresRef} className="grid grid-cols-1 md:grid-cols-2 gap-2">
             {product.features.map((f, i) => (
               <motion.div
                 key={f.title}

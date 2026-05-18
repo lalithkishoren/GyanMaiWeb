@@ -97,12 +97,13 @@ export default function GyanGuru() {
             Step 4 — Teach
           </span>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr auto',
-            gap: 'clamp(32px, 5vw, 72px)',
-            alignItems: 'start',
-          }}>
+          <div
+            className="grid grid-cols-1 md:grid-cols-[1fr_auto]"
+            style={{
+              gap: 'clamp(32px, 5vw, 72px)',
+              alignItems: 'start',
+            }}
+          >
             <div style={{ maxWidth: 640 }}>
               <div style={{ marginBottom: 16 }}>
                 <img
@@ -188,7 +189,7 @@ export default function GyanGuru() {
             </p>
           </motion.div>
 
-          <div ref={loopRef} style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2 }}>
+          <div ref={loopRef} className="grid grid-cols-2 md:grid-cols-4 gap-0.5">
             {loopSteps.map((step, i) => (
               <motion.div
                 key={step.num}
@@ -266,15 +267,13 @@ export default function GyanGuru() {
                 initial={{ opacity: 0, x: -16 }}
                 animate={agentsInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: i * 0.1, duration: 0.45 }}
+                className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-6 md:gap-8"
                 style={{
                   background: 'var(--bg-card)',
                   borderRadius: 4,
                   borderLeft: `3px solid ${COLOR}`,
                   padding: '28px 28px',
                   boxShadow: 'var(--shadow-sm)',
-                  display: 'grid',
-                  gridTemplateColumns: '200px 1fr',
-                  gap: 32,
                   alignItems: 'start',
                 }}
               >
@@ -337,7 +336,7 @@ export default function GyanGuru() {
               Built for real classroom complexity
             </h2>
           </div>
-          <div ref={featuresRef} style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 8 }}>
+          <div ref={featuresRef} className="grid grid-cols-1 md:grid-cols-2 gap-2">
             {product.features.map((f, i) => (
               <motion.div
                 key={f.title}

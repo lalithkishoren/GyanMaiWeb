@@ -72,12 +72,13 @@ export default function GyanScan() {
             Step 2 — Capture
           </span>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr auto',
-            gap: 'clamp(32px, 5vw, 72px)',
-            alignItems: 'start',
-          }}>
+          <div
+            className="grid grid-cols-1 md:grid-cols-[1fr_auto]"
+            style={{
+              gap: 'clamp(32px, 5vw, 72px)',
+              alignItems: 'start',
+            }}
+          >
             <div style={{ maxWidth: 640 }}>
               <div style={{ marginBottom: 16 }}>
                 <img
@@ -151,7 +152,7 @@ export default function GyanScan() {
             Key features
           </h2>
         </div>
-        <div ref={featuresRef} style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 8 }}>
+        <div ref={featuresRef} className="grid grid-cols-1 md:grid-cols-2 gap-2">
           {product.features.map((f, i) => (
             <motion.div
               key={f.title}
@@ -291,7 +292,7 @@ export default function GyanScan() {
             </h2>
           </motion.div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 8 }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
             {[
               { role: 'Students', quote: '"Mistakes are Data, Not Defeats."', body: 'No more fear. Every wrong answer becomes a roadmap, not a dead end.', color: '#4F7EF5' },
               { role: 'Teachers', quote: '"Targeted Teaching."', body: 'Spend energy fixing the logic, not grading the paper. Instruction becomes precision, not instinct.', color: COLOR },
