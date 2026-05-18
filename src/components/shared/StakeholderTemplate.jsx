@@ -196,7 +196,7 @@ export default function StakeholderTemplate({ stakeholder }) {
           </h2>
         </motion.div>
 
-        <div ref={problemsRef} style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 10 }}>
+        <div ref={problemsRef} className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
           {stakeholder.problems.map((p, i) => (
             <ProblemCard key={p.title} problem={p} index={i} inView={problemsInView} accentColor={accentColor} />
           ))}
@@ -225,12 +225,12 @@ export default function StakeholderTemplate({ stakeholder }) {
 
           <div
             ref={productsRef}
-            style={{
-              display: 'grid',
-              gridTemplateColumns: `repeat(${Math.min(stakeholder.products.length, 3)}, 1fr)`,
-              gap: 10, marginBottom: 44,
-              alignItems: 'stretch',
-            }}
+            className={`grid grid-cols-1 sm:grid-cols-2 ${
+              { 1: 'md:grid-cols-1', 2: 'md:grid-cols-2', 3: 'md:grid-cols-3' }[
+                Math.min(stakeholder.products.length, 3)
+              ]
+            } gap-2.5 mb-11`}
+            style={{ alignItems: 'stretch' }}
           >
             {stakeholder.products.map((slug, i) => (
               <ProductHighlight key={slug} slug={slug} accentColor={accentColor} index={i} inView={productsInView} />

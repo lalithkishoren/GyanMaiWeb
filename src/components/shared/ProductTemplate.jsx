@@ -87,12 +87,13 @@ export default function ProductTemplate({ product }) {
             Step {product.acatStep} — {product.acatAction}
           </motion.span>
 
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr auto',
-            gap: 'clamp(32px, 5vw, 72px)',
-            alignItems: 'start',
-          }}>
+          <div
+            className="grid grid-cols-1 md:grid-cols-[1fr_auto]"
+            style={{
+              gap: 'clamp(32px, 5vw, 72px)',
+              alignItems: 'start',
+            }}
+          >
             {/* Left — copy */}
             <div style={{ maxWidth: 640 }}>
               <motion.div
@@ -154,8 +155,8 @@ export default function ProductTemplate({ product }) {
 
             {/* Right — headline pull quote with parallax */}
             <motion.div
+              className="w-full md:w-[clamp(200px,22vw,280px)]"
               style={{
-                width: 'clamp(200px, 22vw, 280px)',
                 flexShrink: 0,
                 paddingTop: 8,
                 y: quoteY,
@@ -209,7 +210,7 @@ export default function ProductTemplate({ product }) {
           </h2>
         </motion.div>
 
-        <div ref={featuresRef} style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 8 }}>
+        <div ref={featuresRef} className="grid grid-cols-1 md:grid-cols-2 gap-2">
           {product.features.map((feature, i) => (
             <motion.div
               key={feature.title}
