@@ -13,13 +13,13 @@ export default function About() {
   return (
     <main style={{ paddingTop: 80 }}>
       {/* Mission */}
-      <section style={{ padding: '60px 40px 60px', maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
+      <section className="px-5 md:px-10 py-12 md:py-[60px]" style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           <span className="section-label" style={{ display: 'block', marginBottom: 12 }}>About Gyanmai</span>
-          <h1 style={{ fontSize: 48, fontWeight: 800, letterSpacing: '-1.5px', color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 16 }}>
+          <h1 style={{ fontSize: 'clamp(32px, 6vw, 48px)', fontWeight: 800, letterSpacing: '-1.5px', color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 16 }}>
             We are a research-driven EdTech<br />product development company.
           </h1>
-          <p style={{ fontSize: 18, color: 'var(--text-secondary)', lineHeight: 1.7, maxWidth: 560, margin: '0 auto 32px' }}>
+          <p style={{ fontSize: 'clamp(16px, 1.8vw, 18px)', color: 'var(--text-secondary)', lineHeight: 1.7, maxWidth: 560, margin: '0 auto 32px' }}>
             Our mission: Beyond Marks. Into Understanding. We build tools that make learning visible — not as a metric, but as a lived experience in every classroom.
           </p>
 
@@ -32,7 +32,7 @@ export default function About() {
       </section>
 
       {/* Patent */}
-      <section style={{ padding: '0 40px 60px', maxWidth: 1100, margin: '0 auto' }}>
+      <section className="px-5 md:px-10 pb-12 md:pb-[60px]" style={{ maxWidth: 1100, margin: '0 auto' }}>
         <div className="card" style={{ padding: '28px 32px', display: 'flex', gap: 24, alignItems: 'flex-start', flexWrap: 'wrap' }}>
           <div style={{ width: 44, height: 44, borderRadius: 12, background: 'var(--accent-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -49,12 +49,12 @@ export default function About() {
       </section>
 
       {/* Compliance */}
-      <section style={{ padding: '0 40px 80px', maxWidth: 1100, margin: '0 auto' }}>
+      <section className="px-5 md:px-10 pb-16 md:pb-20" style={{ maxWidth: 1100, margin: '0 auto' }}>
         <div style={{ marginBottom: 24 }}>
           <span className="section-label">Data & compliance</span>
-          <h2 style={{ fontSize: 26, fontWeight: 700, marginTop: 6, color: 'var(--text-primary)' }}>Student data, protected</h2>
+          <h2 style={{ fontSize: 'clamp(22px, 3vw, 26px)', fontWeight: 700, marginTop: 6, color: 'var(--text-primary)' }}>Student data, protected</h2>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 10 }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
           {badges.map((b) => (
             <div key={b.label} className="card" style={{ padding: '20px 22px', display: 'flex', gap: 14, alignItems: 'flex-start' }}>
               <div style={{ width: 8, height: 8, borderRadius: '50%', background: '#2DC4A2', marginTop: 5, flexShrink: 0 }} />

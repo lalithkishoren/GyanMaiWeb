@@ -15,7 +15,8 @@ function StageSection({ stage, index }) {
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5 }}
-      style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32, marginBottom: 60, alignItems: 'center' }}
+      className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12 md:mb-[60px]"
+      style={{ alignItems: 'center' }}
     >
       <div style={{ order: isEven ? 0 : 1 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 16 }}>
@@ -56,13 +57,13 @@ export default function Platform() {
   return (
     <main style={{ paddingTop: 80 }}>
       {/* Hero */}
-      <section style={{ padding: '60px 24px 40px', maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
+      <section className="px-5 md:px-6 py-12 md:py-[60px] md:pb-10" style={{ maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           <span className="section-label" style={{ display: 'block', marginBottom: 12 }}>The Platform</span>
-          <h1 style={{ fontSize: 52, fontWeight: 800, letterSpacing: '-1.5px', color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 16 }}>
+          <h1 style={{ fontSize: 'clamp(34px, 6vw, 52px)', fontWeight: 800, letterSpacing: '-1.5px', color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 16 }}>
             The ACATT Framework
           </h1>
-          <p style={{ fontSize: 18, color: 'var(--text-secondary)', lineHeight: 1.7, maxWidth: 560, margin: '0 auto 32px' }}>
+          <p style={{ fontSize: 'clamp(16px, 1.8vw, 18px)', color: 'var(--text-secondary)', lineHeight: 1.7, maxWidth: 560, margin: '0 auto 32px' }}>
             Five integrated products. One continuous cycle. Data flows from one product to the next — Author, Capture, Analyse, Teach, Test — and the ACATT cycle repeats.
           </p>
 
@@ -105,16 +106,16 @@ export default function Platform() {
       </section>
 
       {/* Stage deep-dives */}
-      <section style={{ padding: '0 40px 40px', maxWidth: 1100, margin: '0 auto' }}>
+      <section className="px-5 md:px-10 pb-10" style={{ maxWidth: 1100, margin: '0 auto' }}>
         {acatStages.map((stage, i) => (
           <StageSection key={stage.slug} stage={stage} index={i} />
         ))}
       </section>
 
       {/* Data handoff callout */}
-      <section style={{ padding: '0 24px 60px', maxWidth: 1100, margin: '0 auto' }}>
-        <div className="card" style={{ padding: '36px 32px', background: 'var(--text-primary)', color: '#fff', borderRadius: 24 }}>
-          <h2 style={{ fontSize: 28, fontWeight: 700, color: '#fff', marginBottom: 12 }}>Data flows through the ACATT cycle</h2>
+      <section className="px-5 md:px-6 pb-12 md:pb-[60px]" style={{ maxWidth: 1100, margin: '0 auto' }}>
+        <div className="card p-6 md:p-9" style={{ background: 'var(--text-primary)', color: '#fff', borderRadius: 24 }}>
+          <h2 style={{ fontSize: 'clamp(22px, 3vw, 28px)', fontWeight: 700, color: '#fff', marginBottom: 12 }}>Data flows through the ACATT cycle</h2>
           <p style={{ fontSize: 15, color: 'rgba(255,255,255,0.6)', lineHeight: 1.7, maxWidth: 600 }}>
             GyanScan captures the data. GyanAnalytx surfaces the pattern. GyanGuru addresses the misconception. GyanTest confirms mastery. The results feed back into GyanBank for the next round of authoring.
           </p>
@@ -142,12 +143,12 @@ export default function Platform() {
       </section>
 
       {/* Stakeholder selector */}
-      <section style={{ padding: '0 24px 80px', maxWidth: 1100, margin: '0 auto' }}>
+      <section className="px-5 md:px-6 pb-16 md:pb-20" style={{ maxWidth: 1100, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 28 }}>
-          <h2 style={{ fontSize: 26, fontWeight: 700, color: 'var(--text-primary)' }}>Which parts of ACATT are right for you?</h2>
+          <h2 style={{ fontSize: 'clamp(22px, 3vw, 26px)', fontWeight: 700, color: 'var(--text-primary)' }}>Which parts of ACATT are right for you?</h2>
           <p style={{ fontSize: 15, color: 'var(--text-secondary)', marginTop: 8 }}>Pick your role to see which parts of the ACATT cycle apply.</p>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 10 }}>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2.5">
           {stakeholders.map((s) => (
             <Link
               key={s.slug}
