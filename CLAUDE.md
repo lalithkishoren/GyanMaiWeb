@@ -43,6 +43,12 @@ Content lives as plain JS modules in [src/data/](src/data/) — `products.js`, `
 - `components/ui/` — generic primitives (`CustomCursor`, `VideoBackground`)
 - `context/ThemeContext.jsx` — global theme. Note: `index.html` force-sets `data-theme="light"` on `<html>` before React mounts, overriding OS dark mode.
 
+### Demo booking form
+
+The Contact page form ([src/pages/Contact.jsx](src/pages/Contact.jsx)) POSTs as `text/plain` (to skip CORS preflight) with `mode: 'no-cors'` to a Google Apps Script web app, which appends a row to a Google Sheet and emails notifications via `GmailApp.sendEmail`. The Apps Script source is mirrored at [apps-script/Code.gs](apps-script/Code.gs) — that file is **not** auto-deployed; the source of truth is the Apps Script editor attached to the sheet. After editing in the editor, paste the new version into `Code.gs` and commit so the repo stays in sync.
+
+The web app URL is held in `VITE_SHEETS_ENDPOINT` (`.env.local` for dev, Vercel env vars for prod). Vite bakes env vars at build time — any change to this var requires a redeploy on Vercel.
+
 ### Assets
 
 Static assets in [public/](public/) (served at root) and bundled assets in [src/assets/](src/assets/) (`images/`, `logos/`, `videos/`). Import from `src/assets/` when you need Vite hashing; use `public/` for files referenced by stable URL.
