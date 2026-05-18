@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function HomeCta() {
   return (
-    <section style={{ background: 'var(--bg-dark)', padding: '96px 32px', position: 'relative', overflow: 'hidden' }}>
+    <section className="px-5 md:px-8 py-16 md:py-24" style={{ background: 'var(--bg-dark)', position: 'relative', overflow: 'hidden' }}>
       {/* Gold radial */}
       <div style={{
         position: 'absolute', top: '50%', left: '50%',

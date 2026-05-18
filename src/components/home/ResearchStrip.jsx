@@ -44,10 +44,8 @@ export default function ResearchStrip() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.6 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
           style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: 48,
             alignItems: 'end',
             marginBottom: 56,
           }}
@@ -77,7 +75,7 @@ export default function ResearchStrip() {
         </motion.div>
 
         {/* Cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {cards.map((card, i) => (
             <motion.div
               key={card.institution}

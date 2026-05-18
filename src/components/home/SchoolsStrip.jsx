@@ -5,7 +5,7 @@ import { schoolStats } from '../../data/stats';
 
 export default function SchoolsStrip() {
   return (
-    <section style={{ background: 'var(--bg-subtle)', padding: '80px 32px' }}>
+    <section className="px-5 md:px-8 py-16 md:py-20" style={{ background: 'var(--bg-subtle)' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto' }}>
         {/* Stats row */}
         <motion.div
@@ -29,7 +29,7 @@ export default function SchoolsStrip() {
             </h2>
           </div>
 
-          <div style={{ display: 'flex', gap: 32 }}>
+          <div className="gap-5 md:gap-8" style={{ display: 'flex', flexWrap: 'wrap' }}>
             {[
               { val: schoolStats.total,            label: 'Schools' },
               { val: schoolStats.live,              label: 'Live customer' },

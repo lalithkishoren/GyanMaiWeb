@@ -30,11 +30,10 @@ export default function HeroQuadrant() {
 
   return (
     <section
+      className="h-[80vh] md:h-[85vh] min-h-[520px]"
       style={{
         position: 'relative',
         width: '100%',
-        height: '85vh',
-        minHeight: 520,
         background: '#05070E',
         overflow: 'hidden',
       }}
@@ -139,12 +138,13 @@ export default function HeroQuadrant() {
                 onMouseLeave={() => setIsPaused(false)}
                 animate={{ background: isActive ? `${q.accent}22` : 'rgba(0,0,0,0)' }}
                 transition={{ duration: 0.3 }}
+                className="px-2 py-3 md:px-4 md:py-4 md:pb-5"
                 style={{
                   flex: 1,
                   border: 'none',
                   borderRight: i < quadrants.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
-                  padding: '16px 16px 22px',
                   cursor: 'pointer', position: 'relative', textAlign: 'left',
+                  minWidth: 0,
                 }}
               >
                 {/* Progress bar */}
@@ -173,12 +173,16 @@ export default function HeroQuadrant() {
                   transition={{ duration: 0.25 }}
                   style={{ borderRadius: '50%', marginBottom: 8 }}
                 />
-                <span style={{
-                  display: 'block', fontSize: 12,
-                  fontWeight: isActive ? 700 : 400,
-                  color: isActive ? '#fff' : 'rgba(255,255,255,0.38)',
-                  letterSpacing: '0.02em', transition: 'color 0.25s', whiteSpace: 'nowrap',
-                }}>
+                <span
+                  className="text-[10px] md:text-xs"
+                  style={{
+                    display: 'block',
+                    fontWeight: isActive ? 700 : 400,
+                    color: isActive ? '#fff' : 'rgba(255,255,255,0.38)',
+                    letterSpacing: '0.02em', transition: 'color 0.25s',
+                    overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+                  }}
+                >
                   {q.label}
                 </span>
                 {isActive && (

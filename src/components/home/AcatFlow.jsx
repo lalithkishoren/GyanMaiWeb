@@ -51,7 +51,7 @@ export default function AcatFlow() {
         pointerEvents: 'none',
       }} />
 
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '96px 32px' }}>
+      <div className="px-5 md:px-8 py-16 md:py-24" style={{ maxWidth: 1200, margin: '0 auto' }}>
 
         {/* Header */}
         <motion.div
@@ -87,15 +87,11 @@ export default function AcatFlow() {
         {/* Loop layout */}
         <div
           ref={ref}
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: 48,
-            alignItems: 'center',
-          }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12"
+          style={{ alignItems: 'center' }}
         >
           {/* Left — circle SVG */}
-          <div style={{ position: 'relative', width: '100%', paddingBottom: '100%' }}>
+          <div className="mx-auto md:mx-0" style={{ position: 'relative', width: '100%', maxWidth: 460, paddingBottom: 'min(100%, 460px)' }}>
             <div style={{ position: 'absolute', inset: 0 }}>
               <svg
                 viewBox="-18 -8 136 120"
