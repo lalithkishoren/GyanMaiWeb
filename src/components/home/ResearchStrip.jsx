@@ -35,8 +35,12 @@ const cards = [
 
 export default function ResearchStrip() {
   return (
-    <section style={{ background: 'var(--bg-subtle)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: 'clamp(72px, 8vw, 112px) clamp(24px, 5vw, 64px)' }}>
-      <div style={{ maxWidth: 1160, margin: '0 auto' }}>
+    <section style={{ position: 'relative', overflow: 'hidden', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', padding: 'clamp(72px, 8vw, 112px) clamp(24px, 5vw, 64px)' }}>
+      {/* Gradient blobs so the liquid-glass blur effect is visible */}
+      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(120deg, rgba(79,126,245,0.10) 0%, rgba(45,196,162,0.08) 40%, rgba(232,92,122,0.08) 80%, transparent 100%)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', top: '-10%', left: '5%', width: 400, height: 400, borderRadius: '50%', background: 'rgba(79,126,245,0.12)', filter: 'blur(100px)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', bottom: '-10%', right: '5%', width: 360, height: 360, borderRadius: '50%', background: 'rgba(232,92,122,0.10)', filter: 'blur(100px)', pointerEvents: 'none' }} />
+      <div style={{ maxWidth: 1160, margin: '0 auto', position: 'relative', zIndex: 1 }}>
 
         {/* Header */}
         <motion.div
@@ -61,9 +65,9 @@ export default function ResearchStrip() {
               lineHeight: 1.08,
             }}>
               The science is settled.<br />
-              <em style={{ fontStyle: 'italic', fontWeight: 300, fontSize: '0.85em', color: 'var(--text-secondary)' }}>
+              <span style={{ fontWeight: 300, fontSize: '0.85em', color: 'var(--text-secondary)' }}>
                 The policies confirm it.
-              </em>
+              </span>
             </h2>
           </div>
           <p style={{

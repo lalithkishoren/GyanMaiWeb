@@ -19,8 +19,11 @@ export default function About() {
           <h1 style={{ fontSize: 48, fontWeight: 800, letterSpacing: '-1.5px', color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 16 }}>
             We are a research-driven EdTech<br />product development company.
           </h1>
-          <p style={{ fontSize: 18, color: 'var(--text-secondary)', lineHeight: 1.7, maxWidth: 560, margin: '0 auto 32px' }}>
-            Our mission: Beyond Marks. Into Understanding. We build tools that make learning visible — not as a metric, but as a lived experience in every classroom.
+          <p style={{ fontSize: 18, color: 'var(--text-secondary)', lineHeight: 1.7, maxWidth: 660, margin: '0 auto 20px' }}>
+            Gyanmai's mission is to empower every stakeholder in school education. Our starting point — the foundational lever every school needs first — is a complete, end-to-end Academic Intelligence platform.
+          </p>
+          <p style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.75, maxWidth: 640, margin: '0 auto 32px' }}>
+            Building daily, evidence-backed learning at scale isn't a feature you procure once — it's a capability your school grows with. Gyanmai is your tech partner: a patent-filed, cutting-edge, complete Assessment &amp; Analytics platform — surfacing every student's thinking, gaps, and misconceptions across daily classroom checks, summative exams, and AI tutoring. So your school can act every day — not just after the exam.
           </p>
 
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', justifyContent: 'center' }}>
@@ -51,8 +54,14 @@ export default function About() {
       {/* Compliance */}
       <section style={{ padding: '0 40px 80px', maxWidth: 1100, margin: '0 auto' }}>
         <div style={{ marginBottom: 24 }}>
-          <span className="section-label">Data & compliance</span>
-          <h2 style={{ fontSize: 26, fontWeight: 700, marginTop: 6, color: 'var(--text-primary)' }}>Student data, protected</h2>
+          <h2 style={{
+            fontSize: 26, fontWeight: 800,
+            color: 'var(--text-primary)',
+            display: 'inline-block',
+            background: 'var(--gold-light)',
+            padding: '3px 12px',
+            borderRadius: 5,
+          }}>Data &amp; compliance</h2>
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 10 }}>
           {badges.map((b) => (

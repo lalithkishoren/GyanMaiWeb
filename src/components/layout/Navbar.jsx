@@ -1,8 +1,22 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import wordmark from '../../assets/logos/gyanmai-logo.png';
+import wordmark from '../../assets/logos/gyanmai-final-logo-2.png';
 import { useTheme } from '../../context/ThemeContext';
+
+function getDemoLabel(pathname) {
+  const productMap = { gyanbank: 'GyanBank', gyanscan: 'GyanScan', gyananalytx: 'GyanAnalytix', gyanguru: 'GyanGuru', gyantest: 'GyanTest' };
+  if (pathname.startsWith('/products/')) {
+    const slug = pathname.split('/products/')[1];
+    return `See ${productMap[slug] || 'Product'} in Action`;
+  }
+  if (pathname.startsWith('/students'))          return 'Demo for Students';
+  if (pathname.startsWith('/teachers'))          return 'Demo for Teachers';
+  if (pathname.startsWith('/parents'))           return 'Demo for Parents';
+  if (pathname.startsWith('/school-management')) return 'Demo for Your School';
+  if (pathname.startsWith('/policy-makers'))     return 'Demo for Policy Teams';
+  return 'Book a Demo';
+}
 
 const productItems = [
   { label: 'GyanBank',    path: '/products/gyanbank',    sub: 'Author' },
@@ -20,6 +34,7 @@ export default function Navbar() {
   const { theme, toggle } = useTheme();
 
   const onHome = pathname === '/';
+  const demoLabel = getDemoLabel(pathname);
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 40);
@@ -40,7 +55,7 @@ export default function Navbar() {
       className="px-4 md:px-8"
       style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-        height: 62,
+        height: 72,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
         background: frosted
           ? (theme === 'dark' ? 'rgba(11,15,28,0.88)' : 'rgba(250,249,245,0.90)')
@@ -52,15 +67,20 @@ export default function Navbar() {
     >
       {/* Wordmark */}
       <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-        <img
-          src={wordmark}
-          alt="GyanMai"
-          style={{
-            height: 40,
-            filter: lightText ? 'invert(1)' : 'none',
-            transition: 'filter 0.35s',
-          }}
-        />
+        {/* Clip whitespace: PNG is 500×500, logo content is middle ~42% */}
+        <div style={{ height: 68, overflow: 'hidden', flexShrink: 0 }}>
+          <img
+            src={wordmark}
+            alt="GyanMai"
+            style={{
+              height: 161,
+              width: 'auto',
+              display: 'block',
+              marginTop: -46,
+              mixBlendMode: 'multiply',
+            }}
+          />
+        </div>
       </Link>
 
       {/* Desktop links */}
@@ -69,6 +89,7 @@ export default function Navbar() {
           { label: 'Platform', path: '/#acatt' },
           { label: 'About',    path: '/about' },
           { label: 'Success Stories',  path: '/testimonials' },
+          { label: "FAQ's",    path: '/faq' },
         ].map((l) => (
           <NavLink
             key={l.path}
@@ -123,7 +144,7 @@ export default function Navbar() {
                 style={{
                   position: 'absolute', top: 'calc(100% + 10px)', left: '50%',
                   transform: 'translateX(-50%)',
-                  background: theme === 'dark' ? '#131726' : '#FFFEF8',
+                  background: theme === 'dark' ? '#131726' : 'var(--bg-card)',
                   borderRadius: 16,
                   boxShadow: theme === 'dark'
                     ? '0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06)'
@@ -149,28 +170,31 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* CTA + Theme toggle */}
+      {/* CTA + hamburger */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
 
         <Link
           to="/contact"
-          className="px-3 py-2 md:px-5 md:py-[9px]"
+          className="hidden md:inline-flex"
           style={{
-            display: 'inline-flex', alignItems: 'center', gap: 7,
+            alignItems: 'center', gap: 7,
             borderRadius: 999,
-            background: lightText ? 'rgba(255,255,255,0.13)' : 'var(--gold)',
-            color: lightText ? '#fff' : '#1B1200',
-            border: lightText ? '1px solid rgba(255,255,255,0.22)' : 'none',
-            backdropFilter: lightText ? 'blur(12px)' : 'none',
-            fontWeight: 500, textDecoration: 'none',
-            transition: 'background 0.25s',
+            background: '#FFB400',
+            color: '#0F1A0D',
+            border: 'none',
+            fontWeight: 700, textDecoration: 'none',
+            transition: 'background 0.2s, box-shadow 0.2s',
             fontFamily: 'var(--font-body)',
             fontSize: 13,
             whiteSpace: 'nowrap',
+            padding: '8px 18px',
+            boxShadow: '0 2px 12px rgba(255,180,0,0.30)',
           }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = '#FFC933'; e.currentTarget.style.boxShadow = '0 4px 20px rgba(255,180,0,0.40)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = '#FFB400'; e.currentTarget.style.boxShadow = '0 2px 12px rgba(255,180,0,0.30)'; }}
         >
-          Book a Demo
-          <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+          {demoLabel}
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" style={{ marginLeft: 4 }}>
             <path d="M2 9L9 2M9 2H3.5M9 2V7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </Link>
@@ -199,41 +223,49 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -6 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -6 }}
+            initial={{ opacity: 0, y: -4, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -4, scale: 0.98 }}
+            transition={{ duration: 0.18 }}
             style={{
-              position: 'fixed', top: 70, left: 12, right: 12,
-              background: theme === 'dark' ? '#131726' : '#FFFEF8',
-              borderRadius: 20,
-              boxShadow: '0 12px 48px rgba(0,0,0,0.20)',
-              padding: 12,
+              position: 'fixed', top: 78, right: 12, width: 220,
+              background: theme === 'dark' ? '#131726' : 'var(--bg-card)',
+              borderRadius: 16,
+              boxShadow: '0 8px 32px rgba(0,0,0,0.14)',
+              padding: '6px 6px 8px',
               border: '1px solid var(--border)',
+              maxHeight: 'calc(100dvh - 100px)',
+              overflowY: 'auto',
             }}
           >
             {[
               { label: 'Platform',        path: '/#acatt' },
+              { label: 'About',           path: '/about' },
+              { label: 'Success Stories', path: '/testimonials' },
+              { label: "FAQ's",           path: '/faq' },
               { label: 'Students',        path: '/students' },
               { label: 'Teachers',        path: '/teachers' },
               { label: 'Parents',         path: '/parents' },
-              { label: 'School Management', path: '/school-management' },
-              { label: 'Policy Makers',   path: '/policy-makers' },
-              ...productItems,
-              { label: 'About',           path: '/about' },
-              { label: 'Success Stories',  path: '/testimonials' },
+              { label: 'School Mgmt',     path: '/school-management' },
             ].map((l) => (
               <Link key={l.path} to={l.path} onClick={() => setMobileOpen(false)}
-                style={{ display: 'block', padding: '11px 14px', borderRadius: 10, fontSize: 14, fontWeight: 500, color: 'var(--text-primary)', textDecoration: 'none' }}
+                style={{ display: 'block', padding: '7px 10px', borderRadius: 8, fontSize: 13, fontWeight: 400, color: 'var(--text-primary)', textDecoration: 'none', transition: 'background 0.15s' }}
+                onMouseEnter={(e) => e.currentTarget.style.background = 'var(--bg-base)'}
+                onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
               >
                 {l.label}
               </Link>
             ))}
-            <div style={{ marginTop: 8, paddingTop: 10, borderTop: '1px solid var(--border)' }}>
-              <Link to="/contact" onClick={() => setMobileOpen(false)}
-                className="btn-primary" style={{ width: '100%', justifyContent: 'center' }}>
-                Book a Demo →
-              </Link>
-            </div>
+            <div style={{ height: 1, background: 'var(--border)', margin: '4px 6px' }} />
+            <Link to="/contact" onClick={() => setMobileOpen(false)}
+              style={{
+                display: 'block', textAlign: 'center', margin: '4px 2px 2px',
+                padding: '8px', borderRadius: 10,
+                background: '#FFB400', color: '#0F1A0D',
+                fontSize: 13, fontWeight: 700, textDecoration: 'none',
+              }}>
+              Book a Demo →
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

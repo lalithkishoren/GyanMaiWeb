@@ -55,7 +55,7 @@ export const stakeholders = [
       },
     ],
     products: ['gyanscan', 'gyananalytx', 'gyanbank', 'gyantest'],
-    productIntro: 'Four products. One complete teaching system.',
+    productIntro: 'Four products. One complete system.',
   },
   {
     slug: 'parents',

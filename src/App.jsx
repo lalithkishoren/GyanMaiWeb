@@ -4,8 +4,6 @@ import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import ContextualSidebar from './components/layout/ContextualSidebar';
-import CustomCursor from './components/ui/CustomCursor';
-
 import Home from './pages/Home';
 import Platform from './pages/Platform';
 
@@ -24,6 +22,7 @@ import GyanTest from './pages/products/GyanTest';
 import Testimonials from './pages/Testimonials';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import FAQ from './pages/FAQ';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -46,7 +45,6 @@ export default function App() {
   return (
     <ThemeProvider>
     <BrowserRouter>
-      <CustomCursor />
       <ScrollToTop />
       <Navbar />
       <ContextualSidebar />
@@ -69,6 +67,7 @@ export default function App() {
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/faq" element={<FAQ />} />
       </Routes>
       <Footer />
     </BrowserRouter>

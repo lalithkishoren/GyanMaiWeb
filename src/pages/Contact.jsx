@@ -26,7 +26,7 @@ export default function Contact() {
       });
       setSubmitted(true);
     } catch (err) {
-      setError('Something went wrong. Please email hello@gyanmai.com directly.');
+      setError('Something went wrong. Please email murali@gyanmai.com directly.');
     } finally {
       setSubmitting(false);
     }
@@ -48,9 +48,9 @@ export default function Contact() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               {[
-                { icon: '📍', label: 'Hyderabad, India' },
-                { icon: '✉️', label: 'hello@gyanmai.com' },
-                { icon: '📱', label: 'WhatsApp preferred for quick queries' },
+                { icon: '📍', label: 'T-Hub, Hyderabad, India' },
+                { icon: '✉️', label: 'murali@gyanmai.com · lalith@gyanmai.com' },
+                { icon: '📱', label: '+91 99892 25566' },
               ].map((item) => (
                 <div key={item.label} style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                   <span style={{ fontSize: 16 }}>{item.icon}</span>

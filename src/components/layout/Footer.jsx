@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import wordmark from '../../assets/logos/gyanmai-logo.png';
+import darkLogo from '../../assets/logos/gyanmai-dark-logo.png';
 import useMobile from '../../hooks/useMobile';
 
 const cols = {
@@ -41,7 +41,7 @@ export default function Footer() {
         }}>
           {/* Brand — spans both columns on mobile */}
           <div style={isMobile ? { gridColumn: '1 / -1' } : {}}>
-            <img src={wordmark} alt="Gyanmai" style={{ height: 28, color: '#fff', filter: 'invert(1)', marginBottom: 18 }} />
+            <img src={darkLogo} alt="Gyanmai" style={{ height: 110, objectFit: 'contain', marginBottom: 18 }} />
             <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.38)', lineHeight: 1.7, maxWidth: 240, fontWeight: 300 }}>
               Beyond Marks. Into Understanding.
             </p>

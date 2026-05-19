@@ -97,7 +97,7 @@ export default function GyanAnalytix() {
                 fontSize: 'clamp(17px, 2vw, 22px)',
                 fontWeight: 300,
                 fontStyle: 'italic',
-                color: COLOR,
+                color: 'var(--text-muted)',
                 marginBottom: 20,
                 lineHeight: 1.45,
               }}>
@@ -337,6 +337,363 @@ export default function GyanAnalytix() {
         </div>
       </section>
 
+      {/* ── Full Sample Report (iframe) ──────────────────────────────────── */}
+      <section style={{
+        background: 'var(--bg-subtle, #F4F5F9)',
+        padding: 'clamp(56px, 6vw, 88px) clamp(24px, 5vw, 56px)',
+      }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.5 }}
+            style={{ marginBottom: 36 }}
+          >
+            <span className="section-label" style={{ marginBottom: 10 }}>Full Sample Report</span>
+            <h2 style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(24px, 3vw, 38px)',
+              fontWeight: 800, color: 'var(--text-primary)',
+              marginTop: 8, marginBottom: 10, letterSpacing: '-0.02em',
+            }}>
+              A complete GyanAnalytix student report
+            </h2>
+            <p style={{ fontSize: 15, color: 'var(--text-secondary)', maxWidth: 560, lineHeight: 1.75, fontWeight: 300 }}>
+              Subtopic mastery, error patterns, misconception tags, and next steps — everything a student, teacher, and parent needs in one document.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.55 }}
+            style={{
+              borderRadius: 8,
+              overflow: 'hidden',
+              border: '1px solid var(--border)',
+              boxShadow: '0 4px 32px rgba(0,0,0,0.08)',
+              background: 'var(--bg-card)',
+            }}
+          >
+            <div style={{
+              background: `${COLOR}0A`,
+              borderBottom: `1px solid ${COLOR}20`,
+              padding: '12px 20px',
+              display: 'flex', alignItems: 'center', gap: 8,
+            }}>
+              <div style={{ display: 'flex', gap: 6 }}>
+                {['#FF5F57','#FEBC2E','#28C840'].map(c => (
+                  <div key={c} style={{ width: 10, height: 10, borderRadius: '50%', background: c }} />
+                ))}
+              </div>
+              <span style={{ fontSize: 11, color: 'var(--text-muted)', marginLeft: 8 }}>gyanscan.com/sample/student-report</span>
+            </div>
+            <iframe
+              src="https://www.gyanscan.com/sample/student-report"
+              title="GyanAnalytix Sample Student Report"
+              sandbox="allow-scripts allow-same-origin allow-forms"
+              style={{
+                width: '100%',
+                height: 'clamp(500px, 80vh, 820px)',
+                border: 'none',
+                display: 'block',
+              }}
+              loading="lazy"
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ── Error Library ────────────────────────────────────────────────── */}
+      <section style={{ padding: 'clamp(56px, 6vw, 88px) clamp(24px, 5vw, 56px)' }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.5 }}
+            style={{ marginBottom: 40 }}
+          >
+            <span className="section-label" style={{ marginBottom: 10 }}>Error Intelligence</span>
+            <h2 style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(24px, 3vw, 38px)',
+              fontWeight: 800, color: 'var(--text-primary)',
+              marginTop: 8, marginBottom: 10, letterSpacing: '-0.02em',
+            }}>
+              Error Library &amp; Teacher's Heatmap
+            </h2>
+            <p style={{ fontSize: 15, color: 'var(--text-secondary)', maxWidth: 540, lineHeight: 1.75, fontWeight: 300 }}>
+              Not just scores — the exact misconceptions behind every wrong answer, catalogued and mapped across your class.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4" style={{ alignItems: 'start' }}>
+
+            {/* Error Library card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.5 }}
+              style={{
+                background: 'var(--bg-card)',
+                borderRadius: 8,
+                border: '1px solid var(--border)',
+                overflow: 'hidden',
+                boxShadow: 'var(--shadow-sm)',
+              }}
+            >
+              <div style={{
+                background: `${COLOR}0D`,
+                borderBottom: `1px solid ${COLOR}1A`,
+                padding: '16px 20px',
+              }}>
+                <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: COLOR }}>Error Library</span>
+                <p style={{ fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 700, color: 'var(--text-primary)', marginTop: 6 }}>
+                  Fractions · Class VI-A · 38 students
+                </p>
+              </div>
+              <div style={{ padding: '20px' }}>
+                {[
+                  { tag: 'LCD Confusion', count: 24, pct: 63, severity: 'high', desc: 'Multiplies denominators instead of finding LCM for addition' },
+                  { tag: 'Simplification Gap', count: 18, pct: 47, severity: 'high', desc: 'Divides only numerator or denominator, not both, when reducing' },
+                  { tag: 'Fraction Comparison', count: 14, pct: 37, severity: 'med', desc: 'Compares numerators directly without equalising denominators' },
+                  { tag: 'Mixed Number Error', count: 9, pct: 24, severity: 'med', desc: 'Adds whole parts and fractional parts in isolation' },
+                  { tag: 'Equivalent Recognition', count: 6, pct: 16, severity: 'low', desc: 'Fails to identify equivalent fractions when simplified form differs' },
+                ].map((err, i) => (
+                  <motion.div
+                    key={err.tag}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.07, duration: 0.4 }}
+                    style={{
+                      padding: '12px 14px',
+                      borderRadius: 4,
+                      background: err.severity === 'high' ? 'rgba(232,92,122,0.04)' : err.severity === 'med' ? `${COLOR}06` : 'rgba(45,196,162,0.04)',
+                      border: `1px solid ${err.severity === 'high' ? 'rgba(232,92,122,0.14)' : err.severity === 'med' ? `${COLOR}20` : 'rgba(45,196,162,0.14)'}`,
+                      marginBottom: 8,
+                    }}
+                  >
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
+                      <span style={{
+                        fontSize: 11, fontWeight: 700,
+                        color: err.severity === 'high' ? '#E85C7A' : err.severity === 'med' ? '#C8860A' : '#2DC4A2',
+                      }}>{err.tag}</span>
+                      <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--text-muted)' }}>{err.count} students ({err.pct}%)</span>
+                    </div>
+                    <p style={{ fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>{err.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Teacher's Heatmap card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ delay: 0.12, duration: 0.5 }}
+              style={{
+                background: 'var(--bg-card)',
+                borderRadius: 8,
+                border: '1px solid var(--border)',
+                overflow: 'hidden',
+                boxShadow: 'var(--shadow-sm)',
+              }}
+            >
+              <div style={{
+                background: 'rgba(45,196,162,0.06)',
+                borderBottom: '1px solid rgba(45,196,162,0.14)',
+                padding: '16px 20px',
+              }}>
+                <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#2DC4A2' }}>Teacher's Heatmap</span>
+                <p style={{ fontFamily: 'var(--font-display)', fontSize: 16, fontWeight: 700, color: 'var(--text-primary)', marginTop: 6 }}>
+                  Class VI-A · Fractions Mastery Map
+                </p>
+              </div>
+              <div style={{ padding: '20px' }}>
+                {/* Legend */}
+                <div style={{ display: 'flex', gap: 16, marginBottom: 16 }}>
+                  {[['Mastered', '#2DC4A2'], ['Partial', COLOR], ['Gap', '#E85C7A'], ['Not attempted', 'var(--border)']].map(([l, c]) => (
+                    <div key={l} style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+                      <div style={{ width: 10, height: 10, borderRadius: 2, background: c }} />
+                      <span style={{ fontSize: 10, color: 'var(--text-muted)' }}>{l}</span>
+                    </div>
+                  ))}
+                </div>
+                {/* Column headers */}
+                <div style={{ display: 'grid', gridTemplateColumns: '80px repeat(8, 1fr)', gap: 3, marginBottom: 3 }}>
+                  <div />
+                  {['T1','T2','T3','T4','T5','T6','T7','T8'].map(t => (
+                    <div key={t} style={{ fontSize: 9, fontWeight: 700, color: 'var(--text-muted)', textAlign: 'center' }}>{t}</div>
+                  ))}
+                </div>
+                {/* Rows */}
+                {[
+                  { name: 'Aarav S.',    scores: [90,83,60,67,100,83,33,60] },
+                  { name: 'Priya M.',    scores: [100,100,83,83,100,67,50,67] },
+                  { name: 'Rohit K.',    scores: [67,50,33,50,83,50,17,33] },
+                  { name: 'Ananya P.',   scores: [100,100,100,100,100,100,83,100] },
+                  { name: 'Karan T.',    scores: [83,67,50,67,100,83,33,50] },
+                  { name: 'Sneha R.',    scores: [50,67,17,33,83,50,17,33] },
+                  { name: 'Arjun V.',    scores: [100,83,67,83,100,100,67,83] },
+                  { name: 'Mehak J.',    scores: [67,67,50,50,100,67,33,50] },
+                ].map((row, ri) => (
+                  <div key={row.name} style={{ display: 'grid', gridTemplateColumns: '80px repeat(8, 1fr)', gap: 3, marginBottom: 3 }}>
+                    <span style={{ fontSize: 10, color: 'var(--text-secondary)', display: 'flex', alignItems: 'center' }}>{row.name}</span>
+                    {row.scores.map((s, si) => {
+                      const bg = s >= 75 ? '#2DC4A2' : s >= 45 ? COLOR : '#E85C7A';
+                      return (
+                        <motion.div
+                          key={si}
+                          initial={{ opacity: 0, scale: 0.7 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: (ri * 8 + si) * 0.008, duration: 0.25 }}
+                          title={`${row.name} · T${si + 1}: ${s}%`}
+                          style={{
+                            height: 24, borderRadius: 3,
+                            background: bg,
+                            opacity: 0.75 + (s / 400),
+                            cursor: 'default',
+                          }}
+                        />
+                      );
+                    })}
+                  </div>
+                ))}
+                <p style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 14, lineHeight: 1.5 }}>
+                  T7 (Addition via LCM) is a class-wide gap — 31 of 38 students scored below 50%.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Marks → Mastery ──────────────────────────────────────────────── */}
+      <section style={{
+        background: 'var(--bg-subtle, #F4F5F9)',
+        padding: 'clamp(56px, 6vw, 88px) clamp(24px, 5vw, 56px)',
+      }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.5 }}
+            style={{ marginBottom: 44 }}
+          >
+            <span className="section-label" style={{ marginBottom: 10 }}>The GyanAnalytx shift</span>
+            <h2 style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(24px, 3vw, 38px)',
+              fontWeight: 800, color: 'var(--text-primary)',
+              marginTop: 8, marginBottom: 10, letterSpacing: '-0.02em',
+            }}>
+              Moving from marks-oriented stress<br />to concept-oriented mastery
+            </h2>
+            <p style={{ fontSize: 15, color: 'var(--text-secondary)', maxWidth: 540, lineHeight: 1.75, fontWeight: 300 }}>
+              The same data, different questions — and different actions.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {[
+              {
+                role: 'Students',
+                icon: '🎓',
+                color: '#4F7EF5',
+                from: '"What did I score? Am I passing?"',
+                to: '"Which exact concepts do I own? What\'s blocking me?"',
+                fromDesc: 'Anxiety loop. Score goes up or down. No action possible.',
+                toDesc: 'Clear target. Named gap. Specific practice. Progress visible.',
+              },
+              {
+                role: 'Teachers',
+                icon: '📋',
+                color: '#2DC4A2',
+                from: '"Who failed? I\'ll re-teach the whole chapter."',
+                to: '"T7 is the class-wide gap — 31 students confuse LCM with product."',
+                fromDesc: 'Blunt instrument. Wastes 60% of class time re-covering mastered content.',
+                toDesc: 'Surgical. One 20-min session on LCM. Targeted remediation, zero wasted time.',
+              },
+              {
+                role: 'Parents',
+                icon: '👨‍👩‍👧',
+                color: COLOR,
+                from: '"Why did marks drop? Is the teacher bad?"',
+                to: '"Aarav doesn\'t confuse fractions — he specifically struggles with LCM-based addition."',
+                fromDesc: 'Frustration, blame, pressure. No constructive path forward.',
+                toDesc: 'Specific support. Right tutor focus. Calm, informed conversations.',
+              },
+              {
+                role: 'School Management',
+                icon: '🏫',
+                color: '#9B6EF5',
+                from: '"Pass/fail rates. Board results. Toppers list."',
+                to: '"Curriculum compliance. Concept coverage. Teacher effectiveness per subtopic."',
+                fromDesc: 'Lagging indicators. Problems surface only after exams.',
+                toDesc: 'Leading indicators. Intervene before exams. Demonstrate learning quality.',
+              },
+            ].map((q, i) => (
+              <motion.div
+                key={q.role}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                style={{
+                  background: 'var(--bg-card)',
+                  borderRadius: 8,
+                  border: '1px solid var(--border)',
+                  overflow: 'hidden',
+                  boxShadow: 'var(--shadow-sm)',
+                }}
+              >
+                <div style={{
+                  padding: '14px 20px',
+                  borderBottom: '1px solid var(--border)',
+                  display: 'flex', alignItems: 'center', gap: 10,
+                }}>
+                  <span style={{ fontSize: 18 }}>{q.icon}</span>
+                  <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.10em', textTransform: 'uppercase', color: q.color }}>{q.role}</span>
+                </div>
+                <div style={{ padding: '20px' }}>
+                  {/* Before */}
+                  <div style={{
+                    padding: '12px 14px',
+                    borderRadius: 4,
+                    background: 'rgba(232,92,122,0.04)',
+                    border: '1px solid rgba(232,92,122,0.14)',
+                    marginBottom: 10,
+                  }}>
+                    <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.10em', textTransform: 'uppercase', color: '#E85C7A', marginBottom: 6 }}>Before</p>
+                    <p style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-primary)', marginBottom: 6, fontStyle: 'italic' }}>{q.from}</p>
+                    <p style={{ fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.6 }}>{q.fromDesc}</p>
+                  </div>
+                  {/* After */}
+                  <div style={{
+                    padding: '12px 14px',
+                    borderRadius: 4,
+                    background: `${q.color}06`,
+                    border: `1px solid ${q.color}20`,
+                  }}>
+                    <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: '0.10em', textTransform: 'uppercase', color: q.color, marginBottom: 6 }}>With GyanAnalytx</p>
+                    <p style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-primary)', marginBottom: 6, fontStyle: 'italic' }}>{q.to}</p>
+                    <p style={{ fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.6 }}>{q.toDesc}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── Key features ──────────────────────────────────────────────────── */}
       <section style={{
         background: 'var(--bg-subtle, #F4F5F9)',
@@ -452,7 +809,7 @@ export default function GyanAnalytix() {
               fontWeight: 900, color: 'var(--text-primary)',
               letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: 16,
             }}>
-              Data that actually changes something.
+              Data brings change.
             </h2>
             <p style={{
               fontSize: 'clamp(14px, 1.4vw, 17px)', color: 'var(--text-secondary)',

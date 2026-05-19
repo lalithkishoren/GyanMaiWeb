@@ -25,3 +25,11 @@ dist-ssr
 
 # Claude Code local config
 .claude/
+.vercel
+
+# Root-level loose media / raw exports (not app source)
+/*.mp4
+/*.png
+/*.jpg
+/*.jpeg
+/firebase.json

@@ -53,7 +53,7 @@ export default function ProductTemplate({ product }) {
   const quoteY = useTransform(scrollYProgress, [0, 1], [0, -28]);
 
   return (
-    <main style={{ paddingTop: 80 }}>
+    <main style={{ paddingTop: 90 }}>
 
       {/* ── Hero ─────────────────────────────────────── */}
       <section
@@ -118,7 +118,7 @@ export default function ProductTemplate({ product }) {
                   fontSize: 'clamp(17px, 2vw, 22px)',
                   fontWeight: 300,
                   fontStyle: 'italic',
-                  color,
+                  color: 'var(--text-muted)',
                   marginBottom: 20,
                   lineHeight: 1.45,
                 }}
@@ -229,30 +229,6 @@ export default function ProductTemplate({ product }) {
         </div>
       </section>
 
-      {/* ── ACATT position ─────────────────────────── */}
-      <section style={{
-        padding: '0 clamp(24px, 5vw, 56px) 56px',
-        maxWidth: 1100, margin: '0 auto',
-      }}>
-        <motion.div
-          ref={acatRef}
-          initial={{ opacity: 0, y: 30 }}
-          animate={acatInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          style={{
-            background: 'var(--bg-card)',
-            borderRadius: 6,
-            border: '1px solid var(--border)',
-            padding: '20px 28px',
-          }}
-        >
-          <p className="section-label" style={{ marginBottom: 16 }}>
-            Where {product.name} sits in the ACATT framework
-          </p>
-          <AcatChain activeSlug={product.slug} />
-        </motion.div>
-      </section>
-
       {/* ── Handoff CTA ───────────────────────────────── */}
       {product.handoffTo && (
         <section style={{
@@ -326,6 +302,24 @@ export default function ProductTemplate({ product }) {
           </motion.div>
         </section>
       )}
+
+      {/* ── Where it fits in the chain ────────────────── */}
+      <section style={{
+        padding: '0 clamp(16px, 3.5vw, 48px) 64px',
+        maxWidth: 1200, margin: '0 auto',
+      }}>
+        <motion.div
+          ref={acatRef}
+          initial={{ opacity: 0, y: 30 }}
+          animate={acatInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <p className="section-label" style={{ marginBottom: 20, paddingLeft: 4 }}>
+            Where it sits in the ACATT framework
+          </p>
+          <AcatChain activeSlug={product.slug} />
+        </motion.div>
+      </section>
 
       {/* ── Closure / Book a Demo — always last ───────── */}
       {product.closure && (

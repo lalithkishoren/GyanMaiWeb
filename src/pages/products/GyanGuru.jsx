@@ -8,18 +8,18 @@ import gyanGuruLogo from '../../assets/logos/GyanGuru-logo.png';
 
 const COLOR = '#E85C7A';
 
-// â”€â”€ Learning loop — 4 steps â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€ Learning loop — 4 steps â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 const loopSteps = [
   {
     num: '01',
-    label: 'Assess',
+    label: 'Scan',
     body: 'Teacher conducts a formative assessment via GyanScan. Every wrong answer is immediately mapped to the misconception behind it.',
     product: 'GyanScan',
     productColor: '#2DC4A2',
   },
   {
     num: '02',
-    label: 'Diagnose',
+    label: 'Analyse',
     body: 'GyanAnalytix generates subtopic-level diagnostic reports in seconds — not a score, a learning map for every student.',
     product: 'GyanAnalytix',
     productColor: '#F5A623',
@@ -33,14 +33,14 @@ const loopSteps = [
   },
   {
     num: '04',
-    label: 'Master',
+    label: 'Test',
     body: 'The student works through Guru, Prashna, or Chunauty until misconceptions are cleared — not timed out.',
-    product: 'Verified',
+    product: 'GyanTest',
     productColor: '#9B6EF5',
   },
 ];
 
-// â”€â”€ Three agent modes â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// â"€â"€ Three agent modes â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€
 const agents = [
   {
     name: 'Guru',
@@ -77,7 +77,7 @@ export default function GyanGuru() {
   return (
     <main style={{ paddingTop: 80 }}>
 
-      {/* â”€â”€ Hero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* â"€â"€ Hero â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */}
       <section style={{
         padding: 'clamp(48px, 6vw, 80px) clamp(24px, 5vw, 56px)',
         maxWidth: 1100, margin: '0 auto',
@@ -118,7 +118,7 @@ export default function GyanGuru() {
                 fontSize: 'clamp(17px, 2vw, 22px)',
                 fontWeight: 300,
                 fontStyle: 'italic',
-                color: COLOR,
+                color: 'var(--text-muted)',
                 marginBottom: 20,
                 lineHeight: 1.45,
               }}>
@@ -137,7 +137,7 @@ export default function GyanGuru() {
 
               <div style={{ display: 'flex', gap: 10 }}>
                 <Link to="/contact" className="btn-primary">
-                  See GyanGuru in action â†’
+                  See GyanGuru in action â†'
                 </Link>
               </div>
             </div>
@@ -160,9 +160,13 @@ export default function GyanGuru() {
         </motion.div>
       </section>
 
-      {/* â”€â”€ From Assessment to Mastery loop â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
-      <section style={{ background: 'var(--bg-dark)', padding: 'clamp(56px, 6vw, 88px) clamp(24px, 5vw, 56px)' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+      {/* â"€â"€ From Assessment to Mastery loop â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */}
+      <section style={{ position: 'relative', overflow: 'hidden', padding: 'clamp(56px, 6vw, 88px) clamp(24px, 5vw, 56px)' }}>
+        {/* Gradient background so liquid glass blur is visible */}
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(79,126,245,0.08) 0%, rgba(45,196,162,0.10) 30%, rgba(245,166,35,0.08) 60%, rgba(155,110,245,0.10) 100%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', top: '20%', left: '10%', width: 320, height: 320, borderRadius: '50%', background: 'rgba(45,196,162,0.12)', filter: 'blur(80px)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '20%', right: '10%', width: 280, height: 280, borderRadius: '50%', background: 'rgba(232,92,122,0.10)', filter: 'blur(80px)', pointerEvents: 'none' }} />
+        <div style={{ maxWidth: 1100, margin: '0 auto', position: 'relative', zIndex: 1 }}>
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -176,37 +180,37 @@ export default function GyanGuru() {
             <h2 style={{
               fontFamily: 'var(--font-display)',
               fontSize: 'clamp(26px, 3vw, 42px)',
-              fontWeight: 800, color: '#fff',
+              fontWeight: 800, color: 'var(--text-primary)',
               letterSpacing: '-0.02em', marginBottom: 14,
             }}>
-              From Assessment to Mastery
+              From Scan to Mastery
             </h2>
             <p style={{
-              fontSize: 15, color: 'rgba(255,255,255,0.4)',
-              maxWidth: 500, margin: '0 auto', lineHeight: 1.75, fontWeight: 300,
+              fontSize: 15, color: 'var(--text-muted)',
+              maxWidth: 500, margin: '0 auto', lineHeight: 1.75, fontWeight: 400,
             }}>
               GyanGuru doesn't operate in isolation. It's the culmination of a data pipeline that starts with a single scan and ends with a student who actually understands.
             </p>
           </motion.div>
 
-          <div ref={loopRef} className="grid grid-cols-2 md:grid-cols-4 gap-0.5">
+          <div ref={loopRef} className="grid grid-cols-2 md:grid-cols-4" style={{ gap: 12 }}>
             {loopSteps.map((step, i) => (
               <motion.div
                 key={step.num}
                 initial={{ opacity: 0, y: 20 }}
                 animate={loopInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ delay: i * 0.10, duration: 0.45 }}
+                className="liquid-glass"
                 style={{
-                  background: 'rgba(255,255,255,0.03)',
                   borderTop: `3px solid ${step.productColor}`,
-                  borderRight: i < 3 ? '1px solid rgba(255,255,255,0.05)' : 'none',
-                  padding: '28px 22px 28px',
+                  borderRadius: 12,
+                  padding: '28px 22px',
                 }}
               >
                 <p style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: 36, fontWeight: 900,
-                  color: 'rgba(255,255,255,0.06)',
+                  color: `${step.productColor}15`,
                   letterSpacing: '-0.03em', lineHeight: 1, marginBottom: 16,
                 }}>
                   {step.num}
@@ -223,15 +227,15 @@ export default function GyanGuru() {
                 <h3 style={{
                   fontFamily: 'var(--font-display)',
                   fontSize: 18, fontWeight: 800,
-                  color: '#fff', marginBottom: 10, letterSpacing: '-0.01em',
+                  color: 'var(--text-primary)', marginBottom: 10, letterSpacing: '-0.01em',
                 }}>
                   {step.label}
                 </h3>
-                <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.38)', lineHeight: 1.7, fontWeight: 300 }}>
+                <p style={{ fontSize: 13, color: 'var(--text-muted)', lineHeight: 1.7, fontWeight: 400 }}>
                   {step.body}
                 </p>
                 {i < 3 && (
-                  <p style={{ marginTop: 18, fontSize: 14, color: step.productColor, fontWeight: 600, opacity: 0.7 }}>â†’</p>
+                  <p style={{ marginTop: 18, fontSize: 14, color: step.productColor, fontWeight: 600, opacity: 0.7 }}>→</p>
                 )}
               </motion.div>
             ))}
@@ -239,7 +243,7 @@ export default function GyanGuru() {
         </div>
       </section>
 
-      {/* â”€â”€ Three agents â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* â"€â"€ Three agents â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */}
       <section style={{ padding: 'clamp(56px, 6vw, 88px) clamp(24px, 5vw, 56px)' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <motion.div
@@ -319,7 +323,7 @@ export default function GyanGuru() {
         </div>
       </section>
 
-      {/* â”€â”€ Key features â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* â"€â"€ Key features â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */}
       <section style={{
         background: 'var(--bg-subtle, #F4F5F9)',
         padding: 'clamp(56px, 6vw, 88px) clamp(24px, 5vw, 56px)',
@@ -351,7 +355,7 @@ export default function GyanGuru() {
         </div>
       </section>
 
-      {/* â”€â”€ ACATT position â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* â"€â"€ ACATT position â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */}
       <section style={{
         padding: 'clamp(40px, 5vw, 64px) clamp(24px, 5vw, 56px) 56px',
         maxWidth: 1100, margin: '0 auto',
@@ -366,7 +370,7 @@ export default function GyanGuru() {
         </div>
       </section>
 
-      {/* â”€â”€ Handoff CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* â"€â"€ Handoff CTA â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */}
       <section style={{
         padding: '0 clamp(24px, 5vw, 56px) 0',
         maxWidth: 1100, margin: '0 auto',
@@ -414,12 +418,12 @@ export default function GyanGuru() {
             onMouseEnter={(e) => e.currentTarget.style.opacity = '0.85'}
             onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
           >
-            Explore GyanTest â†’
+            Explore GyanTest â†'
           </Link>
         </motion.div>
       </section>
 
-      {/* â”€â”€ Closure / Book a Demo — always last â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* â"€â"€ Closure / Book a Demo — always last â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */}
       <section style={{ background: 'var(--bg-subtle)', padding: 'clamp(48px, 5vw, 72px) clamp(24px, 5vw, 56px)' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', textAlign: 'center' }}>
           <motion.div
@@ -442,7 +446,7 @@ export default function GyanGuru() {
             }}>
               GyanScan finds who's stuck. GyanAnalytix pinpoints exactly what's wrong. GyanGuru fixes it — before the gap becomes a habit.
             </p>
-            <Link to="/contact" className="btn-gold">Book a Demo â†’</Link>
+            <Link to="/contact" className="btn-gold">Book a Demo â†'</Link>
           </motion.div>
         </div>
       </section>

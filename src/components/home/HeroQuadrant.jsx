@@ -1,18 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useMobile from '../../hooks/useMobile';
 
 import studentsVid from '../../assets/videos/quad-students.mp4';
 import teachersVid from '../../assets/videos/quad-teachers.mp4';
-import schoolsVid  from '../../assets/videos/quad-schools.mp4';
-import parentsVid  from '../../assets/videos/quad-parents.mp4';
+import schoolsVid  from '../../assets/videos/school-video.mp4';
+import parentsVid  from '../../assets/videos/parents-worried.mp4';
 
 const quadrants = [
-  { id: 'students',  label: 'Students',          path: '/students',         video: studentsVid, pain: 'Your wrong answers are data, not defeats.',                accent: '#4F7EF5' },
-  { id: 'teachers',  label: 'Teachers',           path: '/teachers',         video: teachersVid, pain: 'Know who failed. Finally know why.',                      accent: '#2DC4A2' },
-  { id: 'schools',   label: 'School Management',  path: '/school-management',video: schoolsVid,  pain: 'Brand value is learning outcomes, not toppers.',          accent: '#FFB400' },
-  { id: 'parents',   label: 'Parents',            path: '/parents',          video: parentsVid,  pain: '60% in Maths — but what does that actually mean?',        accent: '#E85C7A' },
+  { id: 'students',  label: 'Students',     mobileLabel: 'Students',  path: '/students',         video: studentsVid, pain: 'Your wrong answers are data, not defeats.',                accent: '#4F7EF5' },
+  { id: 'teachers',  label: 'Teachers',     mobileLabel: 'Teachers',  path: '/teachers',         video: teachersVid, pain: 'Know who failed. Finally know why.',                      accent: '#2DC4A2' },
+  { id: 'schools',   label: 'School Management',  mobileLabel: 'Schools',   path: '/school-management',video: schoolsVid,  pain: 'Brand value is learning outcomes, not toppers.',          accent: '#FFB400' },
+  { id: 'parents',   label: 'Parents',      mobileLabel: 'Parents',   path: '/parents',          video: parentsVid,  pain: '60% in Maths — but what does that actually mean?',        accent: '#E85C7A' },
 ];
 
 const CYCLE_INTERVAL = 4200;
@@ -21,6 +21,8 @@ export default function HeroQuadrant() {
   const [activeIdx, setActiveIdx] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const isMobile = useMobile();
+  const navigate = useNavigate();
+  const touchStartX = useRef(null);
 
   useEffect(() => {
     if (isPaused) return;
@@ -30,20 +32,42 @@ export default function HeroQuadrant() {
 
   const active = quadrants[activeIdx];
 
+  const handleSectionClick = () => navigate(active.path);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX.current === null) return;
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 48) {
+      e.stopPropagation();
+      setIsPaused(true);
+      if (diff > 0) setActiveIdx((i) => (i + 1) % quadrants.length);
+      else setActiveIdx((i) => (i - 1 + quadrants.length) % quadrants.length);
+    }
+    touchStartX.current = null;
+  };
+
   return (
     <section
+      onClick={handleSectionClick}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
       style={{
         position: 'relative',
         width: '100%',
-        height: '85vh',
-        minHeight: 520,
+        height: isMobile ? '80vh' : '85vh',
+        minHeight: 480,
         background: '#05070E',
         overflow: 'hidden',
+        cursor: 'pointer',
       }}
     >
       {/* Section label — top left */}
       <div style={{
-        position: 'absolute', top: 36, left: 'clamp(28px, 4vw, 56px)',
+        position: 'absolute', top: 28, left: 'clamp(20px, 4vw, 56px)',
         zIndex: 20,
       }}>
         <span style={{
@@ -93,14 +117,16 @@ export default function HeroQuadrant() {
           transition={{ duration: 0.45 }}
           style={{
             position: 'absolute',
-            bottom: 'clamp(76px, 11vh, 108px)',
-            left: 'clamp(28px, 4vw, 56px)',
-            zIndex: 10, maxWidth: 540,
+            bottom: isMobile ? 'clamp(80px, 16vh, 120px)' : 'clamp(104px, 14vh, 136px)',
+            left: 'clamp(20px, 4vw, 56px)',
+            right: isMobile ? 'clamp(20px, 4vw, 56px)' : 'auto',
+            zIndex: 10,
+            maxWidth: isMobile ? 'none' : 540,
           }}
         >
           <p style={{
             fontFamily: 'var(--font-display)',
-            fontSize: 'clamp(22px, 2.8vw, 36px)',
+            fontSize: isMobile ? 'clamp(15px, 3.8vw, 22px)' : 'clamp(14px, 1.5vw, 18px)',
             fontWeight: 700, color: '#fff',
             lineHeight: 1.2,
             textShadow: '0 2px 24px rgba(0,0,0,0.55)',
@@ -110,6 +136,7 @@ export default function HeroQuadrant() {
           </p>
           <Link
             to={active.path}
+            onClick={(e) => e.stopPropagation()}
             style={{
               display: 'inline-flex', alignItems: 'center', gap: 8,
               padding: '9px 18px', borderRadius: 999,
@@ -136,7 +163,7 @@ export default function HeroQuadrant() {
             return (
               <motion.button
                 key={q.id}
-                onClick={() => { setActiveIdx(i); setIsPaused(true); }}
+                onClick={(e) => { e.stopPropagation(); navigate(q.path); }}
                 onMouseEnter={() => { setIsPaused(true); setActiveIdx(i); }}
                 onMouseLeave={() => setIsPaused(false)}
                 animate={{ background: isActive ? `${q.accent}22` : 'rgba(0,0,0,0)' }}
@@ -145,8 +172,10 @@ export default function HeroQuadrant() {
                   flex: 1,
                   border: 'none',
                   borderRight: i < quadrants.length - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
-                  padding: isMobile ? '10px 8px 14px' : '16px 16px 22px',
+                  padding: isMobile ? '12px 6px 16px' : '16px 16px 22px',
                   cursor: 'pointer', position: 'relative', textAlign: 'left',
+                  // Minimum touch target height
+                  minHeight: isMobile ? 56 : 'auto',
                 }}
               >
                 {/* Progress bar */}
@@ -176,13 +205,14 @@ export default function HeroQuadrant() {
                   style={{ borderRadius: '50%', marginBottom: 8 }}
                 />
                 <span style={{
-                  display: 'block', fontSize: isMobile ? 10 : 12,
+                  display: 'block',
+                  fontSize: isMobile ? 11 : 12,
                   fontWeight: isActive ? 700 : 400,
                   color: isActive ? '#fff' : 'rgba(255,255,255,0.38)',
                   letterSpacing: '0.02em', transition: 'color 0.25s',
                   lineHeight: 1.3,
                 }}>
-                  {isMobile && q.id === 'schools' ? 'Schools' : q.label}
+                  {isMobile ? q.mobileLabel : q.label}
                 </span>
                 {isActive && (
                   <motion.span

@@ -1,60 +1,128 @@
 import { Link } from 'react-router-dom';
 import { acatStages } from '../../data/acatFramework';
+import { products } from '../../data/products';
+import useMobile from '../../hooks/useMobile';
+
+import gyanBankLogo    from '../../assets/logos/GyanBank-logo.png';
+import gyanScanLogo    from '../../assets/logos/GyanScan-Logo.png';
+import gyanAnalytxLogo from '../../assets/logos/GyanAnalytics-logo.png';
+import gyanGuruLogo    from '../../assets/logos/GyanGuru-logo.png';
+import gyanTestLogo    from '../../assets/logos/Gyantesta-logo.png';
+
+const logos = {
+  gyanbank:    gyanBankLogo,
+  gyanscan:    gyanScanLogo,
+  gyananalytx: gyanAnalytxLogo,
+  gyanguru:    gyanGuruLogo,
+  gyantest:    gyanTestLogo,
+};
 
 export default function AcatChain({ activeSlug }) {
+  const isMobile = useMobile();
+
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 4, flexWrap: 'wrap' }}>
-      {acatStages.map((stage, i) => {
+    <div style={{
+      display: isMobile ? 'flex' : 'grid',
+      gridTemplateColumns: isMobile ? undefined : 'repeat(5, 1fr)',
+      gap: isMobile ? 10 : 12,
+      width: '100%',
+      overflowX: isMobile ? 'auto' : 'visible',
+      scrollSnapType: isMobile ? 'x mandatory' : 'none',
+      WebkitOverflowScrolling: 'touch',
+      // Bleed the cards slightly beyond the section padding on mobile
+      paddingBottom: isMobile ? 6 : 0,
+    }}>
+      {acatStages.map((stage) => {
         const isActive = stage.slug === activeSlug;
+        const product = products.find((p) => p.slug === stage.slug);
         return (
-          <div key={stage.slug} style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-            <Link
-              to={`/products/${stage.slug}`}
+          <Link
+            key={stage.slug}
+            to={`/products/${stage.slug}`}
+            style={{
+              textDecoration: 'none',
+              display: 'block',
+              minWidth: isMobile ? 200 : 160,
+              flexShrink: isMobile ? 0 : undefined,
+              scrollSnapAlign: isMobile ? 'start' : undefined,
+            }}
+          >
+            <div
               style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: 6,
-                padding: '5px 12px',
-                borderRadius: 3,
-                fontSize: 12,
-                fontWeight: isActive ? 600 : 400,
-                textDecoration: 'none',
-                background: isActive ? stage.color : 'transparent',
-                color: isActive ? '#fff' : 'var(--text-muted)',
-                border: `1px solid ${isActive ? stage.color : 'var(--border-strong)'}`,
-                transition: 'all 0.18s',
-                letterSpacing: isActive ? '0.01em' : 0,
+                padding: '28px 24px 24px',
+                borderRadius: 18,
+                background: isActive ? `${stage.color}09` : 'rgba(245,241,232,0.82)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
+                border: `1.5px solid ${isActive ? `${stage.color}45` : 'rgba(0,0,0,0.07)'}`,
+                borderBottom: `3px solid ${isActive ? stage.color : 'transparent'}`,
+                boxShadow: isActive
+                  ? `0 8px 36px ${stage.color}20, 0 2px 8px rgba(0,0,0,0.06)`
+                  : '0 2px 12px rgba(0,0,0,0.05)',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 14,
+                cursor: 'pointer',
+                transition: 'all 0.25s ease',
               }}
               onMouseEnter={(e) => {
                 if (!isActive) {
-                  e.currentTarget.style.color = 'var(--text-primary)';
-                  e.currentTarget.style.borderColor = stage.color;
+                  e.currentTarget.style.boxShadow = '0 6px 28px rgba(0,0,0,0.12)';
+                  e.currentTarget.style.transform = 'translateY(-3px)';
+                  e.currentTarget.style.borderColor = `${stage.color}30`;
                 }
               }}
               onMouseLeave={(e) => {
                 if (!isActive) {
-                  e.currentTarget.style.color = 'var(--text-muted)';
-                  e.currentTarget.style.borderColor = 'var(--border-strong)';
+                  e.currentTarget.style.boxShadow = '0 2px 12px rgba(0,0,0,0.05)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.borderColor = 'rgba(0,0,0,0.07)';
                 }
               }}
             >
-              {isActive && (
-                <span style={{
-                  width: 5, height: 5,
-                  borderRadius: '50%',
-                  background: 'rgba(255,255,255,0.8)',
-                  flexShrink: 0,
-                }} />
-              )}
-              {stage.product}
-            </Link>
+              <span style={{
+                fontSize: 10,
+                fontWeight: 700,
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                color: stage.color,
+              }}>
+                {stage.action}
+              </span>
 
-            {i < acatStages.length - 1 && (
-              <svg width="14" height="8" viewBox="0 0 14 8" fill="none">
-                <path d="M0 4H10M10 4L7 1M10 4L7 7" stroke="var(--border-strong)" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            )}
-          </div>
+              <img
+                src={logos[stage.slug]}
+                alt={stage.product}
+                style={{
+                  height: 44,
+                  width: 'auto',
+                  display: 'block',
+                  opacity: isActive ? 1 : 0.72,
+                  transition: 'opacity 0.2s',
+                }}
+              />
+
+              <p style={{
+                fontSize: 12,
+                color: isActive ? 'var(--text-secondary)' : 'var(--text-muted)',
+                lineHeight: 1.6,
+                fontWeight: 400,
+                flex: 1,
+              }}>
+                {product?.tagline}
+              </p>
+
+              <span style={{
+                fontSize: 11.5,
+                fontWeight: 700,
+                color: stage.color,
+                letterSpacing: '0.06em',
+              }}>
+                EXPLORE →
+              </span>
+            </div>
+          </Link>
         );
       })}
     </div>

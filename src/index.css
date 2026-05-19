@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,200;1,9..144,300;1,9..144,400;1,9..144,600;1,9..144,800;1,9..144,900&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 @import "tailwindcss";
 
@@ -35,9 +35,9 @@
   --shadow-lg:   0 20px 60px rgba(20,44,32,0.12), 0 6px 20px rgba(20,44,32,0.07);
   --shadow-glow: 0 0 48px rgba(255,179,0,0.20);
 
-  /* Fonts */
-  --font-display: 'Cormorant', 'Fraunces', Georgia, serif;
-  --font-body:    'Inter', system-ui, sans-serif;
+  /* Fonts — SF Pro on Apple, Inter everywhere else */
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Inter, Arial, sans-serif;
+  --font-body:    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Inter, Arial, sans-serif;
 
   /* Radius — tighter for sophistication */
   --r-xs:   3px;
@@ -103,13 +103,12 @@
   --shadow-glow: 0 0 48px rgba(255,179,0,0.18);
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; cursor: none; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 /* Block browser/OS auto dark mode — site ships as light */
 html {
   scroll-behavior: smooth;
   color-scheme: light only;
-  cursor: none;
   /* Prevent Opera GX / Chrome forced dark from inverting rendered colors */
   -webkit-color-adjust: exact !important;
   color-adjust: exact !important;
@@ -145,9 +144,70 @@ body {
   z-index: 1;
 }
 
-/* Typography */
-h1, h2, h3 { font-family: var(--font-display); }
-h4, h5, h6, p, span, a, button, input, select, textarea { font-family: var(--font-body); }
+/* Typography — SF Pro / Apple system style */
+h1, h2, h3, h4, h5, h6, p, span, a, button, input, select, textarea {
+  font-family: var(--font-body);
+}
+
+/* Apple display headings: heavy weight, very tight tracking */
+h1 {
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.0;
+}
+h2 {
+  font-weight: 700;
+  letter-spacing: -0.028em;
+  line-height: 1.05;
+}
+h3 {
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  line-height: 1.1;
+}
+h4 {
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+
+/* Apple-style typography scale utilities */
+.text-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.0;
+}
+.text-headline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+.text-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  line-height: 1.1;
+}
+.text-body-large {
+  font-family: var(--font-body);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.6;
+}
+.text-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  line-height: 1.65;
+}
+.text-caption {
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: 0.002em;
+  line-height: 1.4;
+}
 
 ::selection { background: var(--gold-light); color: var(--text-primary); }
 ::-webkit-scrollbar { width: 4px; }
@@ -252,8 +312,8 @@ h4, h5, h6, p, span, a, button, input, select, textarea { font-family: var(--fon
 .section-label {
   font-family: var(--font-body);
   font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-secondary);
   display: block;
@@ -282,9 +342,9 @@ h4, h5, h6, p, span, a, button, input, select, textarea { font-family: var(--fon
   background: var(--text-primary);
   color: var(--text-light);
   font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
+  font-size: 14px;
+  font-weight: 590;
+  letter-spacing: -0.005em;
   text-decoration: none;
   border: none;
   cursor: pointer;
@@ -299,15 +359,15 @@ h4, h5, h6, p, span, a, button, input, select, textarea { font-family: var(--fon
 .btn-gold {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 11px 24px;
+  gap: 10px;
+  padding: 13px 32px;
   border-radius: var(--r-pill);
   background: var(--gold);
   color: #1A1200;
   font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.01em;
+  font-size: 14px;
+  font-weight: 650;
+  letter-spacing: -0.005em;
   text-decoration: none;
   border: none;
   cursor: pointer;
@@ -328,8 +388,9 @@ h4, h5, h6, p, span, a, button, input, select, textarea { font-family: var(--fon
   background: transparent;
   color: var(--text-secondary);
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
+  letter-spacing: -0.005em;
   text-decoration: none;
   border: 1px solid var(--border-strong);
   cursor: pointer;
@@ -350,9 +411,9 @@ h4, h5, h6, p, span, a, button, input, select, textarea { font-family: var(--fon
   background: rgba(255,255,255,0.07);
   color: rgba(255,255,255,0.7);
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.005em;
   text-decoration: none;
   border: 1px solid rgba(255,255,255,0.13);
   cursor: pointer;

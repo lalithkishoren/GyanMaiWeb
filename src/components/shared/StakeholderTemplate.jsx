@@ -5,6 +5,13 @@ import { products } from '../../data/products';
 import { stakeholders } from '../../data/stakeholders';
 import ExpandableFeature from './ExpandableFeature';
 
+const PROBLEM_ICONS = [
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="currentColor" strokeWidth="1.4"/><path d="M9 5.5v4M9 12.5h.01" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/></svg>,
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2L2 6v6c0 2.2 3 4 7 4s7-1.8 7-4V6L9 2z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"/><path d="M9 9v3M9 6.5h.01" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/></svg>,
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="currentColor" strokeWidth="1.4"/><path d="M9 5v4l2.5 2.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/></svg>,
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 15l3-4.5L9 13l3-6 3 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/><path d="M2 2h14a1 1 0 011 1v12a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"/></svg>,
+];
+
 function ProblemCard({ problem, index, inView, accentColor }) {
   const fromLeft = index % 2 === 0;
   return (
@@ -20,14 +27,19 @@ function ProblemCard({ problem, index, inView, accentColor }) {
         boxShadow: 'var(--shadow-sm)',
       }}
     >
-      <h3 style={{
-        fontSize: 15, fontWeight: 700,
-        color: 'var(--text-primary)', fontFamily: 'var(--font-display)',
-        marginBottom: 10, letterSpacing: '-0.01em',
-      }}>
-        {problem.title}
-      </h3>
-      <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.65, fontWeight: 300 }}>
+      <div style={{ display: 'flex', alignItems: 'flex-start', gap: 12, marginBottom: 10 }}>
+        <span style={{ color: accentColor, flexShrink: 0, marginTop: 1 }}>
+          {PROBLEM_ICONS[index % PROBLEM_ICONS.length]}
+        </span>
+        <h3 style={{
+          fontSize: 15, fontWeight: 700,
+          color: 'var(--text-primary)', fontFamily: 'var(--font-display)',
+          letterSpacing: '-0.01em',
+        }}>
+          {problem.title}
+        </h3>
+      </div>
+      <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.65, fontWeight: 400, paddingLeft: 30 }}>
         {problem.body}
       </p>
     </motion.div>
@@ -75,7 +87,7 @@ function ProductHighlight({ slug, accentColor, index, inView }) {
           }}>
             {product.name}
           </h3>
-          <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.55, marginBottom: 14, fontWeight: 300 }}>
+          <p style={{ fontSize: 13, color: 'var(--text-secondary)', lineHeight: 1.55, marginBottom: 14, fontWeight: 400 }}>
             {product.tagline}
           </p>
           <span style={{ fontSize: 12, fontWeight: 600, color: stage }}>Explore →</span>
@@ -105,7 +117,7 @@ export default function StakeholderTemplate({ stakeholder }) {
     : '#2DC4A2';
 
   return (
-    <main style={{ paddingTop: 80 }}>
+    <main style={{ paddingTop: 90 }}>
 
       {/* ── Hero ────────────────────────────────────────── */}
       <section ref={heroRef} style={{
@@ -170,7 +182,7 @@ export default function StakeholderTemplate({ stakeholder }) {
             style={{
               fontSize: 'clamp(15px, 1.6vw, 18px)',
               color: 'var(--text-secondary)', lineHeight: 1.75,
-              maxWidth: 500, margin: '0 auto', fontWeight: 300,
+              maxWidth: 500, margin: '0 auto', fontWeight: 400,
             }}
           >
             {stakeholder.heroSub}
@@ -230,8 +242,8 @@ export default function StakeholderTemplate({ stakeholder }) {
               { 1: 'md:grid-cols-1', 2: 'md:grid-cols-2', 3: 'md:grid-cols-3' }[
                 Math.min(stakeholder.products.length, 3)
               ]
-            } gap-2.5 mb-11`}
-            style={{ alignItems: 'stretch' }}
+            } gap-2.5`}
+            style={{ alignItems: 'stretch', marginBottom: 48 }}
           >
             {stakeholder.products.map((slug, i) => (
               <ProductHighlight key={slug} slug={slug} accentColor={accentColor} index={i} inView={productsInView} />
@@ -244,7 +256,7 @@ export default function StakeholderTemplate({ stakeholder }) {
             initial={{ opacity: 0, y: 20 }}
             animate={ctaInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            style={{ textAlign: 'center' }}
+            style={{ textAlign: 'center', marginTop: 16 }}
           >
             <Link to="/contact" className="btn-gold">
               Book a Demo for {stakeholder.label} →
