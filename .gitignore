@@ -33,3 +33,7 @@ dist-ssr
 /*.jpg
 /*.jpeg
 /firebase.json
+
+# Raw testimonial source files (served via YouTube, not committed)
+/Testimonials/
+/public/testimonials/
