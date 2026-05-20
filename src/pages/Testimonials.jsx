@@ -22,29 +22,16 @@ function postToYT(iframe, func, args) {
 /* ── Card ── */
 function VideoCard({ video, onExpand, index }) {
   const iframeRef      = useRef(null);
-  const cardRef        = useRef(null);
   const playerReadyRef = useRef(false);
   const pendingPlayRef = useRef(false);
-  const [hovered, setHovered] = useState(false);
-  const [inView,  setInView]  = useState(false);
+  const [hovered,       setHovered]       = useState(false);
+  const [iframeMounted, setIframeMounted] = useState(false);
 
   const thumb = `https://img.youtube.com/vi/${video.ytId}/hqdefault.jpg`;
 
-  /* Pre-load iframe when card nears viewport — no delay on first hover */
+  /* Once mounted, listen for player-ready so re-hovers can seek+play instantly */
   useEffect(() => {
-    const el = cardRef.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { setInView(true); obs.disconnect(); } },
-      { rootMargin: '500px' }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-
-  /* Listen for YouTube player ready, keyed to this specific iframe */
-  useEffect(() => {
-    if (!inView) return;
+    if (!iframeMounted) return;
     const handler = (e) => {
       if (e.source !== iframeRef.current?.contentWindow) return;
       try {
@@ -61,17 +48,21 @@ function VideoCard({ video, onExpand, index }) {
     };
     window.addEventListener('message', handler);
     return () => window.removeEventListener('message', handler);
-  }, [inView]);
+  }, [iframeMounted]);
 
   const handleMouseEnter = useCallback(() => {
     setHovered(true);
-    if (playerReadyRef.current) {
+    if (!iframeMounted) {
+      /* First hover: mount iframe with autoplay=1 — browser allows this
+         because the mount is triggered by a user gesture (mouseover). */
+      setIframeMounted(true);
+    } else if (playerReadyRef.current) {
       postToYT(iframeRef.current, 'seekTo', [0, true]);
       postToYT(iframeRef.current, 'playVideo');
     } else {
       pendingPlayRef.current = true;
     }
-  }, []);
+  }, [iframeMounted]);
 
   const handleMouseLeave = useCallback(() => {
     setHovered(false);
@@ -84,15 +75,14 @@ function VideoCard({ video, onExpand, index }) {
     onExpand(video);
   }, [video, onExpand]);
 
+  /* autoplay=1 so video starts as soon as the iframe mounts on first hover */
   const embedSrc =
     `https://www.youtube.com/embed/${video.ytId}` +
-    `?autoplay=0&mute=1&controls=0&rel=0&modestbranding=1` +
-    `&enablejsapi=1&playsinline=1&loop=1&playlist=${video.ytId}` +
-    `&origin=${encodeURIComponent(typeof window !== 'undefined' ? window.location.origin : '')}`;
+    `?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1` +
+    `&enablejsapi=1&playsinline=1&loop=1&playlist=${video.ytId}`;
 
   return (
     <motion.div
-      ref={cardRef}
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, delay: index * 0.06 }}
@@ -113,7 +103,7 @@ function VideoCard({ video, onExpand, index }) {
         transition: 'transform 0.3s cubic-bezier(.22,1,.36,1), box-shadow 0.3s ease',
       }}
     >
-      {/* Thumbnail — instant, no loading */}
+      {/* Thumbnail — instant */}
       <img
         src={thumb}
         alt=""
@@ -127,7 +117,7 @@ function VideoCard({ video, onExpand, index }) {
         }}
       />
 
-      {/* Scrim for play button readability */}
+      {/* Scrim */}
       <div style={{
         position: 'absolute', inset: 0,
         background: 'rgba(0,0,0,0.28)',
@@ -158,9 +148,9 @@ function VideoCard({ video, onExpand, index }) {
         </div>
       </div>
 
-      {/* YouTube iframe — pre-loaded, shown on hover.
-          pointer-events: none so card click always fires the modal, not YT controls. */}
-      {inView && (
+      {/* YouTube iframe — mounted on first hover, kept alive for instant replays.
+          pointer-events: none lets the card's onClick open the modal. */}
+      {iframeMounted && (
         <iframe
           ref={iframeRef}
           src={embedSrc}
@@ -168,16 +158,12 @@ function VideoCard({ video, onExpand, index }) {
           frameBorder="0"
           style={{
             position: 'absolute',
-            /* For Shorts (9:16 native): fill perfectly.
-               For regular 16:9: scale to fill the 9:16 card (crop mode). */
             ...(video.isShort ? {
               inset: 0, width: '100%', height: '100%',
             } : {
               height: '100%',
-              /* width = height × (16/9) ÷ (9/16) = height × (16/9)² ≈ 3.16× card-width */
               width: 'calc(100% * 256 / 81)',
-              top: 0,
-              left: '50%',
+              top: 0, left: '50%',
               transform: 'translateX(-50%)',
             }),
             opacity: hovered ? 1 : 0,
@@ -203,8 +189,7 @@ function VideoCard({ video, onExpand, index }) {
       }}>
         <div style={{
           display: 'inline-flex', alignItems: 'center', gap: 5,
-          padding: '4px 10px',
-          borderRadius: 999,
+          padding: '4px 10px', borderRadius: 999,
           background: 'rgba(255,255,255,0.15)',
           backdropFilter: 'blur(8px)',
           border: '1px solid rgba(255,255,255,0.2)',
