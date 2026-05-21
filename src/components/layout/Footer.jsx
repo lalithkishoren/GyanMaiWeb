@@ -4,7 +4,7 @@ import useMobile from '../../hooks/useMobile';
 
 const cols = {
   Platform: [
-    { label: 'How It Works',    path: '/platform' },
+    { label: 'How It Works',    path: '/#acatt' },
     { label: 'ACATT Framework', path: '/#acatt' },
   ],
   Products: [

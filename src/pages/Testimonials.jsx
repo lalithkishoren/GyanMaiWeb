@@ -2,14 +2,14 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const VIDEOS = [
-  { id: 'jp',  ytId: 'OYpRI31qrJg', isShort: false },
-  { id: 't1',  ytId: '-PjTCR2_PqQ', isShort: false },
-  { id: 't2',  ytId: 'P1o2gJgI_cE', isShort: false },
-  { id: 't3',  ytId: 'ZY_ivMFExqg', isShort: false },
-  { id: 't4',  ytId: 'S4q5Lce55R0', isShort: true  },
-  { id: 't5',  ytId: 't8olxULMwZ4', isShort: true  },
-  { id: 't6',  ytId: 'Yp-fHdzR1ZQ', isShort: true  },
-  { id: 't7',  ytId: 'EEtAHW7wjNQ', isShort: true  },
+  { id: 'jp',  ytId: '4wYfHgszBn4', isShort: false },
+  { id: 't1',  ytId: 'lWoxjLqxCFM', isShort: true  },
+  { id: 't2',  ytId: 'MBvC_qTc0cc', isShort: true  },
+  { id: 't3',  ytId: 'JAdrK10JZbk', isShort: true  },
+  { id: 't4',  ytId: 'pa1ohRn6sWE', isShort: true  },
+  { id: 't5',  ytId: 'NHuojRsAkh0', isShort: true  },
+  { id: 't6',  ytId: '4khI0Kz8nC0', isShort: true  },
+  { id: 't7',  ytId: 'brFcpdmi2hw', isShort: true  },
 ];
 
 function postToYT(iframe, func, args) {

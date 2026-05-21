@@ -40,7 +40,7 @@ export default function Contact() {
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
             <span className="section-label" style={{ display: 'block', marginBottom: 12 }}>Get in touch</span>
             <h1 style={{ fontSize: 38, fontWeight: 800, letterSpacing: '-1px', color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 16 }}>
-              Let's build something for your school
+              Let's partner for your school
             </h1>
             <p style={{ fontSize: 15, color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: 28 }}>
               A 30-minute walkthrough, personalised for your school. We'll show you what Gyanmai looks like in your specific context.
