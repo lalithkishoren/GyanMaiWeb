@@ -40,7 +40,7 @@ export default function HeroBento() {
                 <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </Link>
-            <Link to="/platform" className="btn-ghost" style={{ justifyContent: 'center' }}>
+            <Link to="/#acatt" className="btn-ghost" style={{ justifyContent: 'center' }}>
               Explore the Platform
             </Link>
           </div>
@@ -142,7 +142,7 @@ export default function HeroBento() {
               </div>
             ))}
           </div>
-          <Link to="/platform" style={{ fontSize: 12, color: 'var(--accent)', fontWeight: 600, textDecoration: 'none', marginTop: 4 }}>
+          <Link to="/#acatt" style={{ fontSize: 12, color: 'var(--accent)', fontWeight: 600, textDecoration: 'none', marginTop: 4 }}>
             Explore the cycle →
           </Link>
         </motion.div>

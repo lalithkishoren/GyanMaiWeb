@@ -45,7 +45,7 @@ export default function HomeCta() {
               <path d="M2.5 10.5L10.5 2.5M10.5 2.5H4.5M10.5 2.5V8.5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </Link>
-          <Link to="/platform" className="btn-ghost-light" style={{ fontSize: 15, padding: '13px 28px' }}>
+          <Link to="/#acatt" className="btn-ghost-light" style={{ fontSize: 15, padding: '13px 28px' }}>
             Explore the Platform
           </Link>
         </div>
