@@ -3,13 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const VIDEOS = [
   { id: 'jp',  ytId: '4wYfHgszBn4', isShort: false },
-  { id: 't1',  ytId: 'lWoxjLqxCFM', isShort: true  },
-  { id: 't2',  ytId: 'MBvC_qTc0cc', isShort: true  },
-  { id: 't3',  ytId: 'JAdrK10JZbk', isShort: true  },
-  { id: 't4',  ytId: 'pa1ohRn6sWE', isShort: true  },
-  { id: 't5',  ytId: 'NHuojRsAkh0', isShort: true  },
-  { id: 't6',  ytId: '4khI0Kz8nC0', isShort: true  },
-  { id: 't7',  ytId: 'brFcpdmi2hw', isShort: true  },
+  { id: 't1',  ytId: 'HdJbxGWhY6E', isShort: false },
+  { id: 't2',  ytId: 'dUcPRVN2ouk', isShort: false },
+  { id: 't3',  ytId: 'UN2n2Ke0owo', isShort: false },
+  { id: 't4',  ytId: 'ATX8iDed91M', isShort: true  },
+  { id: 't5',  ytId: 'VEj2FCxiQbI', isShort: true  },
+  { id: 't6',  ytId: 'EGv3QX0yT7A', isShort: true  },
+  { id: 't7',  ytId: 'XL4CnWA2LkY', isShort: true  },
 ];
 
 function postToYT(iframe, func, args) {
@@ -317,7 +317,7 @@ export default function Testimonials() {
             margin: '0 auto',
             lineHeight: 1.6,
           }}>
-            Real voices from teachers, students, and parents whose learning journey changed with GyanMai.
+            Real voices from teachers, students, and parents whose learning journey changed with Gyanmai.
           </p>
         </motion.div>
 
