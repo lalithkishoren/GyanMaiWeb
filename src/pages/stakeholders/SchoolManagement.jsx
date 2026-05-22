@@ -19,7 +19,7 @@ const problemIcons = [
   <svg key="d" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 14l3-4 3 2 3-5 3 3" stroke="#F5A623" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><rect x="1" y="1" width="16" height="16" rx="2" stroke="#F5A623" strokeWidth="1.5"/></svg>,
 ];
 
-const CYCLE_INTERVAL = 6000;
+const CYCLE_INTERVAL = 10000;
 
 // ── Hero slides ───────────────────────────────────────────────────────────
 const slideVariants = {
@@ -154,6 +154,7 @@ function HeroSlide2() {
 function HeroCarousel() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
+  const [isPaused, setIsPaused] = useState(false);
 
   const go = useCallback((idx) => {
     setDirection(idx > current ? 1 : -1);
@@ -163,9 +164,10 @@ function HeroCarousel() {
   const next = useCallback(() => go((current + 1) % 2), [current, go]);
 
   useEffect(() => {
+    if (isPaused) return;
     const t = setTimeout(next, CYCLE_INTERVAL);
     return () => clearTimeout(t);
-  }, [current, next]);
+  }, [current, next, isPaused]);
 
   const slides = [HeroSlide1, HeroSlide2];
   const Slide = slides[current];
@@ -197,7 +199,7 @@ function HeroCarousel() {
       </AnimatePresence>
 
       {/* Progress dot indicators */}
-      <div style={{ position: 'absolute', bottom: 56, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 8, zIndex: 10 }}>
+      <div style={{ position: 'absolute', bottom: 56, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 8, alignItems: 'center', zIndex: 10 }}>
         {[0, 1].map((i) => (
           <button key={i} onClick={() => go(i)}
             style={{
@@ -207,13 +209,20 @@ function HeroCarousel() {
               transition: 'width 0.3s ease', overflow: 'hidden',
             }}>
             {i === current && (
-              <motion.div key={`prog-${current}`} initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
-                transition={{ duration: CYCLE_INTERVAL / 1000, ease: 'linear' }}
+              <motion.div key={`prog-${current}-${isPaused}`} initial={{ scaleX: 0 }} animate={{ scaleX: isPaused ? 0 : 1 }}
+                transition={{ duration: isPaused ? 0 : CYCLE_INTERVAL / 1000, ease: 'linear' }}
                 style={{ position: 'absolute', inset: 0, background: '#FFB400', transformOrigin: 'left', borderRadius: 4 }}
               />
             )}
           </button>
         ))}
+        <button onClick={() => setIsPaused(p => !p)} style={{
+          width: 22, height: 22, borderRadius: '50%', marginLeft: 4,
+          background: 'rgba(255,179,0,0.12)', border: '1px solid rgba(255,179,0,0.3)',
+          color: '#FFB400', fontSize: 9, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
+        }}>
+          {isPaused ? '▶' : '⏸'}
+        </button>
       </div>
 
       {/* Arrows — gold tinted */}
