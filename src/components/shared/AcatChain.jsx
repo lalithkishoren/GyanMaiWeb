@@ -24,7 +24,7 @@ export default function AcatChain({ activeSlug }) {
     <div style={{
       display: isMobile ? 'flex' : 'grid',
       gridTemplateColumns: isMobile ? undefined : 'repeat(5, 1fr)',
-      gap: isMobile ? 10 : 12,
+      gap: isMobile ? 8 : 8,
       width: '100%',
       overflowX: isMobile ? 'auto' : 'visible',
       scrollSnapType: isMobile ? 'x mandatory' : 'none',
@@ -42,6 +42,7 @@ export default function AcatChain({ activeSlug }) {
             style={{
               textDecoration: 'none',
               display: 'block',
+              height: '100%',
               minWidth: isMobile ? 200 : 160,
               flexShrink: isMobile ? 0 : undefined,
               scrollSnapAlign: isMobile ? 'start' : undefined,
@@ -49,8 +50,8 @@ export default function AcatChain({ activeSlug }) {
           >
             <div
               style={{
-                padding: '28px 24px 24px',
-                borderRadius: 18,
+                padding: '18px 20px 16px',
+                borderRadius: 14,
                 background: isActive ? `${stage.color}09` : 'rgba(245,241,232,0.82)',
                 backdropFilter: 'blur(20px)',
                 WebkitBackdropFilter: 'blur(20px)',
@@ -62,7 +63,7 @@ export default function AcatChain({ activeSlug }) {
                 height: '100%',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: 14,
+                gap: 10,
                 cursor: 'pointer',
                 transition: 'all 0.25s ease',
               }}
@@ -81,6 +82,7 @@ export default function AcatChain({ activeSlug }) {
                 }
               }}
             >
+              {/* Top row: label */}
               <span style={{
                 fontSize: 10,
                 fontWeight: 700,
@@ -91,12 +93,14 @@ export default function AcatChain({ activeSlug }) {
                 {stage.action}
               </span>
 
+              {/* Logo full width */}
               <img
                 src={logos[stage.slug]}
                 alt={stage.product}
                 style={{
-                  height: 44,
+                  height: 38,
                   width: 'auto',
+                  maxWidth: '100%',
                   display: 'block',
                   opacity: isActive ? 1 : 0.72,
                   transition: 'opacity 0.2s',
@@ -104,17 +108,18 @@ export default function AcatChain({ activeSlug }) {
               />
 
               <p style={{
-                fontSize: 12,
+                fontSize: 13,
                 color: isActive ? 'var(--text-secondary)' : 'var(--text-muted)',
-                lineHeight: 1.6,
+                lineHeight: 1.55,
                 fontWeight: 400,
                 flex: 1,
+                margin: 0,
               }}>
                 {product?.tagline}
               </p>
 
               <span style={{
-                fontSize: 11.5,
+                fontSize: 12,
                 fontWeight: 700,
                 color: stage.color,
                 letterSpacing: '0.06em',
