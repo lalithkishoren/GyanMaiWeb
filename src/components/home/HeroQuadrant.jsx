@@ -15,7 +15,7 @@ const quadrants = [
   { id: 'parents',   label: 'Parents',      mobileLabel: 'Parents',   path: '/parents',          video: parentsVid,  pain: '60% in Maths — but what does that actually mean?',        accent: '#E85C7A' },
 ];
 
-const CYCLE_INTERVAL = 4200;
+const CYCLE_INTERVAL = 10000;
 
 export default function HeroQuadrant() {
   const [activeIdx, setActiveIdx] = useState(0);
@@ -77,6 +77,20 @@ export default function HeroQuadrant() {
           Who we serve
         </span>
       </div>
+
+      {/* Pause / resume button — top right */}
+      <button
+        onClick={(e) => { e.stopPropagation(); setIsPaused(p => !p); }}
+        style={{
+          position: 'absolute', top: 24, right: 'clamp(20px, 4vw, 56px)', zIndex: 20,
+          width: 28, height: 28, borderRadius: '50%',
+          background: 'rgba(255,179,0,0.12)', border: '1px solid rgba(255,179,0,0.3)',
+          color: '#FFB400', fontSize: 10,
+          display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
+        }}
+      >
+        {isPaused ? '▶' : '⏸'}
+      </button>
 
       {/* Stacked video panels — crossfade */}
       {quadrants.map((q, i) => (

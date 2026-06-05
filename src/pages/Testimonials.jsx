@@ -2,14 +2,14 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const VIDEOS = [
-  { id: 'jp',  ytId: '4wYfHgszBn4', isShort: false },
-  { id: 't1',  ytId: 'lWoxjLqxCFM', isShort: true  },
-  { id: 't2',  ytId: 'MBvC_qTc0cc', isShort: true  },
-  { id: 't3',  ytId: 'JAdrK10JZbk', isShort: true  },
-  { id: 't4',  ytId: 'pa1ohRn6sWE', isShort: true  },
-  { id: 't5',  ytId: 'NHuojRsAkh0', isShort: true  },
-  { id: 't6',  ytId: '4khI0Kz8nC0', isShort: true  },
-  { id: 't7',  ytId: 'brFcpdmi2hw', isShort: true  },
+  { id: 'jp',              ytId: '8Mva6H61Zp4', isShort: false },
+  { id: 'tulasi-prasad',   ytId: 'HxWsWDZOwg8', isShort: true  },
+  { id: 'mallikarjuna',    ytId: '9TueNoh6-1Y', isShort: true  },
+  { id: 'av-subba',        ytId: '5R6n_lOQwFw', isShort: true  },
+  { id: 'tejaswi',         ytId: 'T10I1r80OgE', isShort: true  },
+  { id: 'sashank',         ytId: 'V9_qE42YAM8', isShort: true  },
+  { id: 'devandara-varma', ytId: 'l7lEkh6uS9w', isShort: true  },
+  { id: 'ramkrishna',      ytId: 'o7e_TQRv75o', isShort: true  },
 ];
 
 function postToYT(iframe, func, args) {
@@ -317,7 +317,7 @@ export default function Testimonials() {
             margin: '0 auto',
             lineHeight: 1.6,
           }}>
-            Real voices from teachers, students, and parents whose learning journey changed with GyanMai.
+            Real voices from teachers, students, and parents whose learning journey changed with Gyanmai.
           </p>
         </motion.div>
 

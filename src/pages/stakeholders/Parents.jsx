@@ -12,7 +12,7 @@ const stageColors = {
   gyanbank: '#4F7EF5', gyanscan: '#2DC4A2', gyananalytx: '#F5A623', gyanguru: '#E85C7A', gyantest: '#9B6EF5',
 };
 
-const CYCLE_INTERVAL = 6000;
+const CYCLE_INTERVAL = 10000;
 
 const slideVariants = {
   enter: (d) => ({ opacity: 0, y: d > 0 ? 40 : -40 }),
@@ -118,10 +118,11 @@ function Slide2() {
 function HeroCarousel() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
+  const [isPaused, setIsPaused] = useState(false);
   const go = useCallback((idx) => { setDirection(idx > current ? 1 : -1); setCurrent(idx); }, [current]);
   const next = useCallback(() => go((current + 1) % 2), [current, go]);
 
-  useEffect(() => { const t = setTimeout(next, CYCLE_INTERVAL); return () => clearTimeout(t); }, [current, next]);
+  useEffect(() => { if (isPaused) return; const t = setTimeout(next, CYCLE_INTERVAL); return () => clearTimeout(t); }, [current, next, isPaused]);
 
   const slides = [Slide1, Slide2];
   const Slide = slides[current];
@@ -136,7 +137,7 @@ function HeroCarousel() {
           <Slide />
         </motion.div>
       </AnimatePresence>
-      <div style={{ position: 'absolute', bottom: 24, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 8, zIndex: 10 }}>
+      <div style={{ position: 'absolute', bottom: 24, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 8, alignItems: 'center', zIndex: 10 }}>
         {[0, 1].map((i) => (
           <button key={i} onClick={() => go(i)} style={{
             position: 'relative',
@@ -145,13 +146,20 @@ function HeroCarousel() {
             transition: 'width 0.3s ease', overflow: 'hidden',
           }}>
             {i === current && (
-              <motion.div key={`prog-${current}`} initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
-                transition={{ duration: CYCLE_INTERVAL / 1000, ease: 'linear' }}
+              <motion.div key={`prog-${current}-${isPaused}`} initial={{ scaleX: 0 }} animate={{ scaleX: isPaused ? 0 : 1 }}
+                transition={{ duration: isPaused ? 0 : CYCLE_INTERVAL / 1000, ease: 'linear' }}
                 style={{ position: 'absolute', inset: 0, background: '#FFB400', transformOrigin: 'left', borderRadius: 4 }}
               />
             )}
           </button>
         ))}
+        <button onClick={() => setIsPaused(p => !p)} style={{
+          width: 22, height: 22, borderRadius: '50%', marginLeft: 4,
+          background: 'rgba(255,179,0,0.12)', border: '1px solid rgba(255,179,0,0.3)',
+          color: '#FFB400', fontSize: 9, display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer',
+        }}>
+          {isPaused ? '▶' : '⏸'}
+        </button>
       </div>
       {[{ label: '‹', fn: () => go((current - 1 + 2) % 2), side: 'left' }, { label: '›', fn: next, side: 'right' }].map(({ label, fn, side }) => (
         <button key={side} onClick={fn} style={{

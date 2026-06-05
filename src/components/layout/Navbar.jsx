@@ -71,7 +71,7 @@ export default function Navbar() {
         <div style={{ height: 68, overflow: 'hidden', flexShrink: 0 }}>
           <img
             src={wordmark}
-            alt="GyanMai"
+            alt="Gyanmai"
             style={{
               height: 161,
               width: 'auto',

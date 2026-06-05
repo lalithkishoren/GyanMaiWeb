@@ -305,8 +305,8 @@ export default function ProductTemplate({ product }) {
 
       {/* ── Where it fits in the chain ────────────────── */}
       <section style={{
-        padding: '0 clamp(16px, 3.5vw, 48px) 64px',
-        maxWidth: 1200, margin: '0 auto',
+        padding: '0 0 64px',
+        maxWidth: '100%',
       }}>
         <motion.div
           ref={acatRef}

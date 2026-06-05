@@ -29,7 +29,7 @@ export default function HeroBento() {
               <span style={{ color: 'var(--accent)' }}>Into<br />Understanding.</span>
             </h1>
             <p style={{ fontSize: 15, color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: 28 }}>
-              GyanMai makes daily learning visible — every child, every concept, every day.
+              Gyanmai makes daily learning visible — every child, every concept, every day.
             </p>
           </div>
 
@@ -71,7 +71,7 @@ export default function HeroBento() {
 
             <div>
               <h2 style={{ fontSize: 28, fontWeight: 700, color: '#fff', lineHeight: 1.2, marginBottom: 8 }}>
-                GyanMai makes<br />daily learning visible
+                Gyanmai makes<br />daily learning visible
               </h2>
 
               {/* Frosted sub-card */}
