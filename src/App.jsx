@@ -23,6 +23,8 @@ import Testimonials from './pages/Testimonials';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import FAQ from './pages/FAQ';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -68,6 +70,8 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/faq" element={<FAQ />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
       </Routes>
       <Footer />
     </BrowserRouter>
