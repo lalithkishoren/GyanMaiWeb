@@ -25,6 +25,8 @@ const cols = {
     { label: 'About',         path: '/about' },
     { label: 'Testimonials',  path: '/testimonials' },
     { label: 'Contact',       path: '/contact' },
+    { label: 'Privacy Policy', path: '/privacy' },
+    { label: 'Terms of Service', path: '/terms' },
   ],
 };
 
