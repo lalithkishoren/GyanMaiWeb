@@ -10,6 +10,7 @@ const cols = {
   Products: [
     { label: 'GyanBank',    path: '/products/gyanbank' },
     { label: 'GyanScan',   path: '/products/gyanscan' },
+    { label: 'Using GyanScan', path: '/how-to-use-gyanscan' },
     { label: 'GyanAnalytix',path: '/products/gyananalytx' },
     { label: 'GyanGuru',   path: '/products/gyanguru' },
     { label: 'GyanTest',   path: '/products/gyantest' },
