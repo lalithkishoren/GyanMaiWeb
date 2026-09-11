@@ -89,6 +89,7 @@ export default function Navbar() {
           { label: 'Platform', path: '/#acatt' },
           { label: 'About',    path: '/about' },
           { label: 'Success Stories',  path: '/testimonials' },
+          { label: 'Using GyanScan', path: '/how-to-use-gyanscan' },
           { label: "FAQ's",    path: '/faq' },
         ].map((l) => (
           <NavLink
@@ -242,6 +243,7 @@ export default function Navbar() {
               { label: 'Platform',        path: '/#acatt' },
               { label: 'About',           path: '/about' },
               { label: 'Success Stories', path: '/testimonials' },
+              { label: 'Using GyanScan',  path: '/how-to-use-gyanscan' },
               { label: "FAQ's",           path: '/faq' },
               { label: 'Students',        path: '/students' },
               { label: 'Teachers',        path: '/teachers' },
